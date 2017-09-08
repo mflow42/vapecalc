@@ -19,10 +19,10 @@ class MenuOrganism extends Component {
       <Menu
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
-        mode="horizontal"
+        mode='horizontal'
       >
-        <SubMenu title={<span><Icon type="shopping-cart" />Покупки</span>}>
-          <Menu.Item key="setting:1">Мои покупки/продажи</Menu.Item>
+        <SubMenu title={<span><Icon type='shopping-cart' />Покупки</span>}>
+          <Menu.Item key='setting:1'>Мои покупки/продажи</Menu.Item>
           <Menu.Item key="setting:2">Список желаний</Menu.Item>
           <Menu.Item key="setting:3">Статистика покупок/продаж</Menu.Item>
           <Menu.Item key="setting:4">Список магазинов</Menu.Item>
