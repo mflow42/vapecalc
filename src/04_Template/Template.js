@@ -1,17 +1,12 @@
 import React, {Component} from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Row, Col } from 'antd';
-import { InputNumber } from 'antd';
-import { Button } from 'antd';
 import SliderAroms from '../01_Atoms/SliderAroms';
 import SliderPercent from '../01_Atoms/SliderPercent';
 import SliderNicotineInput from '../01_Atoms/SliderNicotineInput';
 import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
 import MenuOrganism from '../03_Organisms/MenuOrganism';
 
-function onChange(value) {
-              console.log('changed', value);
-            }
 const { Header, Content, Footer } = Layout;
 
 class Template extends Component {
