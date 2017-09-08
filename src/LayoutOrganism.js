@@ -1,0 +1,146 @@
+import React, {Component} from 'react';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import MenuOrganism from './MenuOrganism';
+import { Row, Col } from 'antd';
+import SliderNicotine from './SliderNicotine';
+import SliderPG from './SliderPG';
+import SliderVG from './SliderVG';
+import DynamicAddAromsFieldSet from './DynamicAddAromsFieldSet';
+import { Button } from 'antd';
+import { InputNumber } from 'antd';
+import SliderAroms from './SliderAroms';
+import SliderNicotineFinal from './SliderNicotineFinal';
+
+
+
+function onChange(value) {
+              console.log('changed', value);
+            }
+const { Header, Content, Footer } = Layout;
+
+class LayoutOrganism extends Component {
+  state = {
+    nicotine: 0,
+  }
+
+  render() {
+    return (
+      <div>
+      <Layout className="layout">
+        <Header>
+          <div className="logo" />
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            style={{ lineHeight: '64px' }}
+          >
+            <Menu.Item key="1">О нас</Menu.Item>
+            <Menu.Item key="2">Войти</Menu.Item>
+          </Menu>
+        </Header>
+        <Content style={{ padding: '0 50px' }}>
+          <Breadcrumb style={{ margin: '12px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
+          <MenuOrganism />
+
+          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+
+            <h2>Основа</h2>
+            <div style={{height: '16px'}}></div>
+            <h4>Никотин</h4>
+            <SliderNicotine />
+            <h4>PG</h4>
+            <SliderPG defaultValue={30} />
+            <h4>VG</h4>
+            <SliderVG />
+            <div style={{height: '24px'}}></div>
+
+            <h2>Ароматизаторы, %</h2>
+            <div style={{height: '16px'}}></div>
+            <SliderAroms />
+            {/* <div className="gutter-example">
+              <Row gutter={16}>
+                <Col className="gutter-row" span={16}>
+                  <div className="gutter-box"><DynamicAddAromsFieldSet /></div>
+                </Col>
+                <Col className="gutter-row" span={8}>
+                  <div className="gutter-box"></div>
+                </Col>
+              </Row>
+            </div> */}
+            {/* <Button type="primary">Выбрать ароматизатор</Button> */}
+            {/* <InputNumber min={1} max={100} defaultValue={10} onChange={onChange} /> */}
+
+            <h2>Ожидаемый результат</h2>
+            <div style={{height: '16px'}}></div>
+            <h4>Никотин</h4>
+            <SliderNicotineFinal onChange={value => this.setState({ nicotine: value})} />
+            <h4>PG</h4>
+            <SliderPG defaultValue={30}/>
+            <h4>VG</h4>
+            <SliderPG defaultValue={70}/>
+            <div style={{height: '24px'}}></div>
+
+
+            <h2>Расчет</h2>
+            <div style={{height: '16px'}}></div>
+            <Row type="flex" align="center">
+              <Col span={6}>
+                <br />
+                <div style={{height: '16px'}}></div>
+                <h4>Ароматизаторов</h4><br />
+                <h4>Основы</h4><br />
+                <h4>PG</h4><br />
+                <h4>VG</h4><br />
+                <hr />
+                <h4>Итого</h4><br />                
+              </Col>
+              <Col span={6}>
+                <h4>Миллилитров</h4>
+                <div style={{height: '16px'}}></div>
+                <h4>мл Аром</h4><br />
+                <h4>мл Основы</h4><br />
+                <h4>мл PG</h4><br />
+                <h4>мл VG</h4><br />
+                <hr />
+                <h4>Итого мл</h4><br />
+              </Col>
+              <Col span={6}>
+                <h4>Капель</h4>
+                <div style={{height: '16px'}}></div>
+                <h4>капель Аром</h4><br />
+                <h4>капель Основы</h4><br />
+                <h4>капель PG</h4><br />
+                <h4>каплей VG</h4><br />
+                <hr />
+                <h4>Итого капель</h4><br />
+              </Col>
+              <Col span={6}>
+                <h4>Граммов</h4>
+                <div style={{height: '16px'}}></div>
+                <h4>граммов Аром</h4><br />
+                <h4>граммов Основы</h4><br />
+                <h4>граммов PG</h4><br />
+                <h4>граммов VG {this.state.nicotine * 10}</h4><br />
+                <hr />
+                <h4>Итого капель</h4><br />
+              </Col>
+            </Row>
+
+
+            </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Flaw Flow Design ©2017 Created by user42
+        </Footer>
+      </Layout>
+      </div>
+    );
+  };
+}
+
+export default LayoutOrganism;
