@@ -45,9 +45,9 @@ class Template extends Component {
             <h4>Никотин</h4>
             <SliderNicotineInput />
             <h4>PG</h4>
-            <SliderPercent defaultValue={30} />
+            <SliderPercent defaultValue={100} />
             <h4>VG</h4>
-            <SliderPercent defaultValue={70}/>
+            <SliderPercent defaultValue={0}/>
             <div style={{height: '24px'}}></div>
 
             <h2>Ароматизаторы, %</h2>
