@@ -32,6 +32,9 @@ class Template extends Component {
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
+
+            <div style={{ margin: '24px 0' }}></div>
+
             <MenuOrganism />
 
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
