@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import MenuOrganism from './MenuOrganism';
 import { Row, Col } from 'antd';
-import SliderNicotine from './SliderNicotine';
-import SliderPG from './SliderPG';
-import SliderVG from './SliderVG';
-import DynamicAddAromsFieldSet from './DynamicAddAromsFieldSet';
-import { Button } from 'antd';
 import { InputNumber } from 'antd';
-import SliderAroms from './SliderAroms';
-import SliderNicotineFinal from './SliderNicotineFinal';
-
-
+import { Button } from 'antd';
+import SliderAroms from '../01_Atoms/SliderAroms';
+import SliderPercent from '../01_Atoms/SliderPercent';
+import SliderNicotineInput from '../01_Atoms/SliderNicotineInput';
+import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
+import MenuOrganism from '../03_Organisms/MenuOrganism';
 
 function onChange(value) {
               console.log('changed', value);
             }
 const { Header, Content, Footer } = Layout;
 
-class LayoutOrganism extends Component {
+class Template extends Component {
   state = {
     nicotine: 0,
   }
@@ -52,11 +48,11 @@ class LayoutOrganism extends Component {
             <h2>Основа</h2>
             <div style={{height: '16px'}}></div>
             <h4>Никотин</h4>
-            <SliderNicotine />
+            <SliderNicotineInput />
             <h4>PG</h4>
-            <SliderPG defaultValue={30} />
+            <SliderPercent defaultValue={30} />
             <h4>VG</h4>
-            <SliderVG />
+            <SliderPercent defaultValue={70}/>
             <div style={{height: '24px'}}></div>
 
             <h2>Ароматизаторы, %</h2>
@@ -78,11 +74,11 @@ class LayoutOrganism extends Component {
             <h2>Ожидаемый результат</h2>
             <div style={{height: '16px'}}></div>
             <h4>Никотин</h4>
-            <SliderNicotineFinal onChange={value => this.setState({ nicotine: value})} />
+            <SliderNicotineOutput onChange={value => this.setState({ nicotine: value})} />
             <h4>PG</h4>
-            <SliderPG defaultValue={30}/>
+            <SliderPercent defaultValue={30}/>
             <h4>VG</h4>
-            <SliderPG defaultValue={70}/>
+            <SliderPercent defaultValue={70}/>
             <div style={{height: '24px'}}></div>
 
 
@@ -143,4 +139,4 @@ class LayoutOrganism extends Component {
   };
 }
 
-export default LayoutOrganism;
+export default Template;

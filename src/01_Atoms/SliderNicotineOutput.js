@@ -15,7 +15,7 @@ const marks = {
   },
 };
 
-class SliderNicotineFinal extends Component {
+class SliderNicotineOutput extends Component {
   constructor(props) {
     super(props)
     this.handleNikotineChange = this.handleNikotineChange.bind(this)
@@ -35,4 +35,4 @@ class SliderNicotineFinal extends Component {
   }
 }
   
-export default SliderNicotineFinal;
+export default SliderNicotineOutput;

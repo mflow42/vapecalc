@@ -2,27 +2,25 @@ import React, {Component} from 'react';
 import { Slider } from 'antd';
 
 const marks = {
-  20: '20',
-  30: '30',
-  50: '50',
-  70: '70',
-  80: '80',
+  12: '12',
+  24: '24',
+  36: '36',
   100: {
     style: {
       color: 'grey-9',
     },
-    label: <strong>100 %</strong>,
+    label: <strong>100 мг/мл</strong>,
   },
 };
 
-class SliderPG extends Component {
+class SliderNicotineInput extends Component {
   render() {
     return (
       <div>
-        <Slider marks={marks} defaultValue={this.props.defaultValue} />
+        <Slider marks={marks} defaultValue={100} />
       </div>
     );
   }
 }
   
-export default SliderPG;
+export default SliderNicotineInput;

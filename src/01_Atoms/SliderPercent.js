@@ -15,15 +15,14 @@ const marks = {
   },
 };
 
-class SliderVG extends Component {
-
+class SliderPercent extends Component {
   render() {
     return (
       <div>
-        <Slider marks={marks} defaultValue={70} />
+        <Slider marks={marks} defaultValue={this.props.defaultValue} />
       </div>
     );
   }
 }
   
-export default SliderVG;
+export default SliderPercent;

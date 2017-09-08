@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'antd';
-import LayoutOrganism from './LayoutOrganism';
+import Template from '../04_Template/Template';
 
 
-class App extends Component {
+class Page extends Component {
   render() {
     return (
       <div>
         <Row type="flex" align="center">
           <Col xs={24} sm={24} md={24} lg={14} xl={8}>
-            <LayoutOrganism />
+            <Template />
           </Col>
         </Row>
       </div>
@@ -17,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Page;
