@@ -32,18 +32,14 @@ class Template extends Component {
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
-            <Breadcrumb style={{ margin: '12px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
             <MenuOrganism />
 
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <BaseOrganism />
-              <h2>Ароматизаторы, %</h2>
+              <h2>Ароматизаторы</h2>
               <div style={{ height: '16px' }}></div>
               <SliderAroms />
+              <div style={{ height: '24px' }}></div>
               <h2>Ожидаемый результат</h2>
               <div style={{ height: '16px' }}></div>
               <h4>Никотин</h4>
