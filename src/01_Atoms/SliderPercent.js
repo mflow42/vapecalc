@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Slider} from 'antd';
+import React, { Component } from 'react';
+import { Slider } from 'antd';
 
 const marks = {
   20: '20',
@@ -19,7 +19,7 @@ class SliderPercent extends Component {
   render() {
     return (
       <div>
-        <Slider marks={marks} defaultValue={this.props.defaultValue}/>
+        <Slider marks={marks} defaultValue={this.props.defaultValue} />
       </div>
     );
   }

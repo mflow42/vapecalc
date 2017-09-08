@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Slider } from 'antd';
 
 const marks = {
@@ -44,5 +44,5 @@ class SliderAroms extends Component {
     );
   }
 }
-  
+
 export default SliderAroms;
