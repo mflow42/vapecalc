@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import { Row, Col } from 'antd';
-import SliderAroms from '../01_Atoms/SliderAroms';
 import SliderPercent from '../01_Atoms/SliderPercent';
-import SliderNicotineInput from '../01_Atoms/SliderNicotineInput';
 import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
 import MenuOrganism from '../03_Organisms/MenuOrganism';
 import BaseOrganism from '../03_Organisms/BaseOrganism';
+import AromsOrganism from '../03_Organisms/AromsOrganism';
 
 const { Header, Content, Footer } = Layout;
 
@@ -34,15 +33,12 @@ class Template extends Component {
           <Content style={{ padding: '0 50px' }}>
 
             <div style={{ margin: '24px 0' }}></div>
-
             <MenuOrganism />
 
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <BaseOrganism />
-              <h2>Ароматизаторы</h2>
-              <div style={{ height: '16px' }}></div>
-              <SliderAroms />
-              <div style={{ height: '24px' }}></div>
+              <AromsOrganism />
+
               <h2>Ожидаемый результат</h2>
               <div style={{ height: '16px' }}></div>
               <h4>Никотин</h4>
