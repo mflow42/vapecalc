@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Table, Icon, Switch, Radio, Form } from 'antd';
+import { Table } from 'antd';
 
-
-const FormItem = Form.Item;
 
 const columns = [{
   title: 'Компонент',
@@ -38,7 +36,6 @@ for (let i = 1; i <= 4; i++) {
 }
 
 const showHeader = true;
-const scroll = { y: 240 };
 
 class MixResultOrganism extends Component {
   state = {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
-import { Row, Col } from 'antd';
 import MenuOrganism from '../03_Organisms/MenuOrganism';
 import BaseOrganism from '../03_Organisms/BaseOrganism';
 import AromsOrganism from '../03_Organisms/AromsOrganism';
