@@ -5,6 +5,7 @@ import MenuOrganism from '../03_Organisms/MenuOrganism';
 import BaseOrganism from '../03_Organisms/BaseOrganism';
 import AromsOrganism from '../03_Organisms/AromsOrganism';
 import DesiredOrganism from '../03_Organisms/DesiredOrganism';
+import MixResultOrganism from '../03_Organisms/MixResultOrganism';
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,51 +36,9 @@ class Template extends Component {
               <BaseOrganism />
               <AromsOrganism />
               <DesiredOrganism />
-
               <h2>Расчет</h2>
               <div style={{ height: '16px' }}></div>
-              <Row type="flex" align="center">
-                <Col span={6}>
-                  <br />
-                  <div style={{ height: '16px' }}></div>
-                  <h4>Ароматизаторов</h4><br />
-                  <h4>Основы</h4><br />
-                  <h4>PG</h4><br />
-                  <h4>VG</h4><br />
-                  <hr />
-                  <h4>Итого</h4><br />
-                </Col>
-                <Col span={6}>
-                  <h4>Миллилитров</h4>
-                  <div style={{ height: '16px' }}></div>
-                  <h4>мл Аром</h4><br />
-                  <h4>мл Основы</h4><br />
-                  <h4>мл PG</h4><br />
-                  <h4>мл VG</h4><br />
-                  <hr />
-                  <h4>Итого мл</h4><br />
-                </Col>
-                <Col span={6}>
-                  <h4>Капель</h4>
-                  <div style={{ height: '16px' }}></div>
-                  <h4>капель Аром</h4><br />
-                  <h4>капель Основы</h4><br />
-                  <h4>капель PG</h4><br />
-                  <h4>каплей VG</h4><br />
-                  <hr />
-                  <h4>Итого капель</h4><br />
-                </Col>
-                <Col span={6}>
-                  <h4>Граммов</h4>
-                  <div style={{ height: '16px' }}></div>
-                  <h4>граммов Аром</h4><br />
-                  <h4>граммов Основы</h4><br />
-                  <h4>граммов PG</h4><br />
-                  <h4>граммов VG {this.state.nicotine * 10}</h4><br />
-                  <hr />
-                  <h4>Итого капель</h4><br />
-                </Col>
-              </Row>
+              <MixResultOrganism />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

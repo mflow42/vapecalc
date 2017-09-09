@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { Slider } from 'antd';
 
 const marks = {
+  0: '0',
   1: '1',
   '1.5': '1.5',
   3: '3',
   6: '6',
   9: '9',
-  12: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>12 мг/мл</strong>,
-  },
+  12: '12',
 };
 
 class SliderNicotineOutput extends Component {
