@@ -2,36 +2,11 @@ import React, { Component } from 'react';
 import { Slider } from 'antd';
 
 const marks = {
-  0: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>0%</strong>,
-  },
-  10: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>10%</strong>,
-  },
-  20: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>20%</strong>,
-  },
-  30: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>30%</strong>,
-  },
-  100: {
-    style: {
-      color: 'grey-9',
-    },
-    label: <strong>100%</strong>,
-  },
+  0: '0%',
+  10: '10%',
+  20: '20%',
+  30: '30%',
+  100: '100%',
 };
 
 class SliderAroms extends Component {

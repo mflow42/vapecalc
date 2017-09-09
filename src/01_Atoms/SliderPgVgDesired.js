@@ -30,7 +30,7 @@ const marks = {
 
 class SliderPgVgDesired extends Component {
   state = {
-    inputValue: 100,
+    inputValue: 30,
   }
   onChange = (value) => {
     this.setState({

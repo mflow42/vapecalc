@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import SliderNicotineInput from '../01_Atoms/SliderNicotineInput';
 import SliderPgVgInput from '../01_Atoms/SliderPgVgInput';
+import BaseNicotineMolecule from '../02_Molecules/BaseNicotineMolecule';
 
 class BaseOrganism extends Component {
   state = {
@@ -17,16 +17,11 @@ class BaseOrganism extends Component {
       <div>
         <h2>Основа</h2>
         <div style={{ height: '16px' }}></div>
-        <h3>Никотин</h3>
-        <SliderNicotineInput />
+        <BaseNicotineMolecule />
         <SliderPgVgInput />
-        <div style={{ height: '24px' }}></div>
       </div>
     );
   }
 }
 
 export default BaseOrganism;
-
-
-

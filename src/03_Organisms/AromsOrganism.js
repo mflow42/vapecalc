@@ -9,7 +9,6 @@ class AromsOrganism extends Component {
                 <h2>Ароматизаторы</h2>
                 <div style={{ height: '16px' }}></div>
                 <SliderAroms />
-                <div style={{ height: '24px' }}></div>
             </div>
         )
     };

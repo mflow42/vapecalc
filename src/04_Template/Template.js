@@ -33,10 +33,11 @@ class Template extends Component {
             <MenuOrganism />
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <BaseOrganism />
+              <div style={{ height: '24px' }}></div>
               <AromsOrganism />
+              <div style={{ height: '24px' }}></div>
               <DesiredOrganism />
-              <h2>Расчет</h2>
-              <div style={{ height: '16px' }}></div>
+              <div style={{ height: '24px' }}></div>
               <MixResultOrganism />
             </div>
           </Content>
