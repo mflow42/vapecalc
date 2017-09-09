@@ -25,6 +25,7 @@ const columns = [{
 }];
 
 const data = [];
+
 for (let i = 1; i <= 4; i++) {
   data.push({
     key: i,
@@ -45,12 +46,7 @@ class MixResultOrganism extends Component {
     scroll: undefined,
     pagination: false,
   }
-
-
-  handleSizeChange = (e) => {
-    this.setState({ size: e.target.value });
-  }
-  
+ 
   render() {
     const state = this.state;
     return (

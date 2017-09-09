@@ -11,7 +11,12 @@ const marks = {
   12: '12',
   24: '24',
   36: '36',
-  100: '100 мг/мл',
+  100: {
+    style: {
+      // width: '10%',
+    },
+    label: <strong>100 мг/мл</strong>,
+  },
 };
 
 class SliderNicotineInput extends Component {

@@ -25,7 +25,7 @@ class SliderNicotineOutput extends Component {
     return (
       <div>
         <label>{this.props.lable}</label>
-        <Slider marks={marks} max={12} step={0.5} defaultValue={3} onChange={this.props.handleNikotineChange} />
+        <Slider marks={marks} max={12} step={0.1} defaultValue={3} onChange={this.props.handleNikotineChange} />
       </div>
     );
   }

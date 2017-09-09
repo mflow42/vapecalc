@@ -6,7 +6,6 @@ const marks = {
   10: '10%',
   20: '20%',
   30: '30%',
-  100: '100%',
 };
 
 class SliderAroms extends Component {
@@ -14,7 +13,7 @@ class SliderAroms extends Component {
   render() {
     return (
       <div>
-        <Slider marks={marks} defaultValue={10} />
+        <Slider marks={marks} max={30} defaultValue={10} />
       </div>
     );
   }
