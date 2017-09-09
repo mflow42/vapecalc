@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
 import { Row, Col } from 'antd';
-import SliderPercent from '../01_Atoms/SliderPercent';
-import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
 import MenuOrganism from '../03_Organisms/MenuOrganism';
 import BaseOrganism from '../03_Organisms/BaseOrganism';
 import AromsOrganism from '../03_Organisms/AromsOrganism';
+import DesiredOrganism from '../03_Organisms/DesiredOrganism';
 
 const { Header, Content, Footer } = Layout;
 
@@ -31,24 +30,11 @@ class Template extends Component {
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
-
-            <div style={{ margin: '24px 0' }}></div>
             <MenuOrganism />
-
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <BaseOrganism />
               <AromsOrganism />
-
-              <h2>Ожидаемый результат</h2>
-              <div style={{ height: '16px' }}></div>
-              <h4>Никотин</h4>
-              <SliderNicotineOutput onChange={value => this.setState({ nicotine: value })} />
-              <h4>PG</h4>
-              <SliderPercent defaultValue={30} />
-              <h4>VG</h4>
-              <SliderPercent defaultValue={70} />
-              <div style={{ height: '24px' }}></div>
-
+              <DesiredOrganism />
 
               <h2>Расчет</h2>
               <div style={{ height: '16px' }}></div>

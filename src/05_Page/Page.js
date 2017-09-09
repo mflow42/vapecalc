@@ -7,7 +7,7 @@ class Page extends Component {
     return (
       <div>
         <Row type="flex" align="center">
-          <Col xs={24} sm={24} md={24} lg={14} xl={8}>
+          <Col xs={24} sm={24} md={24} lg={16} xl={12}>
             <Template />
           </Col>
         </Row>
