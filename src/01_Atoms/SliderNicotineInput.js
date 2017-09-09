@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Slider } from 'antd';
 
 const marks = {
+  0: {
+    style: {
+      color: 'grey-9',
+    },
+    label: <strong>0</strong>,
+  },
   12: '12',
   24: '24',
   36: '36',
