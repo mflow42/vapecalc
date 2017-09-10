@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
 import SliderPgVgDesired from '../01_Atoms/SliderPgVgDesired';
 import DesiredNicotineMolecule from '../02_Molecules/DesiredNicotineMolecule';
+import DesiredVolumeMolecule from '../02_Molecules/DesiredVolumeMolecule';
 
 class DesiredOrganism extends Component {
   state = {
@@ -20,6 +21,7 @@ class DesiredOrganism extends Component {
         <div style={{ height: '16px' }}></div>
         <DesiredNicotineMolecule />
         <SliderPgVgDesired />
+        <DesiredVolumeMolecule />
       </div>
     );
   }

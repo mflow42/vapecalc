@@ -8,11 +8,21 @@ import MixResultOrganism from '../03_Organisms/MixResultOrganism';
 
 const { Header, Content, Footer } = Layout;
 
+class Calculator extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = { Никотина: '' };
+  }
+}
+
 class Template extends Component {
   state = {
     nicotine: 0,
   }
-
+  // function Calculate(props) {
+  //   return props.expectedVolume / ( props.nicotineBaseStrength * props.nicotineExpectedStrength)
+  // }
   render() {
     return (
       <div>
