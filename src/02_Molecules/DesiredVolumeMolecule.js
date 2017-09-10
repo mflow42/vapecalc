@@ -16,7 +16,7 @@ class DesiredNicotineMolecule extends Component {
     return (
       <div>
         <Row type="flex" align="middle">
-          <Col span={4}><h3>Желаемый объем, мл</h3></Col>
+          <Col span={5}><h3>Желаемый объем, мл</h3></Col>
           <Col span={4}><InputNumberAtom /></Col>
         </Row>
       </div>
