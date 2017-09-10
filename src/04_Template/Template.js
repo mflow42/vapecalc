@@ -20,18 +20,18 @@ class Template extends Component {
   constructor() {
     super();
     this.state = {
-      baseNicotineStrength: null,
-      basePgPercent: null,
-      baseVgPercent: null,
-      aromsPercent: null,
-      desiredNicotineStrength: null,
-      desiredPgPercent: null,
-      desiredVgPercent: null,
-      desiredVolume: null,
+      baseNicotineStrength: 0,
+      basePgPercent: 0,
+      baseVgPercent: 0,
+      aromsPercent: 0,
+      desiredNicotineStrength: 0,
+      desiredPgPercent: 0,
+      desiredVgPercent: 0,
+      desiredVolume: 0,
     }
   }
 
-  handleChangeBaseOrganism(event) {
+  handleChangeNicotineBase(event) {
     this.setState({ baseNicotineStrength: event.target.value })
   }
   // function Calculate(props) {
