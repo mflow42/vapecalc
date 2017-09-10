@@ -11,24 +11,30 @@ const marks = {
   12: '12',
 };
 
-class SliderNicotineOutput extends Component {
+class SliderNicotineDesired extends Component {
   constructor(props) {
     super(props)
-    this.handleNikotineChange = this.handleNikotineChange.bind(this)
+    this.update = this.update.bind(this)
   }
 
-  handleNikotineChange(value) {
-    this.props.onChange(value * 10)
+  update(value) {
+    this.props.onChange(value)
   }
 
   render() {
     return (
       <div>
         <label>{this.props.lable}</label>
-        <Slider marks={marks} max={12} step={0.1} defaultValue={3} onChange={this.props.handleNikotineChange} />
+        <Slider
+          marks={marks}
+          max={12}
+          step={0.1}
+          defaultValue={3}
+          onChange={this.props.update}
+        />
       </div>
     );
   }
 }
 
-export default SliderNicotineOutput;
+export default SliderNicotineDesired;

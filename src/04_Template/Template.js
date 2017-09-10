@@ -17,8 +17,22 @@ class Calculator extends Component {
 }
 
 class Template extends Component {
-  state = {
-    nicotine: 0,
+  constructor() {
+    super();
+    this.state = {
+      baseNicotineStrength: null,
+      basePgPercent: null,
+      baseVgPercent: null,
+      aromsPercent: null,
+      desiredNicotineStrength: null,
+      desiredPgPercent: null,
+      desiredVgPercent: null,
+      desiredVolume: null,
+    }
+  }
+
+  handleChangeBaseOrganism(event) {
+    this.setState({ baseNicotineStrength: event.target.value })
   }
   // function Calculate(props) {
   //   return props.expectedVolume / ( props.nicotineBaseStrength * props.nicotineExpectedStrength)
@@ -42,7 +56,7 @@ class Template extends Component {
           <Content style={{ padding: '0 50px' }}>
             <MenuOrganism />
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-              <BaseOrganism />
+              <BaseOrganism value={this.state.baseNicotineStrength} onChange={this.handleChangeBaseOrganism} />
               <div style={{ height: '24px' }}></div>
               <AromsOrganism />
               <div style={{ height: '24px' }}></div>

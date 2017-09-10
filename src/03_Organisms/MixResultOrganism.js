@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
 
-
 const columns = [{
   title: 'Компонент',
   dataIndex: 'component',
@@ -41,7 +40,7 @@ const showHeader = true;
 class MixResultOrganism extends Component {
   state = {
     bordered: false,
-    size: 'small',
+    size: 'middle',
     showHeader,
     scroll: undefined,
     pagination: false,
@@ -52,6 +51,7 @@ class MixResultOrganism extends Component {
     return (
       <div>
         <h2>Расчет</h2>
+
         <div style={{ height: '16px' }}></div>
         <Table {...this.state} columns={columns} dataSource={data} />
       </div>

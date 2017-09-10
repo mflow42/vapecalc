@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
+import SliderNicotineDesired from '../01_Atoms/SliderNicotineDesired';
 
 class DesiredNicotineMolecule extends Component {
   state = {
@@ -14,7 +14,7 @@ class DesiredNicotineMolecule extends Component {
     return (
       <div>
         <h3>Никотин</h3>
-        <SliderNicotineOutput onChange={value => this.setState({ nicotine: value })} />
+        <SliderNicotineDesired onChange={value => this.setState({ nicotine: value })} />
       </div>
     );
   }

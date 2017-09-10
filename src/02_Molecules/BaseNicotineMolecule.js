@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import SliderNicotineInput from '../01_Atoms/SliderNicotineInput';
+import SliderNicotineBase from '../01_Atoms/SliderNicotineBase';
 
 class BaseNicotineMolecule extends Component {
-  state = {
-    inputValue: 100,
-  }
-  onChange = (value) => {
-    this.setState({
-      inputValue: value,
-    });
+  constructor(props) {
+    super(props);
   }
   render() {
     return (
       <div>
         <h3>Никотин</h3>
-        <SliderNicotineInput />
+        <SliderNicotineBase />
       </div>
     );
   }

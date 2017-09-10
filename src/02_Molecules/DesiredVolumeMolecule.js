@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SliderNicotineOutput from '../01_Atoms/SliderNicotineOutput';
 import InputNumberAtom from '../01_Atoms/InputNumberAtom';
 import { Row, Col } from 'antd';
 

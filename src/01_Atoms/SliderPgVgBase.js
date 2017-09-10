@@ -24,7 +24,7 @@ const marks = {
   },
 };
 
-class SliderPgVgInput extends Component {
+class SliderPgVgBase extends Component {
   state = {
     inputValue: 100,
   }
@@ -67,4 +67,4 @@ class SliderPgVgInput extends Component {
   }
 }
 
-export default SliderPgVgInput;
+export default SliderPgVgBase;

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import SliderAroms from '../01_Atoms/SliderAroms';
 
