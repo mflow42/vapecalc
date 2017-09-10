@@ -28,6 +28,7 @@ class Template extends Component {
       desiredPgPercent: 0,
       desiredVgPercent: 0,
       desiredVolume: 0,
+      data: [{}],
     }
   }
 
@@ -62,7 +63,8 @@ class Template extends Component {
               <div style={{ height: '24px' }}></div>
               <DesiredOrganism />
               <div style={{ height: '24px' }}></div>
-              <MixResultOrganism />
+              <MixResultOrganism data={this.data}
+              />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
