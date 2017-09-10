@@ -4,20 +4,23 @@ import DesiredNicotineMolecule from '../02_Molecules/DesiredNicotineMolecule';
 import DesiredVolumeMolecule from '../02_Molecules/DesiredVolumeMolecule';
 
 class DesiredOrganism extends Component {
-  state = {
-    inputValue: 30,
+  constructor(props) {
+    super(props);
+    this.state = {
+      nicotine: 6,
+    }
   }
+
   onChange = (value) => {
-    this.setState({
-      inputValue: value,
-    });
+    this.state.onChange(value)
   }
+
   render() {
     return (
       <div>
         <h2>Ожидаемый результат</h2>
         <div style={{ height: '16px' }}></div>
-        <DesiredNicotineMolecule />
+        <DesiredNicotineMolecule defaultValue={this.state.nicotine} onChange={value => this.setState({ nicotine: this.value })}/>
         <SliderPgVgDesired />
         <DesiredVolumeMolecule />
       </div>

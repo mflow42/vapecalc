@@ -14,10 +14,9 @@ const marks = {
 class SliderNicotineDesired extends Component {
   constructor(props) {
     super(props)
-    this.update = this.update.bind(this)
   }
 
-  update(value) {
+  onChange = (value) => {
     this.props.onChange(value)
   }
 
@@ -30,7 +29,7 @@ class SliderNicotineDesired extends Component {
           max={12}
           step={0.1}
           defaultValue={3}
-          onChange={this.props.update}
+          onChange={this.onChange}
         />
       </div>
     );
