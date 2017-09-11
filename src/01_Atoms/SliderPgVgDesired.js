@@ -39,29 +39,29 @@ class SliderPgVgDesired extends Component {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
-          <span><h3>PG</h3></span>
-          <Col span={3}>
-            <Input
+          <h3>PG</h3>
+          <Col span={2}>
+            <InputNumber
               min={1}
               max={100}
-              style={{ marginLeft: 0, width: 40 }}
+              style={{ marginLeft: 0, width: '100%',  }}
               value={this.state.inputValue}
               onChange={this.onChange}
             />
           </Col>
-          <Col span={10}>
+          <Col span={14}>
             <Slider marks={marks} min={1} max={100} onChange={this.onChange} value={this.state.inputValue} />
           </Col>
-          <Col span={4}>
-            <Input
+          <Col span={2}>
+            <InputNumber
               min={1}
               max={100}
-              style={{ marginLeft: 0, width: 40 }}
+              style={{ marginLeft: 0, width: '100%' }}
               value={100 - this.state.inputValue}
               onChange={this.onChange}
             />
           </Col>
-          <span><h3>VG</h3></span>
+          <h3>VG</h3>
         </Row>
         <div style={{ height: '24px' }}></div>
       </div>
