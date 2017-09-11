@@ -8,7 +8,8 @@ class BaseNicotineMolecule extends Component {
         <h3>Никотин</h3>
         <SliderNicotineBase
           baseNicotineStrength={this.props.baseNicotineStrength}
-          handleChangeNicotineBase={this.props.handleChangeNicotineBase}/>
+          handleChangeNicotineBase={this.props.handleChangeNicotineBase}
+          />
       </div>
     );
   }
