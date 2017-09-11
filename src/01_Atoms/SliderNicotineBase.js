@@ -10,19 +10,13 @@ const marks = {
 };
 
 class SliderNicotineBase extends Component {
-  constructor(props) {
-    super(props);
-  }
-  onChange = (value) => {
-    this.props.onChange(value)
-  }
   render() {
     return (
       <div>
         <Slider
           marks={marks}
-          defaultValue={100}
-          onChange={this.onChange}
+          value={this.props.baseNicotineStrength}
+          onChange={this.props.handleChangeNicotineBase}
         />
       </div>
     );

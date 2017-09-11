@@ -5,7 +5,6 @@ import { Slider, InputNumber, Input, Row, Col } from 'antd';
 const marks = {
   0: {
     style: {
-      color: 'grey-9',
       width: '20',
       'margin-left': '0',
       left: '-1.0101%',
@@ -19,7 +18,6 @@ const marks = {
   80: '80%',
   100: {
     style: {
-      color: 'grey-9',
       width: '20',
       'margin-left': '0',
       left: '96%',

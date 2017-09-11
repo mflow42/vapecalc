@@ -15,11 +15,9 @@ class SliderNicotineDesired extends Component {
   constructor(props) {
     super(props)
   }
-
   onChange = (value) => {
     this.props.onChange(value)
   }
-
   render() {
     return (
       <div>
