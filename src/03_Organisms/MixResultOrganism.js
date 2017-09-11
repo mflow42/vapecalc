@@ -23,17 +23,10 @@ const columns = [{
   // width: 200,
 }];
 
-const data = [];
 
-for (let i = 1; i <= 4; i++) {
-  data.push({
-    key: i,
-    component: 'Component',
-    ml: `${i}2`,
-    drop: `${i}2`,
-    gramm: `${i}2`,
-  });
-}
+const components = [
+  {name: "12", kk: 0.8, kg: 1.1, mm: (props) => props.pg * 2},
+];
 
 const showHeader = true;
 
@@ -48,6 +41,15 @@ class MixResultOrganism extends Component {
  
   render() {
     const state = this.state;
+    const ds = components.map((component, index) => {
+      const mm = component.mm(this.props);
+      return {
+      key: index,
+      component: component.name,
+      ml: mm,
+      drop: mm * component.kk,
+      gramm: `${i}2`,
+    }})
     return (
       <div>
         <h2>Расчет</h2>

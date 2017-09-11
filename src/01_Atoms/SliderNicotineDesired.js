@@ -12,22 +12,16 @@ const marks = {
 };
 
 class SliderNicotineDesired extends Component {
-  constructor(props) {
-    super(props)
-  }
-  onChange = (value) => {
-    this.props.onChange(value)
-  }
+
   render() {
     return (
       <div>
-        <label>{this.props.lable}</label>
         <Slider
           marks={marks}
           max={12}
           step={0.1}
-          defaultValue={3}
-          onChange={this.onChange}
+          value={this.props.desiredNicotineStrength}
+          onChange={this.props.handleChangeNicotineDesired}
         />
       </div>
     );

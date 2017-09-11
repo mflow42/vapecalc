@@ -30,10 +30,14 @@ class Template extends Component {
     this.handleChangeAromsPercent = this
       .handleChangeAromsPercent
       .bind(this)
+    this.handleChangeNicotineDesired = this
+      .handleChangeNicotineDesired
+      .bind(this)
   }
 
+
   handleChangeNicotineBase(value) {
-    this.setState({baseNicotineStrength: value})
+    this.setState({baseNicotineStrength: value * this.first})
   }
   handleChangeBasePgPercent(value) {
     this.setState({basePgPercent: value})
@@ -41,10 +45,10 @@ class Template extends Component {
   handleChangeAromsPercent(value) {
     this.setState({aromsPercent: value})
   }
-
-  onChange = (value) => {
-    this.setState({inputValue: value});
+  handleChangeNicotineDesired(value) {
+    this.setState({desiredNicotineStrength: value})
   }
+
   render() {
     return (
       <div>
@@ -86,7 +90,9 @@ class Template extends Component {
               <div style={{
                 height: '24px'
               }}></div>
-              <DesiredOrganism/>
+              <DesiredOrganism
+                desiredNicotineStrength={this.state.desiredNicotineStrength}
+                handleChangeNicotineDesired={this.handleChangeNicotineDesired}/>
               <div style={{
                 height: '24px'
               }}></div>

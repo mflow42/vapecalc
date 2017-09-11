@@ -22,6 +22,14 @@ const marks = {
 };
 
 class SliderPgVgBase extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChangeBaseVgPercent = this.handleChangeBaseVgPercent.bind(this);
+  }
+  handleChangeBaseVgPercent(value) {
+    this.props.handleChangeBasePgPercent(100 - value);
+  }
+
   render() {
     return (
       <div>
@@ -53,7 +61,7 @@ class SliderPgVgBase extends Component {
                 width: '100%'
               }}
               value={100 - this.props.basePgPercent}
-              onChange={this.props.handleChangeBasePgPercent}/>
+              onChange={this.handleChangeBaseVgPercent}/>
           </Col>
           <h3>VG</h3>
         </Row>
