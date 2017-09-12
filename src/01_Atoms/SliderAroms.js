@@ -9,6 +9,14 @@ const marks = {
 };
 
 class SliderAroms extends Component {
+  
+  state = {
+    inputValue: this.props.aromsPercent
+  };
+
+  onChange = (value) => {
+    this.setState({inputValue: value});
+  }
 
   render() {
     return (
@@ -17,8 +25,9 @@ class SliderAroms extends Component {
           marks={marks}
           max={30}
           defaultValue={10}
-          value={this.props.aromsPercent}
-          onChange={this.props.handleChangeAromsPercent}/>
+          value={this.state.inputValue}
+          onChange={this.onChange}
+          onAfterChange={this.props.handleChangeAromsPercent}/>
       </div>
     );
   }

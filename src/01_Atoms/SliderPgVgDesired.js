@@ -28,16 +28,20 @@ const marks = {
 class SliderPgVgDesired extends Component {
   constructor(props) {
     super(props);
-    this.handleChangeDesiredVgPercent = this
-      .handleChangeDesiredVgPercent
-      .bind(this);
+    this.handleChangeDesiredVgPercent = this.handleChangeDesiredVgPercent.bind(this);
   }
 
   handleChangeDesiredVgPercent(value) {
-    this
-      .props
-      .handleChangeDesiredPgPercent(100 - value);
+    this.props.handleChangeDesiredPgPercent(100 - value);
   }
+  state = {
+    inputValue: this.props.desiredPgPercent,
+  }
+
+  onChange = (value) =>
+    this.setState({
+      inputValue: value,
+    })
 
   render() {
     return (
@@ -74,7 +78,9 @@ class SliderPgVgDesired extends Component {
               width: '100%'
             }}
               value={this.props.desiredPgPercent}
-              onChange={this.props.handleChangeDesiredPgPercent}/>
+              onChange={this.onChange}
+              onAfterChange={this.props.handleChangeDesiredPgPercent}
+              />
           </Col>
           <Col
             md={{
@@ -94,7 +100,9 @@ class SliderPgVgDesired extends Component {
               min={0}
               max={100}
               value={this.props.desiredPgPercent}
-              onChange={this.props.handleChangeDesiredPgPercent}/>
+              onChange={this.onChange}
+              onAfterChange={this.props.handleChangeDesiredPgPercent}
+              />
           </Col>
           <Col
             md={{

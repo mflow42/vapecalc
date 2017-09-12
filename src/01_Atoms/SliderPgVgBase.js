@@ -24,23 +24,27 @@ const marks = {
 class SliderPgVgBase extends Component {
   constructor(props) {
     super(props);
-    this.handleChangeBaseVgPercent = this
-      .handleChangeBaseVgPercent
-      .bind(this);
+    this.state = {
+        inputValue: this.props.basePgPercent,
+      };
+    this.onChange = this.onChange.bind(this);
+    this.handleChangeBaseVgPercent = this.handleChangeBaseVgPercent.bind(this);
+  }
+  
+  onChange = (value) => {
+    this.setState({
+      inputValue: value,
+    })
   }
   handleChangeBaseVgPercent(value) {
-    this
-      .props
-      .handleChangeBasePgPercent(100 - value);
+    this.props.handleChangeBasePgPercent(100 - value);
   }
 
   render() {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
-          <Col xl={{
-            span: 2
-          }}>
+          <Col xl={{span: 2}}>
             <h3>PG</h3>
           </Col>
           <Col span={2}>
@@ -50,16 +54,20 @@ class SliderPgVgBase extends Component {
               style={{
               width: '100%'
             }}
-              value={this.props.basePgPercent}
-              onChange={this.props.handleChangeBasePgPercent}/>
+              value={this.state.inputValue}
+              onChange={this.onChange}
+              onAfterChange={this.props.handleChangeBasePgPercent}
+              />
           </Col>
           <Col span={14}>
             <Slider
               marks={marks}
               min={0}
               max={100}
-              value={this.props.basePgPercent}
-              onChange={this.props.handleChangeBasePgPercent}/>
+              value={this.state.inputValue}
+              onChange={this.onChange}
+              onAfterChange={this.props.handleChangeBasePgPercent}
+              />
           </Col>
           <Col span={2}>
             <InputNumber
@@ -68,15 +76,13 @@ class SliderPgVgBase extends Component {
               style={{
               width: '100%'
             }}
-              value={100 - this.props.basePgPercent}
-              onChange={this.handleChangeBaseVgPercent}/>
+              value={100 - this.state.inputValue}
+              onChange={this.handleChangeBaseVgPercent}
+              onAfterChange={this.handleChangeBaseVgPercent}
+              />
           </Col>
-          <Col xl={{
-            span: 2
-          }}>
-            <h3 style={{
-              textAlign: 'right'
-            }}>VG</h3>
+          <Col xl={{span: 2}}>
+            <h3 style={{textAlign: 'right'}}>VG</h3>
           </Col>
         </Row>
       </div>
