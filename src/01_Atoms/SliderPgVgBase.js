@@ -1,5 +1,9 @@
-import React, {Component} from 'react';
-import {Slider, InputNumber, Row, Col} from 'antd';
+import React, { Component } from 'react';
+import { Slider, InputNumber, Row, Col } from 'antd';
+
+function formatter(value) {
+  return `${value}% / ${100 - value}%`;
+}
 
 const marks = {
   0: {
@@ -25,18 +29,24 @@ class SliderPgVgBase extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        inputValue: this.props.basePgPercent,
-      };
+      inputValue: this.props.basePgPercent,
+    };
     this.onChange = this.onChange.bind(this);
-    this.handleChangeBaseVgPercent = this.handleChangeBaseVgPercent.bind(this);
+    this.handleChangeBasePgPercentWithChangingState = this.handleChangeBasePgPercentWithChangingState.bind(this);
+    this.handleChangeBaseVgPercentWithChangingState = this.handleChangeBaseVgPercentWithChangingState.bind(this);
   }
-  
+
   onChange = (value) => {
     this.setState({
       inputValue: value,
     })
   }
-  handleChangeBaseVgPercent(value) {
+  handleChangeBasePgPercentWithChangingState = (value) => {
+    this.onChange(value);
+    this.props.handleChangeBasePgPercent(value);
+  }
+  handleChangeBaseVgPercentWithChangingState = (value) => {
+    this.onChange(100 - value);
     this.props.handleChangeBasePgPercent(100 - value);
   }
 
@@ -44,7 +54,7 @@ class SliderPgVgBase extends Component {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
-          <Col xl={{span: 2}}>
+          <Col xl={{ span: 2 }}>
             <h3>PG</h3>
           </Col>
           <Col span={2}>
@@ -52,37 +62,36 @@ class SliderPgVgBase extends Component {
               min={0}
               max={100}
               style={{
-              width: '100%'
-            }}
+                width: '100%'
+              }}
               value={this.state.inputValue}
-              onChange={this.onChange}
-              onAfterChange={this.props.handleChangeBasePgPercent}
-              />
+              onChange={this.handleChangeBasePgPercentWithChangingState}
+            />
           </Col>
           <Col span={14}>
             <Slider
+              tipFormatter={formatter}
               marks={marks}
               min={0}
               max={100}
               value={this.state.inputValue}
               onChange={this.onChange}
               onAfterChange={this.props.handleChangeBasePgPercent}
-              />
+            />
           </Col>
           <Col span={2}>
             <InputNumber
               min={0}
               max={100}
               style={{
-              width: '100%'
-            }}
+                width: '100%'
+              }}
               value={100 - this.state.inputValue}
-              onChange={this.handleChangeBaseVgPercent}
-              onAfterChange={this.handleChangeBaseVgPercent}
-              />
+              onChange={this.handleChangeBaseVgPercentWithChangingState}
+            />
           </Col>
-          <Col xl={{span: 2}}>
-            <h3 style={{textAlign: 'right'}}>VG</h3>
+          <Col xl={{ span: 2 }}>
+            <h3 style={{ textAlign: 'right' }}>VG</h3>
           </Col>
         </Row>
       </div>

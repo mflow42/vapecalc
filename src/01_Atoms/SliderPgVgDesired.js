@@ -1,5 +1,9 @@
-import React, {Component} from 'react';
-import {Slider, InputNumber, Row, Col} from 'antd';
+import React, { Component } from 'react';
+import { Slider, InputNumber, Row, Col } from 'antd';
+
+function formatter(value) {
+  return `${value}% / ${100 - value}%`;
+}
 
 const marks = {
   0: {
@@ -28,113 +32,118 @@ const marks = {
 class SliderPgVgDesired extends Component {
   constructor(props) {
     super(props);
-    this.handleChangeDesiredVgPercent = this.handleChangeDesiredVgPercent.bind(this);
-  }
-
-  handleChangeDesiredVgPercent(value) {
-    this.props.handleChangeDesiredPgPercent(100 - value);
-  }
-  state = {
-    inputValue: this.props.desiredPgPercent,
+    this.state = {
+      inputValue: this.props.desiredPgPercent,
+    }
+    this.handleChangeDesiredPgPercentWithState = this.handleChangeDesiredPgPercentWithState.bind(this);
+    this.handleChangeDesiredVgPercentWithState = this.handleChangeDesiredVgPercentWithState.bind(this);
   }
 
   onChange = (value) =>
     this.setState({
       inputValue: value,
     })
+    handleChangeDesiredPgPercentWithState(value) {
+      this.onChange(value);
+      this.props.handleChangeDesiredPgPercent(value);
+    }
+    handleChangeDesiredVgPercentWithState(value) {
+      this.onChange(100 - value);
+      this.props.handleChangeDesiredPgPercent(100 - value);
+    }
 
   render() {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
           <Col
-          xl={{
-            span: 2,
-            order: 1
-          }}
+            xl={{
+              span: 2,
+              order: 1
+            }}
             xs={{
-            span: 3,
-            order: 1
-          }}>
+              span: 3,
+              order: 1
+            }}>
             <h3>PG</h3>
           </Col>
           <Col
             md={{
-            span: 2,
-            order: 2
-          }}
+              span: 2,
+              order: 2
+            }}
             sm={{
-            span: 3,
-            order: 2
-          }}
+              span: 3,
+              order: 2
+            }}
             xs={{
-            span: 8,
-            order: 2
-          }}>
+              span: 8,
+              order: 2
+            }}>
             <InputNumber
               min={0}
               max={100}
               style={{
-              width: '100%'
-            }}
-              value={this.props.desiredPgPercent}
-              onChange={this.onChange}
-              onAfterChange={this.props.handleChangeDesiredPgPercent}
-              />
+                width: '100%'
+              }}
+              value={this.state.inputValue}
+              onChange={this.handleChangeDesiredPgPercentWithState}
+            />
           </Col>
           <Col
             md={{
-            span: 14,
-            order: 3
-          }}
+              span: 14,
+              order: 3
+            }}
             sm={{
-            span: 14,
-            order: 3
-          }}
+              span: 14,
+              order: 3
+            }}
             xs={{
-            span: 24,
-            order: 5
-          }}>
+              span: 24,
+              order: 5
+            }}>
             <Slider
+              tipFormatter={formatter}
               marks={marks}
               min={0}
               max={100}
-              value={this.props.desiredPgPercent}
+              value={this.state.inputValue}
               onChange={this.onChange}
               onAfterChange={this.props.handleChangeDesiredPgPercent}
-              />
+            />
           </Col>
           <Col
             md={{
-            span: 2,
-            order: 3
-          }}
+              span: 2,
+              order: 3
+            }}
             sm={{
-            span: 3,
-            order: 3
-          }}
+              span: 3,
+              order: 3
+            }}
             xs={{
-            span: 8,
-            order: 3
-          }}>
+              span: 8,
+              order: 3
+            }}>
             <InputNumber
               min={0}
               max={100}
               style={{
-              width: '100%'
-            }}
-              value={100 - this.props.desiredPgPercent}
-              onChange={this.handleChangeDesiredVgPercent}/>
+                width: '100%'
+              }}
+              value={100 - this.state.inputValue}
+              onChange={this.handleChangeDesiredVgPercentWithState} />
           </Col>
-          <Col 
-          xl={{
-            span: 2,
-            order: 4
-          }}
-          xs={{
-            span: 3,
-            order: 4
-          }}>
+          <Col
+            xl={{
+              span: 2,
+              order: 4
+            }}
+            xs={{
+              span: 3,
+              order: 4
+            }}>
             <h3 style={{
               textAlign: 'right'
             }}>VG</h3>
