@@ -77,7 +77,8 @@ class Template extends Component {
               mode="horizontal"
               defaultSelectedKeys={['2']}
               style={{
-                lineHeight: '64px'
+                lineHeight: '64px',
+                width: '100%',
               }}>
               <Menu.Item key="1">О нас</Menu.Item>
               <Menu.Item key="2">Войти</Menu.Item>
