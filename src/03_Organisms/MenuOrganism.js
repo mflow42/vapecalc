@@ -6,7 +6,7 @@ const SubMenu = Menu.SubMenu;
 
 class MenuOrganism extends Component {
   state = {
-    current: 'mail',
+    current: 'mix',
   }
   handleClick = (e) => {
     console.log('click ', e);

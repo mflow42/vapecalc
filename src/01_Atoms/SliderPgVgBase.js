@@ -54,10 +54,17 @@ class SliderPgVgBase extends Component {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
-          <Col xl={{ span: 2 }}>
+          <Col
+            sm={{ span: 1, order: 1 }}
+            xs={{ span: 1, order: 1 }}
+          >
             <h3>PG</h3>
           </Col>
-          <Col span={2}>
+          <Col
+            md={{ span: 3, order: 2 }}
+            sm={{ span: 3, order: 2 }}
+            xs={{ span: 8, order: 2 }}
+          >
             <InputNumber
               min={0}
               max={100}
@@ -68,7 +75,11 @@ class SliderPgVgBase extends Component {
               onChange={this.handleChangeBasePgPercentWithChangingState}
             />
           </Col>
-          <Col span={14}>
+          <Col
+            md={{ span: 14, order: 3 }}
+            sm={{ span: 14, order: 3 }}
+            xs={{ span: 24, order: 5 }}
+          >
             <Slider
               tipFormatter={formatter}
               marks={marks}
@@ -79,7 +90,11 @@ class SliderPgVgBase extends Component {
               onAfterChange={this.props.handleChangeBasePgPercent}
             />
           </Col>
-          <Col span={2}>
+          <Col
+            md={{ span: 3, order: 3 }}
+            sm={{ span: 3, order: 3 }}
+            xs={{ span: 8, order: 3 }}
+          >
             <InputNumber
               min={0}
               max={100}
@@ -90,7 +105,10 @@ class SliderPgVgBase extends Component {
               onChange={this.handleChangeBaseVgPercentWithChangingState}
             />
           </Col>
-          <Col xl={{ span: 2 }}>
+          <Col
+            sm={{ span: 1, order: 4 }}
+            xs={{ span: 1, order: 4 }}
+          >
             <h3 style={{ textAlign: 'right' }}>VG</h3>
           </Col>
         </Row>

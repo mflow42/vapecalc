@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {Layout, Menu} from 'antd';
+import React, { Component } from 'react';
+import { Layout, Menu } from 'antd';
 import MenuOrganism from '../03_Organisms/MenuOrganism';
 import BaseOrganism from '../03_Organisms/BaseOrganism';
 import AromsOrganism from '../03_Organisms/AromsOrganism';
 import DesiredOrganism from '../03_Organisms/DesiredOrganism';
 import MixResultOrganism from '../03_Organisms/MixResultOrganism';
 
-const {Header, Content, Footer} = Layout;
+const { Header, Content, Footer } = Layout;
 
 class Template extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Template extends Component {
   }
 
   handleChangeNicotineBase(value) {
-    this.setState({baseNicotineStrength: value})
+    this.setState({ baseNicotineStrength: value })
   }
   handleChangeBasePgPercent(value) {
     this.setState({
@@ -51,10 +51,10 @@ class Template extends Component {
     })
   }
   handleChangeAromsPercent(value) {
-    this.setState({aromsPercent: value})
+    this.setState({ aromsPercent: value })
   }
   handleChangeNicotineDesired(value) {
-    this.setState({desiredNicotineStrength: value})
+    this.setState({ desiredNicotineStrength: value })
   }
   handleChangeDesiredPgPercent(value) {
     this.setState({
@@ -63,7 +63,7 @@ class Template extends Component {
     })
   }
   handleChangeDesiredVolume(value) {
-    this.setState({desiredVolume: value})
+    this.setState({ desiredVolume: value })
   }
 
   render() {
@@ -71,39 +71,41 @@ class Template extends Component {
       <div>
         <Layout className="layout">
           <Header>
-            <div className="logo"/>
+            <div className="logo" />
             <Menu
               theme="dark"
               mode="horizontal"
               defaultSelectedKeys={['2']}
               style={{
-              lineHeight: '64px'
-            }}>
+                lineHeight: '64px'
+              }}>
               <Menu.Item key="1">О нас</Menu.Item>
               <Menu.Item key="2">Войти</Menu.Item>
             </Menu>
           </Header>
-          <Content style={{
-            padding: '0 50px'
-          }}>
-            <MenuOrganism/>
+          <Content
+            style={{
+              boxSizing: 'border-box',
+              padding: '0 10px'
+            }}>
+            <MenuOrganism />
             <div
               style={{
-              background: '#fff',
-              padding: 24,
-              minHeight: 280
-            }}>
+                background: '#fff',
+                padding: 24,
+                minHeight: 280
+              }}>
               <BaseOrganism
                 baseNicotineStrength={this.state.baseNicotineStrength}
                 handleChangeNicotineBase={this.handleChangeNicotineBase}
                 basePgPercent={this.state.basePgPercent}
-                handleChangeBasePgPercent={this.handleChangeBasePgPercent}/>
+                handleChangeBasePgPercent={this.handleChangeBasePgPercent} />
               <div style={{
                 height: '24px'
               }}></div>
               <AromsOrganism
                 aromsPercent={this.state.aromsPercent}
-                handleChangeAromsPercent={this.handleChangeAromsPercent}/>
+                handleChangeAromsPercent={this.handleChangeAromsPercent} />
               <div style={{
                 height: '24px'
               }}></div>
@@ -113,11 +115,11 @@ class Template extends Component {
                 desiredPgPercent={this.state.desiredPgPercent}
                 handleChangeDesiredPgPercent={this.handleChangeDesiredPgPercent}
                 desiredVolume={this.state.desiredVolume}
-                handleChangeDesiredVolume={this.handleChangeDesiredVolume}/>
+                handleChangeDesiredVolume={this.handleChangeDesiredVolume} />
               <div style={{
                 height: '24px'
               }}></div>
-              <MixResultOrganism data={this.state}/>
+              <MixResultOrganism data={this.state} />
             </div>
           </Content>
           <Footer style={{
