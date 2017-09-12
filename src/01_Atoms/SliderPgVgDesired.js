@@ -132,9 +132,6 @@ class SliderPgVgDesired extends Component {
             }}>VG</h3>
           </Col>
         </Row>
-        <div style={{
-          height: '24px'
-        }}></div>
       </div>
     );
   }

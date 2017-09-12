@@ -4,7 +4,6 @@ import DesiredNicotineMolecule from '../02_Molecules/DesiredNicotineMolecule';
 import DesiredVolumeMolecule from '../02_Molecules/DesiredVolumeMolecule';
 
 class DesiredOrganism extends Component {
-
   render() {
     return (
       <div>
@@ -18,6 +17,9 @@ class DesiredOrganism extends Component {
         <SliderPgVgDesired
           desiredPgPercent={this.props.desiredPgPercent}
           handleChangeDesiredPgPercent={this.props.handleChangeDesiredPgPercent}/>
+        <div style={{
+          height: '8px'
+        }}></div>
         <DesiredVolumeMolecule
           desiredVolume={this.props.desiredVolume}
           handleChangeDesiredVolume={this.props.handleChangeDesiredVolume}/>

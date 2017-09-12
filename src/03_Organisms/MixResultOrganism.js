@@ -31,22 +31,27 @@ const COEFFICIENT_GRAMM = 1.04;
 const components = [
   {
     name: "Основы",
-    ml: (props) => props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength),
+    ml: (props) => (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength)),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }, {
     name: "Ароматизаторов",
-    ml: (props) => props.data.desiredVolume * (props.data.aromsPercent / 100),
+    ml: (props) => (props.data.desiredVolume * (props.data.aromsPercent / 100)),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }, {
     name: "PG",
-    ml: (props) => (props.data.desiredVolume * props.data.desiredPgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.basePgPercent / 100) - (props.data.desiredVolume * (props.data.aromsPercent / 100)),
+    ml: (props) => ((props.data.desiredVolume * props.data.desiredPgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.basePgPercent / 100) - (props.data.desiredVolume * (props.data.aromsPercent / 100))),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }, {
     name: "VG",
-    ml: (props) => (props.data.desiredVolume * props.data.desiredVgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.baseVgPercent / 100),
+    ml: (props) => ((props.data.desiredVolume * props.data.desiredVgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.baseVgPercent / 100)),
+    kd: COEFFICIENT_DROP,
+    kg: COEFFICIENT_GRAMM
+  }, {
+    name: "Итого",
+    ml: (props) => (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength)) + (props.data.desiredVolume * (props.data.aromsPercent / 100)) + ((props.data.desiredVolume * props.data.desiredPgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.basePgPercent / 100) - (props.data.desiredVolume * (props.data.aromsPercent / 100))) + ((props.data.desiredVolume * props.data.desiredVgPercent / 100) - (props.data.desiredVolume / (props.data.baseNicotineStrength / props.data.desiredNicotineStrength) * props.data.baseVgPercent / 100)),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }
