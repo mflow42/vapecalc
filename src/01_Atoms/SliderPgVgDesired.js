@@ -28,19 +28,45 @@ const marks = {
 class SliderPgVgDesired extends Component {
   constructor(props) {
     super(props);
-    this.handleChangeDesiredVgPercent = this.handleChangeDesiredVgPercent.bind(this);
+    this.handleChangeDesiredVgPercent = this
+      .handleChangeDesiredVgPercent
+      .bind(this);
   }
 
   handleChangeDesiredVgPercent(value) {
-    this.props.handleChangeDesiredPgPercent(100 - value);
+    this
+      .props
+      .handleChangeDesiredPgPercent(100 - value);
   }
 
   render() {
     return (
       <div>
         <Row type="flex" justify="space-between" align="middle">
-          <h3>PG</h3>
-          <Col span={2}>
+          <Col
+          xl={{
+            span: 2,
+            order: 1
+          }}
+            xs={{
+            span: 3,
+            order: 1
+          }}>
+            <h3>PG</h3>
+          </Col>
+          <Col
+            md={{
+            span: 2,
+            order: 2
+          }}
+            sm={{
+            span: 3,
+            order: 2
+          }}
+            xs={{
+            span: 8,
+            order: 2
+          }}>
             <InputNumber
               min={1}
               max={100}
@@ -50,7 +76,19 @@ class SliderPgVgDesired extends Component {
               value={this.props.desiredPgPercent}
               onChange={this.props.handleChangeDesiredPgPercent}/>
           </Col>
-          <Col span={14}>
+          <Col
+            md={{
+            span: 14,
+            order: 3
+          }}
+            sm={{
+            span: 14,
+            order: 3
+          }}
+            xs={{
+            span: 24,
+            order: 5
+          }}>
             <Slider
               marks={marks}
               min={1}
@@ -58,7 +96,19 @@ class SliderPgVgDesired extends Component {
               value={this.props.desiredPgPercent}
               onChange={this.props.handleChangeDesiredPgPercent}/>
           </Col>
-          <Col span={2}>
+          <Col
+            md={{
+            span: 2,
+            order: 3
+          }}
+            sm={{
+            span: 3,
+            order: 3
+          }}
+            xs={{
+            span: 8,
+            order: 3
+          }}>
             <InputNumber
               min={1}
               max={100}
@@ -68,7 +118,19 @@ class SliderPgVgDesired extends Component {
               value={100 - this.props.desiredPgPercent}
               onChange={this.handleChangeDesiredVgPercent}/>
           </Col>
-          <h3>VG</h3>
+          <Col 
+          xl={{
+            span: 2,
+            order: 4
+          }}
+          xs={{
+            span: 3,
+            order: 4
+          }}>
+            <h3 style={{
+              textAlign: 'right'
+            }}>VG</h3>
+          </Col>
         </Row>
         <div style={{
           height: '24px'

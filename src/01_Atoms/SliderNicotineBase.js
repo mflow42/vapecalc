@@ -6,7 +6,7 @@ const marks = {
   12: '12',
   24: '24',
   36: '36',
-  100: '100 мг/мл',
+  100: '100 мг',
 };
 
 class SliderNicotineBase extends Component {

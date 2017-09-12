@@ -8,7 +8,7 @@ const marks = {
   3: '3',
   6: '6',
   9: '9',
-  12: '12 мг/мл',
+  12: '12 мг',
 };
 
 class SliderNicotineDesired extends Component {
