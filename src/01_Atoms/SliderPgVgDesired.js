@@ -1,15 +1,14 @@
-
-import React, { Component } from 'react';
-import { Slider, InputNumber, Input, Row, Col } from 'antd';
+import React, {Component} from 'react';
+import {Slider, InputNumber, Row, Col} from 'antd';
 
 const marks = {
   0: {
     style: {
-      width: '20',
-      'margin-left': '0',
-      left: '-1.0101%',
+      width: 20,
+      marginLeft: 0,
+      left: '-1%'
     },
-    label: <strong>0%</strong>,
+    label: '0%'
   },
   20: '20%',
   30: '30%',
@@ -18,23 +17,24 @@ const marks = {
   80: '80%',
   100: {
     style: {
-      width: '20',
-      'margin-left': '0',
-      left: '96%',
+      width: 20,
+      marginLeft: 0,
+      left: '96%'
     },
-    label: <strong>100%</strong>,
-  },
+    label: '100%'
+  }
 };
 
 class SliderPgVgDesired extends Component {
-  state = {
-    inputValue: 30,
+  constructor(props) {
+    super(props);
+    this.handleChangeDesiredVgPercent = this.handleChangeDesiredVgPercent.bind(this);
   }
-  onChange = (value) => {
-    this.setState({
-      inputValue: value,
-    });
+
+  handleChangeDesiredVgPercent(value) {
+    this.props.handleChangeDesiredPgPercent(100 - value);
   }
+
   render() {
     return (
       <div>
@@ -44,26 +44,35 @@ class SliderPgVgDesired extends Component {
             <InputNumber
               min={1}
               max={100}
-              style={{ marginLeft: 0, width: '100%',  }}
-              value={this.state.inputValue}
-              onChange={this.onChange}
-            />
+              style={{
+              width: '100%'
+            }}
+              value={this.props.desiredPgPercent}
+              onChange={this.props.handleChangeDesiredPgPercent}/>
           </Col>
           <Col span={14}>
-            <Slider marks={marks} min={1} max={100} onChange={this.onChange} value={this.state.inputValue} />
+            <Slider
+              marks={marks}
+              min={1}
+              max={100}
+              value={this.props.desiredPgPercent}
+              onChange={this.props.handleChangeDesiredPgPercent}/>
           </Col>
           <Col span={2}>
             <InputNumber
               min={1}
               max={100}
-              style={{ marginLeft: 0, width: '100%' }}
-              value={100 - this.state.inputValue}
-              onChange={this.onChange}
-            />
+              style={{
+              width: '100%'
+            }}
+              value={100 - this.props.desiredPgPercent}
+              onChange={this.handleChangeDesiredVgPercent}/>
           </Col>
           <h3>VG</h3>
         </Row>
-        <div style={{ height: '24px' }}></div>
+        <div style={{
+          height: '24px'
+        }}></div>
       </div>
     );
   }

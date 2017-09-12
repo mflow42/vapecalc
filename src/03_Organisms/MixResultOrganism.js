@@ -41,14 +41,14 @@ class MixResultOrganism extends Component {
  
   render() {
     const state = this.state;
-    const ds = components.map((component, index) => {
+    const data = components.map((component, index) => {
       const mm = component.mm(this.props);
       return {
       key: index,
       component: component.name,
       ml: mm,
       drop: mm * component.kk,
-      gramm: `${i}2`,
+      gramm: `2`,
     }})
     return (
       <div>

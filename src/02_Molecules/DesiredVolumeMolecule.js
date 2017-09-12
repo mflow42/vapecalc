@@ -1,25 +1,11 @@
-import React, { Component } from 'react';
-import InputNumberAtom from '../01_Atoms/InputNumberAtom';
-import { Row, Col } from 'antd';
+import React, {Component} from 'react';
+import {InputNumber} from 'antd';
 
 class DesiredNicotineMolecule extends Component {
-  state = {
-    inputValue: 30,
-  }
-  onChange = (value) => {
-    this.setState({
-      inputValue: value,
-    });
-  }
   render() {
-    return (
-      <div>
-        <Row type="flex" align="middle">
-          <Col span={5}><h3>Желаемый объем, мл</h3></Col>
-          <Col span={4}><InputNumberAtom /></Col>
-        </Row>
-      </div>
-    );
+    return <h3>Желаемый объем,&nbsp;<InputNumber
+      value={this.props.desiredVolume}
+      onChange={this.props.handleChangeDesiredVolume}/>&nbsp;мл</h3>;
   }
 }
 

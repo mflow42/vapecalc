@@ -33,20 +33,37 @@ class Template extends Component {
     this.handleChangeNicotineDesired = this
       .handleChangeNicotineDesired
       .bind(this)
+    this.handleChangeDesiredPgPercent = this
+      .handleChangeDesiredPgPercent
+      .bind(this)
+    this.handleChangeDesiredVolume = this
+      .handleChangeDesiredVolume
+      .bind(this)
   }
-
 
   handleChangeNicotineBase(value) {
-    this.setState({baseNicotineStrength: value * this.first})
+    this.setState({baseNicotineStrength: value})
   }
   handleChangeBasePgPercent(value) {
-    this.setState({basePgPercent: value})
+    this.setState({
+      basePgPercent: value,
+      baseVgPercent: 100 - value
+    })
   }
   handleChangeAromsPercent(value) {
     this.setState({aromsPercent: value})
   }
   handleChangeNicotineDesired(value) {
     this.setState({desiredNicotineStrength: value})
+  }
+  handleChangeDesiredPgPercent(value) {
+    this.setState({
+      desiredPgPercent: value,
+      desiredVgPercent: 100 - value
+    })
+  }
+  handleChangeDesiredVolume(value) {
+    this.setState({desiredVolume: value})
   }
 
   render() {
@@ -92,7 +109,11 @@ class Template extends Component {
               }}></div>
               <DesiredOrganism
                 desiredNicotineStrength={this.state.desiredNicotineStrength}
-                handleChangeNicotineDesired={this.handleChangeNicotineDesired}/>
+                handleChangeNicotineDesired={this.handleChangeNicotineDesired}
+                desiredPgPercent={this.state.desiredPgPercent}
+                handleChangeDesiredPgPercent={this.handleChangeDesiredPgPercent}
+                desiredVolume={this.state.desiredVolume}
+                handleChangeDesiredVolume={this.handleChangeDesiredVolume}/>
               <div style={{
                 height: '24px'
               }}></div>

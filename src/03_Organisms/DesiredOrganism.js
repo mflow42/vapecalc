@@ -15,8 +15,12 @@ class DesiredOrganism extends Component {
         <DesiredNicotineMolecule
           desiredNicotineStrength={this.props.desiredNicotineStrength}
           handleChangeNicotineDesired={this.props.handleChangeNicotineDesired}/>
-        <SliderPgVgDesired/>
-        <DesiredVolumeMolecule/>
+        <SliderPgVgDesired
+          desiredPgPercent={this.props.desiredPgPercent}
+          handleChangeDesiredPgPercent={this.props.handleChangeDesiredPgPercent}/>
+        <DesiredVolumeMolecule
+          desiredVolume={this.props.desiredVolume}
+          handleChangeDesiredVolume={this.props.handleChangeDesiredVolume}/>
       </div>
     );
   }

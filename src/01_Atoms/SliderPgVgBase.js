@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import {Slider, InputNumber, Input, Row, Col} from 'antd';
+import {Slider, InputNumber, Row, Col} from 'antd';
 
 const marks = {
   0: {
     style: {
-      width: '20',
-      'margin-left': '0',
-      left: '-1.0101%'
+      width: 20,
+      marginLeft: 0,
+      left: '-1%'
     },
     label: '0%'
   },
   50: '50%',
   100: {
     style: {
-      width: '20',
-      'margin-left': '0',
+      width: 20,
+      marginLeft: 0,
       left: '96%'
     },
     label: '100%'
