@@ -45,7 +45,7 @@ class SliderPgVgBase extends Component {
           </Col>
           <Col span={2}>
             <InputNumber
-              min={1}
+              min={0}
               max={100}
               style={{
               width: '100%'
@@ -56,14 +56,14 @@ class SliderPgVgBase extends Component {
           <Col span={14}>
             <Slider
               marks={marks}
-              min={1}
+              min={0}
               max={100}
               value={this.props.basePgPercent}
               onChange={this.props.handleChangeBasePgPercent}/>
           </Col>
           <Col span={2}>
             <InputNumber
-              min={1}
+              min={0}
               max={100}
               style={{
               width: '100%'

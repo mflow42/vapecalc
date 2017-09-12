@@ -14,7 +14,7 @@ class Template extends Component {
     this.state = {
       baseNicotineStrength: 100,
       basePgPercent: 100,
-      baseVgPercent: 30,
+      baseVgPercent: 0,
       aromsPercent: 10,
       desiredNicotineStrength: 3,
       desiredPgPercent: 30,
@@ -117,7 +117,7 @@ class Template extends Component {
               <div style={{
                 height: '24px'
               }}></div>
-              <MixResultOrganism data={this.data}/>
+              <MixResultOrganism data={this.state}/>
             </div>
           </Content>
           <Footer style={{

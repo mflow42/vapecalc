@@ -68,7 +68,7 @@ class SliderPgVgDesired extends Component {
             order: 2
           }}>
             <InputNumber
-              min={1}
+              min={0}
               max={100}
               style={{
               width: '100%'
@@ -91,7 +91,7 @@ class SliderPgVgDesired extends Component {
           }}>
             <Slider
               marks={marks}
-              min={1}
+              min={0}
               max={100}
               value={this.props.desiredPgPercent}
               onChange={this.props.handleChangeDesiredPgPercent}/>
@@ -110,7 +110,7 @@ class SliderPgVgDesired extends Component {
             order: 3
           }}>
             <InputNumber
-              min={1}
+              min={0}
               max={100}
               style={{
               width: '100%'
