@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import {Table} from 'antd';
+import {Table, message} from 'antd';
+
+const error = () => {
+  message.error('This is a message of error');
+};
 
 const columns = [
   {
@@ -62,6 +66,7 @@ class MixResultOrganism extends Component {
   render() {
     const data = components.map((component, index) => {
       const ml = component.ml(this.props);
+      if (ml < 0) (error);
       return {
         key: index,
         component: component.name,
