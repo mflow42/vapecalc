@@ -75,12 +75,11 @@ class MixResultOrganism extends Component {
         gramm: (ml * component.kg).toFixed(2)
       }
     })
+    
     return (
       <div>
         <h2>Расчет</h2>
-        <div style={{
-          height: '16px'
-        }}></div>
+        <div style={{height: '16px'}}></div>
         <Table
           showHeader={true}
           size={'middle'}

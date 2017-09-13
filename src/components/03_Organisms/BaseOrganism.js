@@ -7,9 +7,7 @@ class BaseOrganism extends Component {
     return (
       <div>
         <h2>Основа</h2>
-        <div style={{
-          height: '16px'
-        }}></div>
+        <div style={{height: '16px'}}></div>
         <BaseNicotineMolecule
           baseNicotineStrength={this.props.baseNicotineStrength}
           handleChangeNicotineBase={this.props.handleChangeNicotineBase}/>
