@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SliderAroms from '../01_Atoms/SliderAroms';
-import DynamicAromsMolecule from '../03_Organisms/DynamicAromsMolecule';
-import AromsModalMolecule from '../03_Organisms/AromsModalMolecule';
+import AromsModalMolecule from '../02_Molecules/AromsModalMolecule';
 import { Button } from 'antd';
 
 class AromsOrganism extends Component {

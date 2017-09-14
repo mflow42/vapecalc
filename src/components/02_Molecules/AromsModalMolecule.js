@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button, AutoComplete, Row, Col } from 'antd';
 import SliderAroms from '../01_Atoms/SliderAroms';
+import ListAromsMolecule from '../02_Molecules/ListAromsMolecule';
 
 const aromsList = [
   'Absinthe (Абсент)',
@@ -213,66 +214,54 @@ function Complete() {
   );
 }
 
-class ShowListAroms extends Component {
-  render() {
-    const list = aromsList.map((name, index) => {
-      return {
-        key: index,
-        name: aromsList.name,
-      }
-    })
-
-    return (
-      <div>
-        <h3>{list.name}</h3>
-        <SliderAroms
-          aromsPercent={this.props.aromsPercent}
-          handleChangeAromsPercent={this.props.handleChangeAromsPercent}
-        />
-      </div>
-    )
-  }
-}
-
-function AddTo(event) {
-  this.state.aroms.push(event.target);
-}
-
 class AromsModalMolecule extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
-      aroms: [],
+      selectedAroms: [{}],
+      selected: false,
     }
+    this.selectArom = this.selectArom.bind(this);
   }
   setModalVisible(modalVisible) {
-    this.setState({ modalVisible });
+    this.setState({
+      modalVisible 
+    });
+  }
+  selectArom(event) {
+    this.setState({ 
+      selectedAroms: event.target,
+    })
+    this.selected ? event.target.className = 'ant-select-dropdown-menu-item' : event.target.className = 'selected-arom';
+    this.selected = !this.selected;
   }
   render() {
     return (
       <div>
+
         <Button
           type="dashed"
           size="large"
           icon="plus"
-          onClick={() => this.setModalVisible(true)}>Добавить ароматизатор</Button>
+          onClick={() => this.setModalVisible(true)}>Добавить ароматизаторы</Button>
+
         <Modal
           cancelText="Отмена"
           okText="Добавить"
           title="Ароматизаторы"
           style={{ top: 20 }}
           visible={this.state.modalVisible}
-          onOk={() => {
-            this.setModalVisible(false);
-            AddTo(this);
-          }}
+          onOk={() => {this.setModalVisible(false);}}
           onCancel={() => this.setModalVisible(false)}>
 
-          <Complete style={{ width: 400 }} />
+          <Complete style={{ width: '100%' }} />
+
           <div style={{ height: '16px' }}></div>
-          <a onClick={AddTo}>ароматизатор...</a>
-        </Modal>
+
+          <ListAromsMolecule selectedAroms={this.state.selectedAroms} selectArom={this.selectArom} aromsList={aromsList} selected={this.selected}/>
+
+        </Modal >
       </div>
     );
   }
