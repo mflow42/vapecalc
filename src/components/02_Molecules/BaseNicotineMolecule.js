@@ -8,13 +8,13 @@ class BaseNicotineMolecule extends Component {
       <div>
         <Row type="flex" justify="space-between" align="middle">
           <Col
-            sm={{ span: 3, oreder: 1 }}
-            xs={{ span: 24, oreder: 1 }}>
+            sm={{ span: 3, order: 1 }}
+            xs={{ span: 24, order: 1 }}>
             <h3>Никотин</h3>
           </Col>
           <Col
-            sm={{ span: 21, oreder: 2 }}
-            xs={{ span: 24, oreder: 2 }}>
+            sm={{ span: 21, order: 2 }}
+            xs={{ span: 24, order: 2 }}>
             <SliderNicotineBase
               baseNicotineStrength={this.props.baseNicotineStrength}
               handleChangeNicotineBase={this.props.handleChangeNicotineBase} />

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Table, message} from 'antd';
+import { Table } from 'antd';
 
-const error = () => {
-  message.error('This is a message of error');
-};
+// const error = () => {
+//   message.error('This is a message of error');
+// };
 
 const columns = [
   {
