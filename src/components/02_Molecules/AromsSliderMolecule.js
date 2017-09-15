@@ -7,24 +7,20 @@ const marks = {
   10: '10%'
 };
 
-let aromsList = [
-  {
-    ref: 'Black Tea (Черный чай)',
-    name: 'Black Tea (Черный чай)',
-    inputValue: 4
-  }, {
-    ref: 'Black Currant (Черная смородина)',
-    name: 'Black Currant (Черная смородина)',
-    inputValue: 2
-  }
-]
-
 class AromsSliderMolecule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      aroms: aromsList,
-    };
+      aroms: [{
+        ref: 'Black Tea (Черный чай)',
+        name: 'Black Tea (Черный чай)',
+        inputValue: 4
+      }, {
+        ref: 'Black Currant (Черная смородина)',
+        name: 'Black Currant (Черная смородина)',
+        inputValue: 7
+      },
+    ]};
     this.onChange = this.onChange.bind(this);
   }
 
