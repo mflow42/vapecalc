@@ -206,21 +206,19 @@ const aromsList = [
 class ListAromsMolecule extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: [],
-    }
+    this.filter = this.filter.bind(this);
   }
   componentWillMount = () => {
     this.setState({
       items: aromsList,
     })
   }
-filter(e) {
-  this.setState({
-    filter: e.target.value,
-  }) 
-}
-  
+  filter(e) {
+    this.setState({
+      filter: e.target.value,
+    })
+  }
+
   render() {
     let items = this.state.items;
     if (this.state.filter) {
@@ -228,37 +226,34 @@ filter(e) {
     }
     return (
       <div>
-        <input type="text" onChange={this.filter.bind(this)} className={'ant-input ant-select-search__field'} placeholder="Введите название ароматизатора" style={{ width: "100%" }}/>
+        <input type="text"
+          onChange={this.filter}
+          className={'ant-input ant-select-search__field'}
+          placeholder="Введите название ароматизатора"
+          style={{ width: "100%" }}
+        />
+
         <div style={{ height: '16px' }}></div>
-        {items.map(item => <Arom key={item.arom} arom={item}/>  )}
+
+        {items.map(item =>
+          <div className={'ant-select-dropdown-menu-item'} id={item} key={item} onClick={this.props.onAdd}>{item}</div>
+        )}
       </div>
     )
   }
 }
 
-const Arom = (props) => <div className={'ant-select-dropdown-menu-item'} >{props.arom}</div>
-  
 class AromsModalMolecule extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
-      selectedAroms: [{}],
-      selected: false,
     }
-    this.selectArom = this.selectArom.bind(this);
   }
   setModalVisible(modalVisible) {
     this.setState({
-      modalVisible 
+      modalVisible
     });
-  }
-  selectArom(event) {
-    this.setState({ 
-      selectedAroms: event.target,
-    })
-    this.selected ? event.target.className = 'ant-select-dropdown-menu-item' : event.target.className = 'selected-arom';
-    this.selected = !this.selected;
   }
   render() {
     return (
@@ -276,11 +271,15 @@ class AromsModalMolecule extends Component {
           title="Ароматизаторы"
           style={{ top: 20 }}
           visible={this.state.modalVisible}
-          onOk={() => {this.setModalVisible(false);}}
-          onCancel={() => this.setModalVisible(false)}>
-          
-          <ListAromsMolecule selectedAroms={this.state.selectedAroms} selectArom={this.selectArom} aromsList={aromsList} selected={this.selected}/>
-
+          onOk={() => { this.setModalVisible(false); }}
+          onCancel={() => this.setModalVisible(false)}
+          onAdd={this.props.onAdd}
+          aroms={this.props.aroms}
+        >
+          <ListAromsMolecule
+            onAdd={this.props.onAdd}
+            aroms={this.props.aroms}
+          />
         </Modal >
       </div>
     );
