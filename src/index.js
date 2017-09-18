@@ -10,5 +10,5 @@ const render = () => {
   ReactDOM.render(<Page {...state}/>, document.getElementById('root'));
 }
 render();
-
+ 
 store.subscribe(render);
