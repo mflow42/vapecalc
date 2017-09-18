@@ -42,7 +42,7 @@ class AromsSliderMolecule extends Component {
                     max={10}
                     value={arom.value}
                     onChange={this.update}
-                    onAfterChange={(value) => this.props.aromChangeValue(, value)}
+                    onAfterChange={(value) => this.props.aromChangeValue(arom.name, value)}
                   />
                 </Col>
               </Row>

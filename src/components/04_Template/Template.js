@@ -37,7 +37,7 @@ class Template extends Component {
       if (this.state[key] < 0) return;
       }
     }
-    
+
     handleChangeNicotineBase(value) {
       this.setState({baseNicotineStrength: value})
     }
@@ -62,7 +62,7 @@ class Template extends Component {
     handleChangeDesiredVolume(value) {
       this.setState({desiredVolume: value})
     }
-  
+
 
   render() {
     return (
@@ -74,51 +74,21 @@ class Template extends Component {
               theme="dark"
               mode="horizontal"
               defaultSelectedKeys={['2']}
-              style={{
-              lineHeight: '64px',
-              width: '100%'
-            }}>
+              style={{lineHeight: '64px',width: '100%'}}
+            >
               <Menu.Item key="1">О нас</Menu.Item>
               <Menu.Item key="2">Войти</Menu.Item>
             </Menu>
           </Header>
-          <Content
-            style={{
-            boxSizing: 'border-box',
-            padding: '0 10px'
-          }}>
+          <Content style={{boxSizing: 'border-box',padding: '0 10px'}}>
             <MenuOrganism/>
-            <div
-              style={{
-              background: '#fff',
-              padding: 24,
-              minHeight: 280
-            }}>
-              <BaseOrganism
-                baseNicotineStrength={this.state.baseNicotineStrength}
-                handleChangeNicotineBase={this.handleChangeNicotineBase}
-                basePgPercent={this.state.basePgPercent}
-                handleChangeBasePgPercent={this.handleChangeBasePgPercent}/>
-              <div style={{
-                height: '24px'
-              }}></div>
-              <AromsOrganism
-                aromsPercent={this.state.aromsPercent}
-                handleChangeAromsPercent={this.handleChangeAromsPercent}
-              />
-              <div style={{
-                height: '24px'
-              }}></div>
-              <DesiredOrganism
-                desiredNicotineStrength={this.state.desiredNicotineStrength}
-                handleChangeNicotineDesired={this.handleChangeNicotineDesired}
-                desiredPgPercent={this.state.desiredPgPercent}
-                handleChangeDesiredPgPercent={this.handleChangeDesiredPgPercent}
-                desiredVolume={this.state.desiredVolume}
-                handleChangeDesiredVolume={this.handleChangeDesiredVolume}/>
-              <div style={{
-                height: '24px'
-              }}></div>
+            <div style={{background: '#fff',padding: 24,minHeight: 280}}>
+              <BaseOrganism />
+              <div style={{height: '24px'}}></div>
+              <AromsOrganism />
+              <div style={{height: '24px'}}></div>
+              <DesiredOrganism />
+              <div style={{height: '24px'}}></div>
               <MixResultOrganism data={this.state}/>
             </div>
           </Content>

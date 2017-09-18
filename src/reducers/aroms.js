@@ -1,7 +1,7 @@
 const initState = [
-    {name: 'Caramel (Карамель)', value: 3},
-    {name: 'Cinnamon Sugar Cookie (Печенье с корицей)', value: 7},
-    {name: 'Dairy/Milk (Молоко)', value: 9},
+    {name: 'Caramel (Карамель)', value: 2},
+    {name: 'Cinnamon Sugar Cookie (Печенье с корицей)', value: 6},
+    {name: 'Dairy/Milk (Молоко)', value: 5},
   ]
 
 export default (state = initState, action) => {

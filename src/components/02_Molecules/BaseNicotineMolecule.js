@@ -15,9 +15,7 @@ class BaseNicotineMolecule extends Component {
           <Col
             sm={{ span: 21, order: 2 }}
             xs={{ span: 24, order: 2 }}>
-            <SliderNicotineBase
-              baseNicotineStrength={this.props.baseNicotineStrength}
-              handleChangeNicotineBase={this.props.handleChangeNicotineBase} />
+            <SliderNicotineBase />
           </Col>
         </Row>
       </div>

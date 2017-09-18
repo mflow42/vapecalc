@@ -68,9 +68,7 @@ class SliderPgVgBase extends Component {
             <InputNumber
               min={0}
               max={100}
-              style={{
-                width: '100%'
-              }}
+              style={{width: '100%'}}
               value={this.state.inputValue}
               onChange={this.handleChangeBasePgPercentWithChangingState}
             />
@@ -98,9 +96,7 @@ class SliderPgVgBase extends Component {
             <InputNumber
               min={0}
               max={100}
-              style={{
-                width: '100%'
-              }}
+              style={{width: '100%'}}
               value={100 - this.state.inputValue}
               onChange={this.handleChangeBaseVgPercentWithChangingState}
             />
