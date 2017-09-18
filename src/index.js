@@ -5,6 +5,9 @@ import 'antd/dist/antd.css';
 import './index.css';
 import store from './reducers/store';
 
+const aromsAddingHandler = (arom) =>
+  store.dispatch()
+
 const render = () => {
   const state = store.getState();
   ReactDOM.render(<Page {...state}/>, document.getElementById('root'));

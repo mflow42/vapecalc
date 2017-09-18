@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
 import store from '../../reducers/store';
 
+const state = store.getState();
+
 const marks = {
   0: '0%',
   5: '5%',
@@ -12,9 +14,6 @@ class AromsSliderMolecule extends Component {
   constructor(props) {
     super(props);
     this.update = this.update.bind(this);
-    this.state = {
-      inputValue: 0,
-    }
   }
   update(value) {
     console.dir(this);
@@ -23,13 +22,12 @@ class AromsSliderMolecule extends Component {
     })
   }
   render() {
-    let aroms = this.props.aroms;
     return (
       <div>
         <h2>Ароматизаторы</h2>
         <div style={{ height: '16px' }}></div>
         <div>
-          {aroms.map(arom =>
+          {state.aromsToMix.map(arom =>
             <div key={arom.name}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
@@ -45,7 +43,7 @@ class AromsSliderMolecule extends Component {
                     marks={marks}
                     max={10}
                     defaultValue={0}
-                    value={this.state.inputValue}
+                    value={0}
                     onChange={this.update}
                     onAfterChange={this.props.handleChangeAromsPercent}
                   />

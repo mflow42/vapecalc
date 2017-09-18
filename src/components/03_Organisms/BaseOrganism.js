@@ -10,10 +10,12 @@ class BaseOrganism extends Component {
         <div style={{height: '16px'}}></div>
         <BaseNicotineMolecule
           baseNicotineStrength={this.props.baseNicotineStrength}
-          handleChangeNicotineBase={this.props.handleChangeNicotineBase}/>
+          handleChangeNicotineBase={this.props.handleChangeNicotineBase}
+        />
         <SliderPgVgBase
           basePgPercent={this.props.basePgPercent}
-          handleChangeBasePgPercent={this.props.handleChangeBasePgPercent}/>
+          handleChangeBasePgPercent={this.props.handleChangeBasePgPercent}
+        />
       </div>
     );
   }

@@ -26,7 +26,8 @@ class SliderNicotineBase extends Component {
           marks={marks}
           value={this.state.inputValue}
           onChange={this.onChange}
-          onAfterChange={this.props.handleChangeNicotineBase}/>
+          onAfterChange={this.props.handleChangeNicotineBase}
+        />
       </div>
     );
   }

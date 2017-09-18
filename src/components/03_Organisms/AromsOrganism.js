@@ -5,21 +5,11 @@ import store from '../../reducers/store';
 
 const state = store.getState();
 
-
 class AromsOrganism extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      aroms: [{
-        ref: 'Black Tea (Черный чай)',
-        name: 'Black Tea (Черный чай)',
-        inputValue: 4
-      }, {
-        ref: 'Black Currant (Черная смородина)',
-        name: 'Black Currant (Черная смородина)',
-        inputValue: 7
-      },
-      ]
+      aroms: state.aromsToMix,
     };
     this.onAdd = this.onAdd.bind(this);
   }
@@ -37,18 +27,9 @@ class AromsOrganism extends Component {
   render() {
     return (
       <div>
-        <AromsSliderMolecule
-          aromsPercent={this.props.aromsPercent}
-          handleChangeAromsPercent={this.props.handleChangeAromsPercent}
-          aroms={this.state.aroms}
-          {...state}
-        />
+        <AromsSliderMolecule handleChangeAromsPercent={this.props.handleChangeAromsPercent} />
         <div style={{ height: '16px' }}></div>
-        <AromsModalMolecule
-          onAdd={this.onAdd}
-          aroms={this.state.aroms}
-          {...state}
-        />
+        <AromsModalMolecule onAdd={this.onAdd} />
       </div>
     )
   };
