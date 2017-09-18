@@ -5,16 +5,13 @@ import BaseOrganism from '../03_Organisms/BaseOrganism';
 import AromsOrganism from '../03_Organisms/AromsOrganism';
 import DesiredOrganism from '../03_Organisms/DesiredOrganism';
 import MixResultOrganism from '../03_Organisms/MixResultOrganism';
-import store from '../../reducers/store';
 
 const {Header, Content, Footer} = Layout;
 
-const state = store.getState();
 
 class Template extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
     this.handleChangeNicotineBase = this
       .handleChangeNicotineBase
       .bind(this)
@@ -108,7 +105,7 @@ class Template extends Component {
               <AromsOrganism
                 aromsPercent={this.state.aromsPercent}
                 handleChangeAromsPercent={this.handleChangeAromsPercent}
-                {...state}/>
+              />
               <div style={{
                 height: '24px'
               }}></div>

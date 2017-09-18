@@ -1,0 +1,21 @@
+const initState = [
+    {name: 'Caramel (Карамель)', value: 3},
+    {name: 'Cinnamon Sugar Cookie (Печенье с корицей)', value: 7},
+    {name: 'Dairy/Milk (Молоко)', value: 9},
+  ]
+
+export default (state = initState, action) => {
+  switch (action.type) {
+    case 'AROM_ADD':
+      return state.push({name: action.name, value: action.value});
+    case 'AROM_CHANGE_VALUE':
+      state.map(arom => {
+          if (arom.name === action.name) {
+            return {...arom, value: action.value}
+          }
+          return arom;
+      })
+    default:
+      return state;
+  }
+}

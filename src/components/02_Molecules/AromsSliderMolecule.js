@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
-import store from '../../reducers/store';
-
-const state = store.getState();
+import { connect } from 'react-redux';
+import { aromChangeValue } from '../../actions/aroms'
 
 const marks = {
   0: '0%',
@@ -27,7 +26,7 @@ class AromsSliderMolecule extends Component {
         <h2>Ароматизаторы</h2>
         <div style={{ height: '16px' }}></div>
         <div>
-          {state.aromsToMix.map(arom =>
+          {this.props.aroms.map(arom =>
             <div key={arom.name}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
@@ -39,13 +38,11 @@ class AromsSliderMolecule extends Component {
                   sm={{ span: 18, order: 2 }}
                   xs={{ span: 24, order: 2 }}>
                   <Slider
-                    ref={arom.ref}
                     marks={marks}
                     max={10}
-                    defaultValue={0}
-                    value={0}
+                    value={arom.value}
                     onChange={this.update}
-                    onAfterChange={this.props.handleChangeAromsPercent}
+                    onAfterChange={(value) => this.props.aromChangeValue(, value)}
                   />
                 </Col>
               </Row>
@@ -57,4 +54,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default AromsSliderMolecule;
+export default connect(state => ({ aroms: state}), { aromChangeValue })(AromsSliderMolecule);

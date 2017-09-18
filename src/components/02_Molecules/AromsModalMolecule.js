@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button, } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
-import store from '../../reducers/store';
 
 const aromsList = [
   {id: 'Absinthe (Абсент)', name: 'Absinthe (Абсент)', isSelected: false },
@@ -203,7 +202,6 @@ const aromsList = [
   {id: 'Yam (Ямс)', name: 'Yam (Ямс)', isSelected: false },  
 ]
 
-const state = store.getState();
 
 class ListAromsMolecule extends Component {
   constructor(props) {
