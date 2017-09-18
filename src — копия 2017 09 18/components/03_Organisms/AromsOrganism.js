@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import AromsModalMolecule from '../02_Molecules/AromsModalMolecule';
 import AromsSliderMolecule from '../02_Molecules/AromsSliderMolecule';
-import store from '../../reducers/store';
-
-const state = store.getState();
-
 
 class AromsOrganism extends Component {
   constructor(props) {
@@ -41,13 +37,11 @@ class AromsOrganism extends Component {
           aromsPercent={this.props.aromsPercent}
           handleChangeAromsPercent={this.props.handleChangeAromsPercent}
           aroms={this.state.aroms}
-          {...state}
         />
         <div style={{ height: '16px' }}></div>
         <AromsModalMolecule
           onAdd={this.onAdd}
           aroms={this.state.aroms}
-          {...state}
         />
       </div>
     )

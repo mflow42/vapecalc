@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
-import store from '../../reducers/store';
 
 const marks = {
   0: '0%',
