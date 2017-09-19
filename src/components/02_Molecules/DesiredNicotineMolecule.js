@@ -15,9 +15,7 @@ class DesiredNicotineMolecule extends Component {
           <Col
             sm={{ span: 21, oreder: 2 }}
             xs={{ span: 24, oreder: 2 }}>
-            <SliderNicotineDesired
-              desiredNicotineStrength={this.props.desiredNicotineStrength}
-              handleChangeNicotineDesired={this.props.handleChangeNicotineDesired} />
+            <SliderNicotineDesired />
           </Col>
         </Row>
       </div>

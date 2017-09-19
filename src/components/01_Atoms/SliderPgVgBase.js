@@ -28,26 +28,6 @@ const marks = {
 class SliderPgVgBase extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      inputValue: this.props.basePgPercent,
-    };
-    this.onChange = this.onChange.bind(this);
-    this.handleChangeBasePgPercentWithChangingState = this.handleChangeBasePgPercentWithChangingState.bind(this);
-    this.handleChangeBaseVgPercentWithChangingState = this.handleChangeBaseVgPercentWithChangingState.bind(this);
-  }
-
-  onChange = (value) => {
-    this.setState({
-      inputValue: value,
-    })
-  }
-  handleChangeBasePgPercentWithChangingState = (value) => {
-    this.onChange(value);
-    this.props.handleChangeBasePgPercent(value);
-  }
-  handleChangeBaseVgPercentWithChangingState = (value) => {
-    this.onChange(100 - value);
-    this.props.handleChangeBasePgPercent(100 - value);
   }
 
   render() {
@@ -69,7 +49,7 @@ class SliderPgVgBase extends Component {
               min={0}
               max={100}
               style={{width: '100%'}}
-              value={this.state.inputValue}
+              value={this.inputValue}
               onChange={this.handleChangeBasePgPercentWithChangingState}
             />
           </Col>
@@ -83,9 +63,9 @@ class SliderPgVgBase extends Component {
               marks={marks}
               min={0}
               max={100}
-              value={this.state.inputValue}
+              value={this.inputValue}
               onChange={this.onChange}
-              onAfterChange={this.props.handleChangeBasePgPercent}
+              onAfterChange={this.handleChangeBasePgPercent}
             />
           </Col>
           <Col
@@ -97,7 +77,7 @@ class SliderPgVgBase extends Component {
               min={0}
               max={100}
               style={{width: '100%'}}
-              value={100 - this.state.inputValue}
+              value={100 - this.inputValue}
               onChange={this.handleChangeBaseVgPercentWithChangingState}
             />
           </Col>

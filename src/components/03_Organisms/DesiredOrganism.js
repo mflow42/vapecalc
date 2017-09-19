@@ -8,21 +8,11 @@ class DesiredOrganism extends Component {
     return (
       <div>
         <h2>Ожидаемый результат</h2>
-        <div style={{
-          height: '16px'
-        }}></div>
-        <DesiredNicotineMolecule
-          desiredNicotineStrength={this.props.desiredNicotineStrength}
-          handleChangeNicotineDesired={this.props.handleChangeNicotineDesired}/>
-        <SliderPgVgDesired
-          desiredPgPercent={this.props.desiredPgPercent}
-          handleChangeDesiredPgPercent={this.props.handleChangeDesiredPgPercent}/>
-        <div style={{
-          height: '8px'
-        }}></div>
-        <DesiredVolumeMolecule
-          desiredVolume={this.props.desiredVolume}
-          handleChangeDesiredVolume={this.props.handleChangeDesiredVolume}/>
+        <div style={{height: '16px'}}></div>
+        <DesiredNicotineMolecule />
+        <SliderPgVgDesired />
+        <div style={{height: '8px'}}></div>
+        <DesiredVolumeMolecule />
       </div>
     );
   }

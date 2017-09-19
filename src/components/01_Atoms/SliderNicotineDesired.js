@@ -12,15 +12,6 @@ const marks = {
 };
 
 class SliderNicotineDesired extends Component {
-
-  state = {
-    inputValue: this.props.desiredNicotineStrength
-  }
-
-  onChange = (value) => {
-    this.setState({inputValue: value});
-  }
-
   render() {
     return (
       <div>
@@ -28,7 +19,7 @@ class SliderNicotineDesired extends Component {
           marks={marks}
           max={12}
           step={0.1}
-          value={this.state.inputValue}
+          value={this.inputValue}
           onChange={this.onChange}
           onAfterChange={this.props.handleChangeNicotineDesired}
           />

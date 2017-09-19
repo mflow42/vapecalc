@@ -12,13 +12,6 @@ const marks = {
 class AromsSliderMolecule extends Component {
   constructor(props) {
     super(props);
-    this.update = this.update.bind(this);
-  }
-  update(value) {
-    console.dir(this);
-    this.setState({
-      inputValue: value,
-    })
   }
   render() {
     return (
@@ -41,7 +34,8 @@ class AromsSliderMolecule extends Component {
                     marks={marks}
                     max={10}
                     value={arom.value}
-                    onChange={this.update}
+                    name={arom.name}
+                    onChange={(value) => this.props.aromChangeValue(arom.name, value)}
                     onAfterChange={(value) => this.props.aromChangeValue(arom.name, value)}
                   />
                 </Col>

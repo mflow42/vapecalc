@@ -6,7 +6,7 @@ class AromsOrganism extends Component {
   render() {
     return (
       <div>
-        <AromsSliderMolecule handleChangeAromsPercent={this.props.handleChangeAromsPercent} />
+        <AromsSliderMolecule />
         <div style={{ height: '16px' }}></div>
         <AromsModalMolecule />
       </div>
