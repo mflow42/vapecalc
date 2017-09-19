@@ -16,7 +16,7 @@ export default (state = initState, action) => {
         ...state.slice(action.index + 1)
       };
     case AROM_CHANGE_VALUE:
-      state.map(arom => {
+      return state.map( (arom) => {
         if (arom.name === action.name) {
           return { ...arom, value: action.value }
         }
