@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import {Slider} from 'antd';
+import React, { Component } from 'react';
+import { Slider } from 'antd';
+import { connect } from 'react-redux';
+import { nicotineBaseSliderChangeValue } from '../../actions/calculator';
 
 const marks = {
   0: '0',
@@ -16,12 +18,11 @@ class SliderNicotineBase extends Component {
         <Slider
           marks={marks}
           value={this.inputValue}
-          onChange={this.onChange}
-          onAfterChange={this.handleChangeNicotineBase}
+          onChange={(value) => this.props.nicotineBaseSliderChangeValue(value)}
         />
       </div>
     );
   }
 }
 
-export default SliderNicotineBase;
+export default connect(state => ({ aroms: state.baseNicotineStrength}), { nicotineBaseSliderChangeValue })(SliderNicotineBase);
