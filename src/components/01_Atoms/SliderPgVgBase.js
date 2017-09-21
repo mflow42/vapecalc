@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Slider, InputNumber, Row, Col } from 'antd';
+import { connect } from 'react-redux';
+import { basePgVgSliderChangeValue } from '../../actions/calculator'
 
 function formatter(value) {
   return `${value}% / ${100 - value}%`;
@@ -49,8 +51,8 @@ class SliderPgVgBase extends Component {
               min={0}
               max={100}
               style={{width: '100%'}}
-              value={this.inputValue}
-              onChange={this.handleChangeBasePgPercentWithChangingState}
+              value={this.props.basePgPercent}
+              onChange={(value) => this.props.basePgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
@@ -63,9 +65,8 @@ class SliderPgVgBase extends Component {
               marks={marks}
               min={0}
               max={100}
-              value={this.inputValue}
-              onChange={this.onChange}
-              onAfterChange={this.handleChangeBasePgPercent}
+              value={this.props.basePgPercent}
+              onChange={(value) => this.props.basePgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
@@ -77,8 +78,8 @@ class SliderPgVgBase extends Component {
               min={0}
               max={100}
               style={{width: '100%'}}
-              value={100 - this.inputValue}
-              onChange={this.handleChangeBaseVgPercentWithChangingState}
+              value={this.props.baseVgPercent}
+              onChange={(value) => this.props.basePgVgSliderChangeValue(100 - value)}
             />
           </Col>
           <Col
@@ -93,4 +94,4 @@ class SliderPgVgBase extends Component {
   }
 }
 
-export default SliderPgVgBase;
+export default connect(state => ({ basePgPercent: state.calculator.basePgPercent, baseVgPercent: state.calculator.baseVgPercent,}), { basePgVgSliderChangeValue } )(SliderPgVgBase);

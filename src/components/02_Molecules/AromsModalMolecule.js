@@ -201,7 +201,7 @@ const aromsList = [
   {id: 'Whipped Cream (Взбитые сливки)', name: 'Whipped Cream (Взбитые сливки)', isSelected: false },
   {id: 'White Chocolate (Белый шоколад)', name: 'White Chocolate (Белый шоколад)', isSelected: false },
   {id: 'Wintergreen (Мятные кофеты)', name: 'Wintergreen (Мятные кофеты)', isSelected: false },
-  {id: 'Yam (Ямс)', name: 'Yam (Ямс)', isSelected: false },  
+  {id: 'Yam (Ямс)', name: 'Yam (Ямс)', isSelected: false },
 ]
 
 
@@ -276,7 +276,6 @@ class AromsModalMolecule extends Component {
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
-          
         >
           <ListAromsMolecule />
         </Modal >

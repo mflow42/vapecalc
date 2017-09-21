@@ -29,6 +29,7 @@ class AromsSliderMolecule extends Component {
                   xs={{ span: 24, order: 2 }}>
                   <Slider
                     marks={marks}
+                    step={0.1}
                     max={10}
                     value={arom.value}
                     name={arom.name}

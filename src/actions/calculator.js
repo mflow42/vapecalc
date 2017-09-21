@@ -1,31 +1,31 @@
-export const NICOTINE_BASE_SLIDER_CHANGE_VALUE = 'NICOTINE_BASE_SLIDER_CHANGE_VALUE';
-export const NICOTINE_DESIRED_SLIDER_CHANGE_VALUE = 'NICOTINE_DESIRED_SLIDER_CHANGE_VALUE';
-export const PG_VG_BASE_SLIDER_CHANGE_VALUE = 'PG_VG_BASE_SLIDER_CHANGE_VALUE';
-export const PG_VG_DESIRED_SLIDER_CHANGE_VALUE = 'PG_VG_DESIRED_SLIDER_CHANGE_VALUE';
-export const MIX_VOLUME_DESIRED = 'MIX_VOLUME_DESIRED';
+export const BASE_NICOTINE_SLIDER_CHANGE_VALUE = 'BASE_NICOTINE_SLIDER_CHANGE_VALUE';
+export const BASE_PG_VG_SLIDER_CHANGE_VALUE = 'BASE_PG_VG_SLIDER_CHANGE_VALUE';
+export const DESIRED_NICOTINE_SLIDER_CHANGE_VALUE = 'DESIRED_NICOTINE_SLIDER_CHANGE_VALUE';
+export const DESIRED_PG_VG_SLIDER_CHANGE_VALUE = 'DESIRED_PG_VG_SLIDER_CHANGE_VALUE';
+export const DESIRED_MIX_VOLUME = 'DESIRED_MIX_VOLUME';
 
 
-export const nicotineBaseSliderChangeValue = (value) => ({
-  type: NICOTINE_BASE_SLIDER_CHANGE_VALUE,
+export const baseNicotineSliderChangeValue = (value) => ({
+  type: BASE_NICOTINE_SLIDER_CHANGE_VALUE,
   value: value,
 })
 
-export const nicotineDesiredSliderChangeValue = (value) => ({
-  type: NICOTINE_DESIRED_SLIDER_CHANGE_VALUE,
+export const basePgVgSliderChangeValue = (value) => ({
+  type: BASE_PG_VG_SLIDER_CHANGE_VALUE,
   value: value,
 })
 
-export const pgVgBaseSliderChangeValue = (value) => ({
-  type: PG_VG_BASE_SLIDER_CHANGE_VALUE,
+export const desiredNicotineSliderChangeValue = (value) => ({
+  type: DESIRED_NICOTINE_SLIDER_CHANGE_VALUE,
   value: value,
 })
 
-export const pgVgDesiredSliderChangeValue = (value) => ({
-  type: PG_VG_DESIRED_SLIDER_CHANGE_VALUE,
+export const desiredPgVgSliderChangeValue = (value) => ({
+  type: DESIRED_PG_VG_SLIDER_CHANGE_VALUE,
   value: value,
 })
 
-export const mixVolumeDesired = (value) => ({
-  type: MIX_VOLUME_DESIRED,
+export const desiredMixVolume = (value) => ({
+  type: DESIRED_MIX_VOLUME,
   value: value,
 })

@@ -7,13 +7,13 @@ class Page extends Component {
     return (
       <div>
         <Row type="flex" align="center">
-          <Col xs={24} sm={24} md={24} lg={16} xl={12}>
+          <Col xs={24} sm={20} md={16} lg={14} xl={12}>
             <Template />
           </Col>
         </Row>
       </div>
     );
   }
-} 
+}
 
 export default Page;

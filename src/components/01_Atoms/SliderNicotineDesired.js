@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
-import {Slider} from 'antd';
+import React, { Component } from 'react';
+import { Slider } from 'antd';
+import { connect } from 'react-redux';
+import { desiredNicotineSliderChangeValue } from '../../actions/calculator'
+
 
 const marks = {
   0: '0',
@@ -19,13 +22,12 @@ class SliderNicotineDesired extends Component {
           marks={marks}
           max={12}
           step={0.1}
-          value={this.inputValue}
-          onChange={this.onChange}
-          onAfterChange={this.props.handleChangeNicotineDesired}
-          />
+          value={this.props.desiredNicotineStrength}
+          onChange={(value) => this.props.desiredNicotineSliderChangeValue(value)}
+        />
       </div>
     );
   }
 }
 
-export default SliderNicotineDesired;
+export default connect(state => ({ desiredNicotineStrength: state.calculator.desiredNicotineStrength }), {desiredNicotineSliderChangeValue} )(SliderNicotineDesired);
