@@ -5,7 +5,7 @@ import { desiredMixVolumeChangeValue } from '../../actions/calculator' ;
 
 class DesiredNicotineMolecule extends Component {
   render() {
-    return <h3>Желаемый объем,&nbsp;<InputNumber value={this.props.desiredMixVolume} onChange={(value => this.props.desiredMixVolumeChangeValue(value))}/>&nbsp;мл</h3>;
+    return <h3>Желаемый объем,&nbsp;<InputNumber value={this.props.desiredMixVolume} onChange={(value) => this.props.desiredMixVolumeChangeValue(value)}/>&nbsp;мл</h3>;
   }
 }
 

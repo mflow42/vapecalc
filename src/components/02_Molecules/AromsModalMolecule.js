@@ -284,4 +284,4 @@ class AromsModalMolecule extends Component {
   }
 }
 
-export default AromsModalMolecule
+export default AromsModalMolecule;
