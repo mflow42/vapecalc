@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Slider, InputNumber, Row, Col } from 'antd';
+import { connect } from 'react-redux';
+import { desiredPgVgSliderChangeValue } from '../../actions/calculator'
 
 function formatter(value) {
   return `${value}% / ${100 - value}%`;
@@ -30,10 +32,6 @@ const marks = {
 };
 
 class SliderPgVgDesired extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
@@ -53,8 +51,8 @@ class SliderPgVgDesired extends Component {
               min={0}
               max={100}
               style={{ width: '100%' }}
-              value={this.inputValue}
-              onChange={this.handleChangeDesiredPgPercentWithState}
+              value={this.props.desiredPgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
@@ -67,9 +65,8 @@ class SliderPgVgDesired extends Component {
               marks={marks}
               min={0}
               max={100}
-              value={this.inputValue}
-              onChange={this.onChange}
-              onAfterChange={this.handleChangeDesiredPgPercent}
+              value={this.props.desiredPgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
@@ -80,8 +77,8 @@ class SliderPgVgDesired extends Component {
               min={0}
               max={100}
               style={{ width: '100%' }}
-              value={100 - this.inputValue}
-              onChange={this.handleChangeDesiredVgPercentWithState} />
+              value={this.props.desiredVgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(100 - value)} />
           </Col>
           <Col
             sm={{ span: 1, order: 4 }}
@@ -95,4 +92,4 @@ class SliderPgVgDesired extends Component {
   }
 }
 
-export default SliderPgVgDesired;
+export default connect(state => ({desiredPgPercent: state.calculator.desiredPgPercent, desiredVgPercent: state.calculator.desiredVgPercent}), {desiredPgVgSliderChangeValue})(SliderPgVgDesired);
