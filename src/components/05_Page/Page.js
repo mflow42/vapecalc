@@ -14,6 +14,6 @@ class Page extends Component {
       </div>
     );
   }
-}
+} 
 
 export default Page;

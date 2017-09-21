@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { aromAdd } from '../../actions/aroms'
 import { Modal, Button, } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
 
@@ -236,7 +238,7 @@ class ListAromsMolecule extends Component {
         <div style={{ height: '16px' }}></div>
 
         {items.map(item =>
-          <div className={'ant-select-dropdown-menu-item'} id={item.id} key={item.id} onClick={this.props.onAdd}>{item.name}</div>
+          <div className={'ant-select-dropdown-menu-item'} key={item.id} onClick={this.props.aromAdd}>{item.name}</div>
         )}
       </div>
     )
@@ -273,11 +275,11 @@ class AromsModalMolecule extends Component {
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
-          onAdd={this.props.onAdd}
+          aromAdd={this.props.aromAdd}
           aroms={this.props.aroms}
         >
           <ListAromsMolecule
-            onAdd={this.props.onAdd}
+            aromAdd={this.props.aromAdd}
             aroms={this.props.aroms}
           />
         </Modal >
@@ -286,4 +288,4 @@ class AromsModalMolecule extends Component {
   }
 }
 
-export default AromsModalMolecule;
+export default connect(state => ({ aroms: state.aroms }), {aromAdd} )(AromsModalMolecule);

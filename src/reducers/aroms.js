@@ -9,12 +9,15 @@ const initState = [
 export default (state = initState, action) => {
   switch (action.type) {
     case AROM_ADD:
-      return state.push({ name: action.name, value: action.value });
+      return [
+        ...state,
+        { name: action.name, value: action.value }
+      ]
     case AROM_DELETE:
-      return {
+      return [{
         ...state.slice(0, action.index),
         ...state.slice(action.index + 1)
-      };
+      }];
     case AROM_CHANGE_VALUE:
       return state.map( (arom) => {
         if (arom.name === action.name) {

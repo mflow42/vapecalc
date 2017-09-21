@@ -1,4 +1,12 @@
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import aroms from './reducers/aroms';
+import calculator from './reducers/calculator';
 
-export default createStore(aroms)
+
+const rootReducer = combineReducers({
+  aroms,
+  calculator
+});
+
+
+export default createStore(rootReducer);

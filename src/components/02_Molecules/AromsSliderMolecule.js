@@ -47,4 +47,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default connect(state => ({ aroms: state}), { aromChangeValue })(AromsSliderMolecule);
+export default connect(state => ({ aroms: state.aroms}), { aromChangeValue })(AromsSliderMolecule);
