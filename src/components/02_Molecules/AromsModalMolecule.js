@@ -205,7 +205,7 @@ const aromsList = [
 ]
 
 
-class ListAromsMolecule extends Component {
+class ListAromsMoleculeView extends Component {
   constructor(props) {
     super(props);
     this.filter = this.filter.bind(this);
@@ -237,13 +237,15 @@ class ListAromsMolecule extends Component {
 
         <div style={{ height: '16px' }}></div>
 
-        {items.map(item =>
-          <div className={'ant-select-dropdown-menu-item'} key={item.id} onClick={this.props.aromAdd}>{item.name}</div>
+        {aromsList.map(item =>
+          <div className={'ant-select-dropdown-menu-item'} key={item.id} onClick={() => this.props.aromAdd(item.name)}>{item.name}</div>
         )}
       </div>
     )
   }
 }
+
+const ListAromsMolecule = connect(state => ({ aroms: state.aroms }), {aromAdd})(ListAromsMoleculeView)
 
 class AromsModalMolecule extends Component {
   constructor(props) {
@@ -260,7 +262,6 @@ class AromsModalMolecule extends Component {
   render() {
     return (
       <div>
-
         <Button
           type="dashed"
           size="large"
@@ -275,17 +276,13 @@ class AromsModalMolecule extends Component {
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
-          aromAdd={this.props.aromAdd}
-          aroms={this.props.aroms}
+          
         >
-          <ListAromsMolecule
-            aromAdd={this.props.aromAdd}
-            aroms={this.props.aroms}
-          />
+          <ListAromsMolecule />
         </Modal >
       </div>
     );
   }
 }
 
-export default connect(state => ({ aroms: state.aroms }), {aromAdd} )(AromsModalMolecule);
+export default AromsModalMolecule

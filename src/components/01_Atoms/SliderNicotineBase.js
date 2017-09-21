@@ -12,9 +12,6 @@ const marks = {
 };
 
 class SliderNicotineBase extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -28,4 +25,4 @@ class SliderNicotineBase extends Component {
   }
 }
 
-export default connect(state => ({ calculator: state.baseNicotineStrength}), { nicotineBaseSliderChangeValue })(SliderNicotineBase);
+export default connect(state => ({ baseNicotineStrength: state.calculator.baseNicotineStrength}), { nicotineBaseSliderChangeValue })(SliderNicotineBase);

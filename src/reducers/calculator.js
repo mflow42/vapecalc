@@ -14,9 +14,8 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case NICOTINE_BASE_SLIDER_CHANGE_VALUE:
-      return () => {
-        state.baseNicotineStrength = action.value
-      }
+      return {...state, baseNicotineStrength: action.value }
+
     default:
       return state;
   }
