@@ -3,7 +3,7 @@ import {
   BASE_PG_VG_SLIDER_CHANGE_VALUE,
   DESIRED_NICOTINE_SLIDER_CHANGE_VALUE,
   DESIRED_PG_VG_SLIDER_CHANGE_VALUE,
-  DESIRED_MIX_VOLUME
+  DESIRED_MIX_VOLUME_CHANGE_VALUE
 } from '../actions/calculator';
 
 const initState = {
@@ -26,7 +26,7 @@ export default (state = initState, action) => {
       return { ...state, desiredNicotineStrength: action.value }
     case DESIRED_PG_VG_SLIDER_CHANGE_VALUE:
       return { ...state, desiredPgPercent: action.value, desiredVgPercent: 100 - action.value }
-    case DESIRED_MIX_VOLUME:
+    case DESIRED_MIX_VOLUME_CHANGE_VALUE:
       return { ...state, desiredMixVolume: action.value }
     default:
       return state;
