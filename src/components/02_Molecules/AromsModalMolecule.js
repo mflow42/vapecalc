@@ -238,7 +238,7 @@ class ListAromsMoleculeView extends Component {
         <div style={{ height: '16px' }}></div>
 
         {aromsList.map(item =>
-          <div className={'ant-select-dropdown-menu-item'} key={item.id} onClick={() => this.props.aromAdd(item.name)}>{item.name}</div>
+          <button className={'arom'} key={item.id} onClick={() => this.props.aromAdd(item.name)}>{item.name}</button>
         )}
       </div>
     )

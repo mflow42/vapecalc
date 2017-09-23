@@ -3,7 +3,6 @@ export const AROM_CHANGE_VALUE = 'AROM_CHANGE_VALUE';
 export const AROM_DELETE = 'AROM_DELETE';
 
 export const aromAdd = (name) => {
-  console.log(name)
   return {
     type: AROM_ADD,
     name,
