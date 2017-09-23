@@ -40,8 +40,14 @@ export default (state = initState, action) => {
         ...state,
         {
           name: action.name,
-          ml: () => console.log(action),
-          // ml: (props) => (props.calculator.desiredMixVolume * (props.aroms.value / 100)),
+          ml: (props) => {
+            // props.aroms.forEach((arom) => {
+            //   if (component.name === arom.name)
+            //     console.log(arom.value);
+            // }, this);
+            (props.calculator.desiredMixVolume)
+          },
+          // ml: (props) => (props.calculator.desiredMixVolume),
           kd: COEFFICIENT_DROP,
           kg: COEFFICIENT_GRAMM
         }

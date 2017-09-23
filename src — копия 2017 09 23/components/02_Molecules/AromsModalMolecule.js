@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { aromAdd } from '../../actions/aroms'
+import { aromAddToCalculator } from '../../actions/calculator'
+import { addAromToComponent } from '../../actions/component'
 import aromsList from '../01_Atoms/aromsList'
 import { Modal, Button, } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
-import components from '../03_Organisms/MixResultOrganism';
 
 class ListAromsMoleculeView extends Component {
   constructor(props) {
@@ -37,7 +38,11 @@ class ListAromsMoleculeView extends Component {
         />
         <div style={{ height: '16px' }}></div>
         {aromsList.map(item =>
-          <button className={'arom'} key={item.id} onClick={() => {this.props.aromAdd(item.name);}
+          <button className={'arom'} key={item.id} onClick={() => {
+            this.props.aromAdd(item.name);
+            //this.props.aromAddToCalculator(item.name);
+            this.props.addAromToComponent(item.name);
+          }
           }>{item.name}</button>
         )}
       </div>
@@ -45,7 +50,10 @@ class ListAromsMoleculeView extends Component {
   }
 }
 
-const ListAromsMolecule = connect(state => state, { aromAdd })(ListAromsMoleculeView)
+const ListAromsMolecule = connect(state => state, { aromAdd,
+  // aromAddToCalculator,
+  addAromToComponent,
+})(ListAromsMoleculeView)
 
 class AromsModalMolecule extends Component {
   constructor(props) {

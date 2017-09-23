@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Slider, InputNumber, Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import { basePgVgSliderChangeValue } from '../../actions/calculator'
+import { desiredPgVgSliderChangeValue } from '../../actions/calculator'
 
 function formatter(value) {
   return `${value}% / ${100 - value}%`;
@@ -16,7 +16,11 @@ const marks = {
     },
     label: '0%'
   },
+  20: '20%',
+  30: '30%',
   50: '50%',
+  70: '70%',
+  80: '80%',
   100: {
     style: {
       width: 20,
@@ -27,7 +31,7 @@ const marks = {
   }
 };
 
-class SliderPgVgBase extends Component {
+class SliderPgVgDesired extends Component {
   render() {
     return (
       <div>
@@ -46,9 +50,9 @@ class SliderPgVgBase extends Component {
             <InputNumber
               min={0}
               max={100}
-              style={{width: '100%'}}
-              value={this.props.basePgPercent}
-              onChange={(value) => this.props.basePgVgSliderChangeValue(value)}
+              style={{ width: '100%' }}
+              value={this.props.desiredPgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
@@ -61,22 +65,20 @@ class SliderPgVgBase extends Component {
               marks={marks}
               min={0}
               max={100}
-              value={this.props.basePgPercent}
-              onChange={(value) => this.props.basePgVgSliderChangeValue(value)}
+              value={this.props.desiredPgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(value)}
             />
           </Col>
           <Col
             md={{ span: 3, order: 3 }}
             sm={{ span: 3, order: 3 }}
-            xs={{ span: 8, order: 3 }}
-          >
+            xs={{ span: 8, order: 3 }}>
             <InputNumber
               min={0}
               max={100}
-              style={{width: '100%'}}
-              value={this.props.baseVgPercent}
-              onChange={(value) => this.props.basePgVgSliderChangeValue(100 - value)}
-            />
+              style={{ width: '100%' }}
+              value={this.props.desiredVgPercent}
+              onChange={(value) => this.props.desiredPgVgSliderChangeValue(100 - value)} />
           </Col>
           <Col
             sm={{ span: 1, order: 4 }}
@@ -90,4 +92,4 @@ class SliderPgVgBase extends Component {
   }
 }
 
-export default connect(state => ({ basePgPercent: state.calculator.basePgPercent, baseVgPercent: state.calculator.baseVgPercent,}), { basePgVgSliderChangeValue } )(SliderPgVgBase);
+export default connect(state => ({desiredPgPercent: state.calculator.desiredPgPercent, desiredVgPercent: state.calculator.desiredVgPercent}), {desiredPgVgSliderChangeValue})(SliderPgVgDesired);

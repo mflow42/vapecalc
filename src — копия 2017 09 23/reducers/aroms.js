@@ -1,9 +1,12 @@
 import { AROM_ADD, AROM_DELETE, AROM_CHANGE_VALUE } from '../actions/aroms';
 
+var uuid = require('uuid-v4');
+
 const initState = [];
 
 export default (state = initState, action) => {
   switch (action.type) {
+
     case AROM_ADD:
       if (state.some((arom) => {
         return arom.name === action.name;
