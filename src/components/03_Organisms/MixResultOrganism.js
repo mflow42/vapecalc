@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
 
+
 const columns = [
   {
     title: 'Компонент',
@@ -26,52 +27,51 @@ const columns = [
   }
 ];
 
-const COEFFICIENT_DROP = 33;
-const COEFFICIENT_GRAMM = 1.04;
+// const COEFFICIENT_DROP = 33;
+// const COEFFICIENT_GRAMM = 1.04;
 
-const components = [
-  {
-    name: "Основы",
-    ml: (props) => (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength)),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }, {
-    name: "Ароматизаторов",
-    ml: (props) => (props.desiredMixVolume * (props.aromsPercent / 100)),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }, {
-    name: "PG",
-    ml: (props) => ((props.desiredMixVolume * props.desiredPgPercent / 100) - (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength) * props.basePgPercent / 100) - (props.desiredMixVolume * (props.aromsPercent / 100))),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }, {
-    name: "VG",
-    ml: (props) => ((props.desiredMixVolume * props.desiredVgPercent / 100) - (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength) * props.baseVgPercent / 100)),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }, {
-    name: "Итого",
-    ml: (props) => (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength)) + (props.desiredMixVolume * (props.aromsPercent / 100)) + ((props.desiredMixVolume * props.desiredPgPercent / 100) - (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength) * props.basePgPercent / 100) - (props.desiredMixVolume * (props.aromsPercent / 100))) + ((props.desiredMixVolume * props.desiredVgPercent / 100) - (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength) * props.baseVgPercent / 100)),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }
-];
+// let components = [
+//   {
+//     name: "Основы",
+//     ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)),
+//     kd: COEFFICIENT_DROP,
+//     kg: COEFFICIENT_GRAMM
+//   }, {
+//     name: "Ароматизаторов",
+//     ml: (props) => (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)),
+//     kd: COEFFICIENT_DROP,
+//     kg: COEFFICIENT_GRAMM
+//   }, {
+//     name: "PG",
+//     ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))),
+//     kd: COEFFICIENT_DROP,
+//     kg: COEFFICIENT_GRAMM
+//   }, {
+//     name: "VG",
+//     ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
+//     kd: COEFFICIENT_DROP,
+//     kg: COEFFICIENT_GRAMM
+//   }, {
+//     name: "Итого",
+//     ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)) + (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)) + ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))) + ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
+//     kd: COEFFICIENT_DROP,
+//     kg: COEFFICIENT_GRAMM
+//   }
+// ];
+
+
 
 class MixResultOrganism extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    console.log(this.props.calculator)
-    const data = components.map((component, index) => {
-      let ml = component.ml(this.props.calculator);
+    // console.log(this.props.state.components)
+    let data = this.props.state.components.map((component, index) => {
+      let ml = component.ml(this.props.state);
       return {
         key: index,
         component: component.name,
-        ml: ml.toFixed(2),
-        drop: (ml * component.kd).toFixed(0),
-        gramm: (ml * component.kg).toFixed(2)
+        // ml: ml.toFixed(2),
+        // drop: (ml * component.kd).toFixed(0),
+        // gramm: (ml * component.kg).toFixed(2)
       }
     })
 
@@ -91,4 +91,4 @@ class MixResultOrganism extends Component {
   }
 }
 
-export default connect(state => ({ calculator: state.calculator }), {})(MixResultOrganism);
+export default connect(state => ({ state: state }), {})(MixResultOrganism);

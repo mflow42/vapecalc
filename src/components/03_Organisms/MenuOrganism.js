@@ -9,7 +9,7 @@ class MenuOrganism extends Component {
     current: 'mix',
   }
   handleClick = (e) => {
-    console.log('click ', e);
+    // console.log('click ', e);
     this.setState({
       current: e.key,
     });
