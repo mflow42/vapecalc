@@ -17,6 +17,7 @@ const initState = {
   desiredPgPercent: 30,
   desiredVgPercent: 70,
   desiredMixVolume: 30,
+  aromsPercent: 0,
   // aroms: [],
 }
 

@@ -1,37 +1,9 @@
-import React, { Component } from 'react';
-import { Table } from 'antd';
-import { connect } from 'react-redux';
-import { addAromToComponent } from '../../actions/component';
-
-
-const columns = [
-  {
-    title: 'Компонент',
-    dataIndex: 'component',
-    key: 'component',
-    width: '40%',
-  }, {
-    title: 'Миллилитров',
-    dataIndex: 'ml',
-    key: 'ml',
-    width: '20%',
-  }, {
-    title: 'Капель',
-    dataIndex: 'drop',
-    key: 'drop',
-    width: '20%',
-  }, {
-    title: 'Граммов',
-    dataIndex: 'gramm',
-    key: 'gramm',
-    width: '20%',
-  }
-];
+import { ADD_AROM_TO_COMPONENT } from '../actions/component';
 
 const COEFFICIENT_DROP = 33;
 const COEFFICIENT_GRAMM = 1.04;
 
-let components = [
+const initState = [
   {
     name: "Основы",
     ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)),
@@ -61,45 +33,25 @@ let components = [
 ];
 
 
-
-class MixResultOrganism extends Component {
-  render() {
-    // this.props.state.aroms.forEach((element) => {
-    //   if (components.indexOf(element.name)) components.push({
-    //     key: 'index',
-    //     component: element.name,
-    //     ml: 'ml.toFixed(2)',
-    //     drop: '(ml * component.kd).toFixed(0)',
-    //     gramm: '(ml * component.kg).toFixed(2)'
-    //   });
-
-    // }, this);
-
-    let data = this.props.state.components.map((component, index) => {
-      let ml = component.ml(this.props.state);
-      return {
-        key: index,
-        component: component.name,
-        ml: ml.toFixed(2),
-        drop: (ml * component.kd).toFixed(0),
-        gramm: (ml * component.kg).toFixed(2)
-      }
-    })
-
-    return (
-      <div>
-        <h2>Расчет</h2>
-        <div style={{ height: '16px' }}></div>
-        <Table
-          showHeader={true}
-          size={'middle'}
-          pagination={false}
-          columns={columns}
-          dataSource={data}
-        />
-      </div>
-    );
+export default (state = initState, action) => {
+  switch (action.type) {
+    case ADD_AROM_TO_COMPONENT:
+      return [
+        ...state,
+        {
+          name: action.name,
+          ml: (props) => {
+            // props.aroms.forEach((arom) => {
+            //   if (component.name === arom.name)
+            //     console.log(arom.value);
+            // }, this);
+            (props.calculator.desiredMixVolume / (props.aroms[0].value / 100))
+          },
+          kd: COEFFICIENT_DROP,
+          kg: COEFFICIENT_GRAMM
+        }
+      ]
+    default:
+      return [...state];
   }
 }
-
-export default connect(state => ({ state: state }), {})(MixResultOrganism);
