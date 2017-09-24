@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
-import { addAromToComponent } from '../../actions/component';
 
 
 const columns = [
@@ -74,15 +73,17 @@ class MixResultOrganism extends Component {
     //   });
 
     // }, this);
-
+    for (var index = 5; index < this.props.state.components.length; index++) {
+      // console.log(this.props.state.components[index])
+    }
     let data = this.props.state.components.map((component, index) => {
       let ml = component.ml(this.props.state);
       return {
         key: index,
         component: component.name,
-        ml: ml.toFixed(2),
-        drop: (ml * component.kd).toFixed(0),
-        gramm: (ml * component.kg).toFixed(2)
+        ml: ml,
+        drop: (ml * component.kd),
+        gramm: (ml * component.kg)
       }
     })
 

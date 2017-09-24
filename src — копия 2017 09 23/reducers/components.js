@@ -43,7 +43,7 @@ export default (state = initState, action) => {
           ml: (props) => {
             // props.aroms.forEach((arom) => {
             //   if (component.name === arom.name)
-            //     console.log(arom.value);
+                // console.log(arom.value);
             // }, this);
             (props.calculator.desiredMixVolume)
           },

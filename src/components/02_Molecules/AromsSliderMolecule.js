@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeValue } from '../../actions/aroms'
+import { aromToComponentChangeValue } from '../../actions/component'
+import { aromChangeCalcValue } from '../../actions/calculator'
 
 const marks = {
   0: '0%',
@@ -33,7 +35,11 @@ class AromsSliderMolecule extends Component {
                     max={20}
                     value={arom.value}
                     name={arom.name}
-                    onChange={(value) => { this.props.aromChangeValue(arom.name, value) }
+                    onChange={(value) => {
+                      this.props.aromToComponentChangeValue(arom.name, value)
+                      this.props.aromChangeValue(arom.name, value);
+                      this.props.aromChangeCalcValue(arom.name, value);
+                      }
                     }
                   />
                 </Col>
@@ -46,4 +52,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default connect(state => ({ state: state }), { aromChangeValue })(AromsSliderMolecule);
+export default connect(state => ({ state: state }), { aromChangeValue, aromToComponentChangeValue, aromChangeCalcValue })(AromsSliderMolecule);

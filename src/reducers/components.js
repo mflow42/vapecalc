@@ -1,7 +1,10 @@
 import { ADD_AROM_TO_COMPONENT } from '../actions/component';
+import { AROM_TO_COMPONENT_CHANGE_VALUE } from '../actions/component';
 
 const COEFFICIENT_DROP = 33;
 const COEFFICIENT_GRAMM = 1.04;
+let start = 0;
+// let comp = 4;
 
 const initState = [
   {
@@ -35,20 +38,55 @@ const initState = [
 
 export default (state = initState, action) => {
   switch (action.type) {
+
+    case AROM_TO_COMPONENT_CHANGE_VALUE:
+    return state.map((arom) => {
+      if (arom.name === action.name) {
+        return { ...arom, value: action.value }
+      }
+      return arom;
+    })
+
     case ADD_AROM_TO_COMPONENT:
       return [
         ...state,
         {
           name: action.name,
           ml: (props) => {
+            // console.log(props.components)
+            return (props)
             // props.aroms.forEach((arom) => {
             //   if (component.name === arom.name)
             //     console.log(arom.value);
             // }, this);
-            (props.calculator.desiredMixVolume / (props.aroms[0].value / 100))
+            // (props.aroms[0].value)
+            // / (props.aroms[0].value / 100)
+            // console.log(props.aroms[0].value)
+            // for (var key in object) {
+            //   if (object.hasOwnProperty(key)) {
+            //     var element = object[key];
+
+            //   }
+            // }
+            // console.log(props.calculator.aromsQuantity)
+            // console.log(props.calculator.aromsQuantity)
+            // console.log(state)
+            // console.log(stateStore.state)
+            // console.log(props.aroms[0].value)
+            // console.log(props.aroms[props.calculator.aromsQuantity])
+            // start++;
+            // console.log(props.aroms.length)
+            // console.log(this)
+            // comp++;
+            // let tmp = props.components[comp];
+            // let tmp2 = tmp.index;
+            // console.log(props.aroms.length)
+            // console.log(tmp3.value)
+            // console.log(props.components[comp].index)
           },
           kd: COEFFICIENT_DROP,
-          kg: COEFFICIENT_GRAMM
+          kg: COEFFICIENT_GRAMM,
+          index: action,
         }
       ]
     default:

@@ -3,6 +3,9 @@ export const BASE_PG_VG_SLIDER_CHANGE_VALUE = 'BASE_PG_VG_SLIDER_CHANGE_VALUE';
 export const DESIRED_NICOTINE_SLIDER_CHANGE_VALUE = 'DESIRED_NICOTINE_SLIDER_CHANGE_VALUE';
 export const DESIRED_PG_VG_SLIDER_CHANGE_VALUE = 'DESIRED_PG_VG_SLIDER_CHANGE_VALUE';
 export const DESIRED_MIX_VOLUME_CHANGE_VALUE = 'DESIRED_MIX_VOLUME_CHANGE_VALUE';
+export const AROMS_QUANTITY_INCREMENT = 'AROMS_QUANTITY_INCREMENT';
+export const AROM_ADD_TO_CALCULATOR = 'AROM_ADD_TO_CALCULATOR';
+export const AROM_CHANGE_CALC_VALUE = 'AROM_CHANGE_CALC_VALUE';
 
 
 export const baseNicotineSliderChangeValue = (value) => ({
@@ -27,5 +30,20 @@ export const desiredPgVgSliderChangeValue = (value) => ({
 
 export const desiredMixVolumeChangeValue = (value) => ({
   type: DESIRED_MIX_VOLUME_CHANGE_VALUE,
+  value,
+})
+
+export const aromsQuantityIncrement = () => ({
+  type: AROMS_QUANTITY_INCREMENT,
+})
+
+export const aromAddToCalculator = (name, value) => ({
+  type: AROM_ADD_TO_CALCULATOR,
+  name,
+  value,
+})
+export const aromChangeCalcValue= (name, value) => ({
+  type: AROM_CHANGE_CALC_VALUE,
+  name,
   value,
 })
