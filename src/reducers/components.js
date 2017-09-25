@@ -3,7 +3,7 @@ import { AROM_TO_COMPONENT_CHANGE_VALUE } from '../actions/component';
 
 const COEFFICIENT_DROP = 33;
 const COEFFICIENT_GRAMM = 1.04;
-let start = 0;
+// let start = 0;
 // let comp = 4;
 
 const initState = [
@@ -19,7 +19,7 @@ const initState = [
     kg: COEFFICIENT_GRAMM
   }, {
     name: "PG",
-    ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))),
+    ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsTotal / 100))),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }, {
@@ -29,7 +29,7 @@ const initState = [
     kg: COEFFICIENT_GRAMM
   }, {
     name: "Итого",
-    ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)) + (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)) + ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))) + ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
+    ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)) + (props.calculator.desiredMixVolume * (props.calculator.aromsTotal / 100)) + ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsTotal / 100))) + ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }
@@ -53,8 +53,19 @@ export default (state = initState, action) => {
         {
           name: action.name,
           ml: (props) => {
+            let result = 0;
+            for (var key in props.calculator.aroms) {
+              // console.log(props.calculator.aroms[key].name)
+              if (props.calculator.aroms[key].name === action.name) {
+                result = action.value
+              }
+            }
+            return result;
+          },
+            // console.log(action.name)
+            // return result;
             // console.log(props.components)
-            return (props)
+            // console.log(props);
             // props.aroms.forEach((arom) => {
             //   if (component.name === arom.name)
             //     console.log(arom.value);
@@ -83,10 +94,8 @@ export default (state = initState, action) => {
             // console.log(props.aroms.length)
             // console.log(tmp3.value)
             // console.log(props.components[comp].index)
-          },
           kd: COEFFICIENT_DROP,
           kg: COEFFICIENT_GRAMM,
-          index: action,
         }
       ]
     default:

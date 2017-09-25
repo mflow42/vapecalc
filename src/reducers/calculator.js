@@ -18,6 +18,7 @@ const initState = {
   desiredPgPercent: 30,
   desiredVgPercent: 70,
   desiredMixVolume: 30,
+  aromsTotal: 0,
   aroms: [],
 }
 
@@ -39,43 +40,42 @@ export default (state = initState, action) => {
     case DESIRED_MIX_VOLUME_CHANGE_VALUE:
       return { ...state, desiredMixVolume: action.value }
 
-    // case AROMS_QUANTITY_INCREMENT:
-    // state['aromsQuantity'] = state['aromsQuantity'] + 1;
-    // console.log(state['aromsQuantity']);
-
-    // console.log(key + ': ' + state[key]);
-    // console.log(key + ': ' + state[key]);
-    // if (state[key] === 'aromsQuantity') {
-    //   console.log(key + ': ' + state[key]);
-    // }
-    // console.log(state)
-    // return { ...state, }
-
     case AROM_ADD_TO_CALCULATOR:
       if (state.aroms.some((arom) => {
         return arom.name === action.name;
       })) return { ...state };
-      return {
+      return ({
         ...state,
         aroms: state.aroms.concat({
           name: action.name,
           value: 0
         })
-      }
+      })
       return { ...state };
 
     case AROM_CHANGE_CALC_VALUE:
-      // console.log(state.aroms)
-      return state.aroms.map((arom) => {
-        if (arom.name === action.name) {
-          return ({
-            ...state,
-            aroms: { name: action.name, value: action.value }
-          })
+      for (var key in state['aroms']) {
+        if (state['aroms'][key].name === action.name) {
+          state['aroms'][key].value = action.value;
         }
-        return { ...arom };
-      })
-
+      }
+      let result = 0;
+      for (var key in state['aroms']) {
+        result += state['aroms'][key].value;
+      }
+state.aromsTotal = result;
+      // for (var key in state) {
+      //   if (key === 'aroms') {
+      //     for (var key2 in state[key]) {
+      //       if (state[key][key2].name === action.name) {
+      //         console.log(true)
+      //         state[key][key2].value = action.value;
+      //       }
+      //     }
+      //   }
+      // }
+      // return {...state}
+      
     default:
       return { ...state };
   }
