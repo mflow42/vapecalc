@@ -51,8 +51,9 @@ export default (state = initState, action) => {
     })
 
     case ADD_AROM_TO_COMPONENT:
+    let index = 1;
       return [
-        ...state,
+        ...state.slice(0, index),
         {
           name: action.name,
           ml: (props) => {
@@ -106,7 +107,8 @@ export default (state = initState, action) => {
             // console.log(props.components[comp].index)
           kd: COEFFICIENT_DROP,
           kg: COEFFICIENT_GRAMM,
-        }
+        },
+        ...state.slice(index)
       ]
     default:
       return [...state];
