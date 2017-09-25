@@ -54,29 +54,19 @@ export default (state = initState, action) => {
       return { ...state };
 
     case AROM_CHANGE_CALC_VALUE:
+    // изменяем значение процента у слайдера аромки
       for (var key in state['aroms']) {
         if (state['aroms'][key].name === action.name) {
           state['aroms'][key].value = action.value;
         }
       }
+
+      // а теперь складываем и изменяем общий процент аромок в замесе для использования в калькуляторе
       let result = 0;
       for (var key in state['aroms']) {
         result += state['aroms'][key].value;
       }
-      
       state.aromsTotal = result;
-      // for (var key in state) {
-      //   if (key === 'aroms') {
-      //     for (var key2 in state[key]) {
-      //       if (state[key][key2].name === action.name) {
-      //         console.log(true)
-      //         state[key][key2].value = action.value;
-      //       }
-      //     }
-      //   }
-      // }
-      // return {...state}
-      
     default:
       return { ...state };
   }

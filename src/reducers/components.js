@@ -3,8 +3,6 @@ import { AROM_TO_COMPONENT_CHANGE_VALUE } from '../actions/component';
 
 const COEFFICIENT_DROP = 33;
 const COEFFICIENT_GRAMM = 1.04;
-// let start = 0;
-// let comp = 4;
 
 const initState = [
   {
@@ -13,6 +11,7 @@ const initState = [
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
   }, 
+  // Некогда бывшая часть ароматизаторов - в отличие от ноой - не динамиическая - вместо этой части как раз идет вставка кодом ниже
   // {
   //   name: "Ароматизаторов",
   //   ml: (props) => props.calculator.aromsTotal,
@@ -38,7 +37,6 @@ const initState = [
   }
 ];
 
-
 export default (state = initState, action) => {
   switch (action.type) {
 
@@ -51,66 +49,33 @@ export default (state = initState, action) => {
     })
 
     case ADD_AROM_TO_COMPONENT:
-    let index = 1;
-      return [
-        ...state.slice(0, index),
-        {
-          name: action.name,
-          ml: (props) => {
-            // let result = 0;
-            for (var key in props.calculator.aroms) {
-              // console.log(props.calculator.aroms[key].name)
-              if (props.calculator.aroms[key].name === action.name) {
-                // return action.value
-                // console.log(result)
-                // console.log(props.calculator.aroms[key].value) 
-                
-                return (props.calculator.desiredMixVolume * (props.calculator.aroms[key].value / 100));
+    // этот перебор для того, чтобы вставить в таблицу выбранные аромки перед строкой с PG
+    for (var index = 0; index < state.length; index++) {
+      var element = state[index];
+      if (element.name === 'PG') {
+        // подготавливаем и возвращаем State для таблицы
+        return [
+          // для этого отрезаем часть до PG от изначального State и вставляем в подготавливаемую часть
+          ...state.slice(0, index),
+          // вставляем динамический расчет аромки
+          {
+            name: action.name,
+            ml: (props) => {
+              for (var key in props.calculator.aroms) {
+                if (props.calculator.aroms[key].name === action.name) {
+                  return (props.calculator.desiredMixVolume * (props.calculator.aroms[key].value / 100));
+                }
               }
-              // return action.value;
-              // return result;
-            }
-            // return action.value;
-            // return 0;
+            },
+            kd: COEFFICIENT_DROP,
+            kg: COEFFICIENT_GRAMM,
           },
-            // console.log(action.name)
-            // return result;
-            // console.log(props.components)
-            // console.log(props);
-            // props.aroms.forEach((arom) => {
-            //   if (component.name === arom.name)
-            //     console.log(arom.value);
-            // }, this);
-            // (props.aroms[0].value)
-            // / (props.aroms[0].value / 100)
-            // console.log(props.aroms[0].value)
-            // for (var key in object) {
-            //   if (object.hasOwnProperty(key)) {
-            //     var element = object[key];
-
-            //   }
-            // }
-            // console.log(props.calculator.aromsQuantity)
-            // console.log(props.calculator.aromsQuantity)
-            // console.log(state)
-            // console.log(stateStore.state)
-            // console.log(props.aroms[0].value)
-            // console.log(props.aroms[props.calculator.aromsQuantity])
-            // start++;
-            // console.log(props.aroms.length)
-            // console.log(this)
-            // comp++;
-            // let tmp = props.components[comp];
-            // let tmp2 = tmp.index;
-            // console.log(props.aroms.length)
-            // console.log(tmp3.value)
-            // console.log(props.components[comp].index)
-          kd: COEFFICIENT_DROP,
-          kg: COEFFICIENT_GRAMM,
-        },
-        ...state.slice(index)
-      ]
-    default:
+          // вставляем оставшийся конец State для таблицы
+          ...state.slice(index)
+        ]
+      }
+    }
+      default:
       return [...state];
   }
 }
