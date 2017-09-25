@@ -5,7 +5,7 @@ import {
   DESIRED_PG_VG_SLIDER_CHANGE_VALUE,
   DESIRED_MIX_VOLUME_CHANGE_VALUE,
   AROM_ADD_TO_CALCULATOR,
-  AROM_CHANGE_CALC_VALUE,
+  AROM_CHANGE_CALCULATOR_VALUE,
 } from '../actions/calculator';
 
 
@@ -52,7 +52,7 @@ export default (state = initState, action) => {
       })
       return { ...state };
 
-    case AROM_CHANGE_CALC_VALUE:
+    case AROM_CHANGE_CALCULATOR_VALUE:
     // изменяем значение процента у слайдера аромки
       for (var key in state['aroms']) {
         if (state['aroms'][key].name === action.name) {

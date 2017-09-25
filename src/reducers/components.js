@@ -1,4 +1,4 @@
-import { ADD_AROM_TO_COMPONENT } from '../actions/component';
+import { AROM_ADD_TO_COMPONENT } from '../actions/component';
 import { AROM_TO_COMPONENT_CHANGE_VALUE } from '../actions/component';
 
 const COEFFICIENT_DROP = 33;
@@ -48,7 +48,7 @@ export default (state = initState, action) => {
       return arom;
     })
 
-    case ADD_AROM_TO_COMPONENT:
+    case AROM_ADD_TO_COMPONENT:
     // этот перебор для того, чтобы вставить в таблицу выбранные аромки перед строкой с PG
     for (var index = 0; index < state.length; index++) {
       var element = state[index];

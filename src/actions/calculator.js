@@ -4,7 +4,7 @@ export const DESIRED_NICOTINE_SLIDER_CHANGE_VALUE = 'DESIRED_NICOTINE_SLIDER_CHA
 export const DESIRED_PG_VG_SLIDER_CHANGE_VALUE = 'DESIRED_PG_VG_SLIDER_CHANGE_VALUE';
 export const DESIRED_MIX_VOLUME_CHANGE_VALUE = 'DESIRED_MIX_VOLUME_CHANGE_VALUE';
 export const AROM_ADD_TO_CALCULATOR = 'AROM_ADD_TO_CALCULATOR';
-export const AROM_CHANGE_CALC_VALUE = 'AROM_CHANGE_CALC_VALUE';
+export const AROM_CHANGE_CALCULATOR_VALUE = 'AROM_CHANGE_CALCULATOR_VALUE';
 
 
 export const baseNicotineSliderChangeValue = (value) => ({
@@ -38,8 +38,8 @@ export const aromAddToCalculator = (name, value) => ({
   name,
   value,
 })
-export const aromChangeCalcValue= (name, value) => ({
-  type: AROM_CHANGE_CALC_VALUE,
+export const aromChangeCalculatorValue= (name, value) => ({
+  type: AROM_CHANGE_CALCULATOR_VALUE,
   name,
   value,
 })
