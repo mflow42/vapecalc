@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import { aromChangeValue } from '../../actions/aroms'
 import { aromChangeCalcValue } from '../../actions/calculator'
 
 const marks = {
@@ -17,7 +16,7 @@ class AromsSliderMolecule extends Component {
         <h2>Ароматизаторы</h2>
         <div style={{ height: '16px' }}></div>
         <div>
-          {this.props.state.aroms.map(arom =>
+          {this.props.state.calculator.aroms.map(arom =>
             <div key={arom.name}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
@@ -34,11 +33,7 @@ class AromsSliderMolecule extends Component {
                     max={20}
                     value={arom.value}
                     name={arom.name}
-                    onChange={(value) => {
-                      this.props.aromChangeValue(arom.name, value);
-                      this.props.aromChangeCalcValue(arom.name, value);
-                      }
-                    }
+                    onChange={(value) => { this.props.aromChangeCalcValue(arom.name, value) } }
                   />
                 </Col>
               </Row>
@@ -50,4 +45,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default connect(state => ({ state: state }), { aromChangeValue, aromChangeCalcValue })(AromsSliderMolecule);
+export default connect(state => ({ state: state }), { aromChangeCalcValue })(AromsSliderMolecule);

@@ -6,9 +6,3 @@ export const addAromToComponent = (name, value) => ({
   name,
   value
 })
-
-// export const aromToComponentChangeValue = (name, value) => ({
-//   type: AROM_TO_COMPONENT_CHANGE_VALUE,
-//   name,
-//   value,
-// })
