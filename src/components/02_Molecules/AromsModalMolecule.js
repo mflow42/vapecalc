@@ -48,6 +48,14 @@ class ListAromsMoleculeView extends Component {
   }
 }
 
+function success() {
+  Modal.success({
+    title: 'This is a success message',
+    content: 'some messages...some messages...',
+    maskClosable: true,
+  });
+}
+
 const ListAromsMolecule = connect(state => state, { addAromToComponent, aromAddToCalculator })(ListAromsMoleculeView)
 
 class AromsModalMolecule extends Component {
@@ -62,26 +70,27 @@ class AromsModalMolecule extends Component {
       modalVisible
     });
   }
+  
   render() {
     return (
       <div>
+
         <Button
           type="dashed"
           size="large"
           icon="plus"
-          onClick={() => this.setModalVisible(true)}>Добавить ароматизаторы</Button>
+          onClick={() => this.setModalVisible(true)}>Добавить ароматизаторы
+        </Button>
 
         <Modal
           cancelText="Отмена"
-          okText="Добавить"
+          okText="Далее"
           title="Ароматизаторы"
           style={{ top: 20 }}
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
-        >
-          <ListAromsMolecule />
-        </Modal >
+        ><ListAromsMolecule /></Modal >
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Slider, Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeCalcValue } from '../../actions/calculator'
+import './AromsSliderMolecule.css'
 
 const marks = {
   0: '0%',
@@ -20,12 +21,12 @@ class AromsSliderMolecule extends Component {
             <div key={arom.name}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
-                  sm={{ span: 6, order: 1 }}
+                  sm={{ span: 8, order: 1 }}
                   xs={{ span: 24, order: 1 }}>
-                  <h3>{arom.name}</h3>
+                  <h3 className={'align-top'} >{arom.name}</h3>
                 </Col>
                 <Col
-                  sm={{ span: 18, order: 2 }}
+                  sm={{ span: 16, order: 2 }}
                   xs={{ span: 24, order: 2 }}>
                   <Slider
                     marks={marks}

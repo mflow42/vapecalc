@@ -2,28 +2,27 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
 
-
 const columns = [
   {
     title: 'Компонент',
     dataIndex: 'component',
     key: 'component',
-    width: '40%',
+    width: '55%',
   }, {
     title: 'Миллилитров',
     dataIndex: 'ml',
     key: 'ml',
-    width: '20%',
+    width: '15%',
   }, {
     title: 'Капель',
     dataIndex: 'drop',
     key: 'drop',
-    width: '20%',
+    width: '15%',
   }, {
     title: 'Граммов',
     dataIndex: 'gramm',
     key: 'gramm',
-    width: '20%',
+    width: '15%',
   }
 ];
 
