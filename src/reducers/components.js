@@ -12,12 +12,15 @@ const initState = [
     ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)),
     kd: COEFFICIENT_DROP,
     kg: COEFFICIENT_GRAMM
-  }, {
-    name: "Ароматизаторов",
-    ml: (props) => (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)),
-    kd: COEFFICIENT_DROP,
-    kg: COEFFICIENT_GRAMM
-  }, {
+  }, 
+  // {
+  //   name: "Ароматизаторов",
+  //   ml: (props) => props.calculator.aromsTotal,
+  //   // (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)),
+  //   kd: COEFFICIENT_DROP,
+  //   kg: COEFFICIENT_GRAMM
+  // },
+   {
     name: "PG",
     ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsTotal / 100))),
     kd: COEFFICIENT_DROP,
@@ -53,14 +56,21 @@ export default (state = initState, action) => {
         {
           name: action.name,
           ml: (props) => {
-            let result = 0;
+            // let result = 0;
             for (var key in props.calculator.aroms) {
               // console.log(props.calculator.aroms[key].name)
               if (props.calculator.aroms[key].name === action.name) {
-                result = action.value
+                // return action.value
+                // console.log(result)
+                // console.log(props.calculator.aroms[key].value) 
+                
+                return (props.calculator.desiredMixVolume * (props.calculator.aroms[key].value / 100));
               }
+              // return action.value;
+              // return result;
             }
-            return result;
+            // return action.value;
+            // return 0;
           },
             // console.log(action.name)
             // return result;

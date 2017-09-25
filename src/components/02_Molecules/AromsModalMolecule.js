@@ -41,8 +41,8 @@ class ListAromsMoleculeView extends Component {
         {aromsList.map(item =>
           <button className={'arom'} key={item.id} onClick={() => {
             this.props.aromAdd(item.name);
-            this.props.addAromToComponent(item.name, item.value);
-            this.props.aromsQuantityIncrement();
+            this.props.addAromToComponent(item.name, item);
+            this.props.aromsQuantityIncrement();  
             this.props.aromAddToCalculator(item.name);
             }
           }>{item.name}</button>

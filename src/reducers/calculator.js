@@ -63,7 +63,8 @@ export default (state = initState, action) => {
       for (var key in state['aroms']) {
         result += state['aroms'][key].value;
       }
-state.aromsTotal = result;
+      
+      state.aromsTotal = result;
       // for (var key in state) {
       //   if (key === 'aroms') {
       //     for (var key2 in state[key]) {

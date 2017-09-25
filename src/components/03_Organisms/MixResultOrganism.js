@@ -81,9 +81,9 @@ class MixResultOrganism extends Component {
       return {
         key: index,
         component: component.name,
-        ml: ml,
-        drop: (ml * component.kd),
-        gramm: (ml * component.kg)
+        ml: ml.toFixed(2),
+        drop: (ml * component.kd).toFixed(0),
+        gramm: (ml * component.kg).toFixed(2)
       }
     })
 
