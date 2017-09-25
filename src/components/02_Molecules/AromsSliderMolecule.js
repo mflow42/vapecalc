@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Slider, Row, Col } from 'antd';
+import { Slider, Row, Col, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeCalculatorValue } from '../../actions/calculator'
 import './AromsSliderMolecule.css'
@@ -22,12 +22,14 @@ class AromsSliderMolecule extends Component {
               <Row type="flex" justify="space-between" align="middle">
                 <Col
                   sm={{ span: 8, order: 1 }}
-                  xs={{ span: 24, order: 1 }}>
+                  xs={{ span: 24, order: 1 }}
+                >
                   <h3 className={'align-top'} >{arom.name}</h3>
                 </Col>
                 <Col
-                  sm={{ span: 16, order: 2 }}
-                  xs={{ span: 24, order: 2 }}>
+                  sm={{ span: 15, order: 2 }}
+                  xs={{ span: 23, order: 2 }}
+                >
                   <Slider
                     marks={marks}
                     step={0.1}
@@ -36,6 +38,20 @@ class AromsSliderMolecule extends Component {
                     name={arom.name}
                     onChange={(value) => { this.props.aromChangeCalculatorValue(arom.name, value) } }
                   />
+                </Col>
+                <Col
+                  sm={{ span: 1, order: 2 }}
+                  xs={{ span: 1, order: 2 }}
+                >
+                <Icon
+                  type="close-circle"
+                  style={{ 
+                    marginLeft: 10,
+                    fontSize: '2em',
+                    color: '#9fd2f6'
+                  }} 
+                  className="icon-delete-arom"
+                />
                 </Col>
               </Row>
             </div>

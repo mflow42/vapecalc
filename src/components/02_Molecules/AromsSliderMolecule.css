@@ -2,3 +2,9 @@
   vertical-align: top;
   /* height: 50px; */
 }
+
+.icon-delete-arom {
+  margin-left: 10;
+  font-size: 1.5em;
+  color: '#9fd2f6';
+}

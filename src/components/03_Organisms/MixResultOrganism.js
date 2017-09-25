@@ -7,22 +7,22 @@ const columns = [
     title: 'Компонент',
     dataIndex: 'component',
     key: 'component',
-    width: '55%',
+    width: '40%',
   }, {
     title: 'Миллилитров',
     dataIndex: 'ml',
     key: 'ml',
-    width: '15%',
+    width: '20%',
   }, {
     title: 'Капель',
     dataIndex: 'drop',
     key: 'drop',
-    width: '15%',
+    width: '20%',
   }, {
     title: 'Граммов',
     dataIndex: 'gramm',
     key: 'gramm',
-    width: '15%',
+    width: '20%',
   }
 ];
 
