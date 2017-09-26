@@ -36,7 +36,9 @@ const componentsBase = [
   }
 ];
 
-const componentAroms = [];
+const componentAroms = [{
+  ml: (component, calculator, aroms) => ( calculator.desiredMixVolume * component.value / 100)
+}];
 
 const componentsPgVg = [
   {
@@ -48,7 +50,6 @@ const componentsPgVg = [
   }
 ];
 
-const aromTotal = componentAroms.reduce((arom, i) => arom += arom.ml, 0);
 
 const mixTotal = [
   {
@@ -71,15 +72,19 @@ class MixResultOrganism extends Component {
     })
 
     let componentsAromsCalculation = this.props.aroms.map((component, index) => {
+      // let ml = componentAroms.ml(component, this.props.aroms, this.props.calculator);
+      // console.log(this.props)
       return {
         key: component.name,
         component: component.name,
-        ml: (component.value / 100).toFixed(2),
+        ml: (this.props.calculator.desiredMixVolume * this.props.aroms[index].value / 100).toFixed(2),
         drop: (this.ml * COEFFICIENT_DROP).toFixed(0),
         gramm: (this.ml * COEFFICIENT_GRAMM).toFixed(2)
       }
     })
 
+    // const aromTotal = componentsAromsCalculation.reduce((arom, i) => arom += arom.ml, 0);
+    console.log(componentsAromsCalculation)
     let componentsPgVgCalculation = componentsPgVg.map((component, index) => {
       return {
         key: component.name,
