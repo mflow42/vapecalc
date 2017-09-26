@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import aromsList from '../01_Atoms/aromsList'
-import { Modal, Button, } from 'antd';
+import { aromsListTpa, aromsListCapella, aromsListFlavourArt } from '../01_Atoms/aromsList'
+import { Modal, Button, Tabs } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
 import { aromAdd } from '../../actions/aroms';
 
-class ListAromsMoleculeView extends Component {
+
+const TabPane = Tabs.TabPane;
+
+function callback(key) {
+  console.log(key);
+}
+
+
+
+class ListAromsMoleculeTpaView extends Component {
   constructor(props) {
     super(props);
     this.filter = this.filter.bind(this);
   }
   componentWillMount = () => {
     this.setState({
-      aroms: aromsList,
+      aroms: aromsListTpa,
     })
   }
   filter(e) {
@@ -35,10 +44,10 @@ class ListAromsMoleculeView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aromsList.map(arom =>
+        {aromsListTpa.map(arom =>
           <button key={arom.name} className={'arom'} onClick={() => {
             this.props.aromAdd(arom.id, arom.name);
-            }
+          }
           }>{arom.name}</button>
         )}
       </div>
@@ -54,7 +63,116 @@ function success() {
   });
 }
 
-const ListAromsMolecule = connect(state => state, { aromAdd })(ListAromsMoleculeView)
+const ListAromsMoleculeTpa = connect(state => state, { aromAdd })(ListAromsMoleculeTpaView)
+
+class ListAromsMoleculeCapellaView extends Component {
+  constructor(props) {
+    super(props);
+    this.filter = this.filter.bind(this);
+    this.state = {
+      aroms: aromsListCapella,
+    }
+  }
+  componentWillMount = () => {
+    this.setState({
+      aroms: aromsListCapella,
+    })
+  }
+  filter(e) {
+    this.setState({
+      filter: e.target.value,
+    })
+  }
+
+  render() {
+    let aroms = this.state.aroms;
+    if (this.state.filter) {
+      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
+    }
+    return (
+      <div>
+        <input type="text"
+          onChange={this.filter}
+          className={'ant-input ant-select-search__field'}
+          placeholder="Введите название ароматизатора"
+          style={{ width: "100%" }}
+        />
+        <div style={{ height: '16px' }}></div>
+        {aromsListTpa.map(arom =>
+          <button key={arom.name} className={'arom'} onClick={() => {
+            this.props.aromAdd(arom.id, arom.name);
+          }
+          }>{arom.name}</button>
+        )}
+      </div>
+    )
+  }
+}
+
+function success() {
+  Modal.success({
+    title: 'This is a success message',
+    content: 'some messages...some messages...',
+    maskClosable: true,
+  });
+}
+
+const ListAromsMoleculeCapella = connect(state => state, { aromAdd })(ListAromsMoleculeCapellaView)
+
+class ListAromsMoleculeFlavourArtView extends Component {
+  constructor(props) {
+    super(props);
+    this.filter = this.filter.bind(this);
+  }
+  componentWillMount = () => {
+    this.setState({
+      aroms: aromsListFlavourArt,
+    })
+  }
+  filter(e) {
+    this.setState({
+      filter: e.target.value,
+    })
+  }
+
+  render() {
+    let aroms = this.state.aroms;
+    if (this.state.filter) {
+      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
+    }
+    return (
+      <div>
+        <input type="text"
+          onChange={this.filter}
+          className={'ant-input ant-select-search__field'}
+          placeholder="Введите название ароматизатора"
+          style={{ width: "100%" }}
+        />
+        <div style={{ height: '16px' }}></div>
+        {aromsListTpa.map(arom =>
+          <button key={arom.name} className={'arom'} onClick={() => {
+            this.props.aromAdd(arom.id, arom.name);
+          }
+          }>{arom.name}</button>
+        )}
+      </div>
+    )
+  }
+}
+
+function success() {
+  Modal.success({
+    title: 'This is a success message',
+    content: 'some messages...some messages...',
+    maskClosable: true,
+  });
+}
+
+
+
+const ListAromsMoleculeFlavourArt = connect(state => state, { aromAdd })(ListAromsMoleculeFlavourArtView)
+
+
 
 class AromsModalMolecule extends Component {
   constructor(props) {
@@ -88,7 +206,16 @@ class AromsModalMolecule extends Component {
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
-        ><ListAromsMolecule /></Modal >
+        >
+          <Tabs defaultActiveKey="1" onChange={callback}>
+            <TabPane tab="TPA" key="1"><ListAromsMoleculeTpa /></TabPane>
+            <TabPane tab="Capella" key="2"><ListAromsMoleculeCapella /></TabPane>
+            <TabPane tab="FlavourArt" key="3"><ListAromsMoleculeFlavourArt /></TabPane>
+
+          </Tabs>
+
+
+        </Modal >
       </div>
     );
   }

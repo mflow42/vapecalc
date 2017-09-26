@@ -18,7 +18,7 @@ class AromsSliderMolecule extends Component {
         <h2>Ароматизаторы</h2>
         <div style={{ height: '16px' }}></div>
         <div>
-          {this.props.state.aroms.map(arom =>
+          {this.props.state.aroms.map((arom, i, arr) =>
             <div key={arom.name}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
@@ -50,7 +50,7 @@ class AromsSliderMolecule extends Component {
                     icon="close"
                     size={'default'}
                     ghost={true}
-                    onClick={()=> { this.props.aromRemove(arom.name) }}
+                    onClick={()=> { this.props.aromRemove(arom.name, i) }}
                   />
                 </Col>
               </Row>
@@ -62,4 +62,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default connect(state => ({ state: state }), { aromChangeValue })(AromsSliderMolecule);
+export default connect(state => ({ state: state }), { aromChangeValue, aromRemove })(AromsSliderMolecule);

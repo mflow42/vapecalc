@@ -1,4 +1,4 @@
-import {AROM_ADD, AROM_REMOVE, AROM_CHANGE_VALUE} from '../actions/aroms';
+import { AROM_ADD, AROM_REMOVE, AROM_CHANGE_VALUE } from '../actions/aroms';
 
 const initState = [];
 
@@ -8,7 +8,7 @@ export default (state = initState, action) => {
     case AROM_ADD:
       if (state.some((arom) => {
         return arom.name === action.name;
-      })) 
+      }))
         return [...state];
       return [
         ...state, {
@@ -19,12 +19,7 @@ export default (state = initState, action) => {
       ]
 
     case AROM_REMOVE:
-      return [
-        {
-          ...state.slice(0, action.index),
-          ...state.slice(action.index + 1)
-        }
-      ];
+      return state.filter( arom => arom.name !== action.name )
 
     case AROM_CHANGE_VALUE:
       return state.map((arom) => {

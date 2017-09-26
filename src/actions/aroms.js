@@ -11,10 +11,11 @@ export const aromAdd = (id, name) => {
   }
 }
 
-export const aromRemove = (index, name) => ({
+export const aromRemove = (name, i, key) => ({
   type: AROM_REMOVE,
-  index,
+  i,
   name,
+  key
 })
 
 export const aromChangeValue = (name, value) => ({
