@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { Table } from 'antd';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {Table} from 'antd';
+import {connect} from 'react-redux';
 
 const columns = [
   {
     title: 'Компонент',
     dataIndex: 'component',
     key: 'component',
-    width: '40%',
+    width: '40%'
   }, {
     title: 'Миллилитров',
     dataIndex: 'ml',
     key: 'ml',
-    width: '20%',
+    width: '20%'
   }, {
     title: 'Капель',
     dataIndex: 'drop',
     key: 'drop',
-    width: '20%',
+    width: '20%'
   }, {
     title: 'Граммов',
     dataIndex: 'gramm',
     key: 'gramm',
-    width: '20%',
+    width: '20%'
   }
 ];
 
@@ -32,50 +32,91 @@ const COEFFICIENT_GRAMM = 1.04;
 const componentsBase = [
   {
     name: "Основы",
-    ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)),
-  }, {
-    name: "PG",
-    ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))),
-  }, {
-    name: "VG",
-    ml: (props) => ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
-  }, {
-    name: "Итого",
-    ml: (props) => (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength)) + (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100)) + ((props.calculator.desiredMixVolume * props.calculator.desiredPgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.basePgPercent / 100) - (props.calculator.desiredMixVolume * (props.calculator.aromsPercent / 100))) + ((props.calculator.desiredMixVolume * props.calculator.desiredVgPercent / 100) - (props.calculator.desiredMixVolume / (props.calculator.baseNicotineStrength / props.calculator.desiredNicotineStrength) * props.calculator.baseVgPercent / 100)),
+    ml: (props) => (props.desiredMixVolume / (props.baseNicotineStrength / props.desiredNicotineStrength))
   }
 ];
 
-// const componentAroms = []
+const componentAroms = [];
 
-// const aromTotal = console.log(this);
+const componentsPgVg = [
+  {
+    name: "PG",
+    ml: (calculator, aroms) => ((calculator.desiredMixVolume * calculator.desiredPgPercent / 100) - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength) * calculator.basePgPercent / 100) - (calculator.desiredMixVolume * (calculator.aromsPercent / 100)))
+  }, {
+    name: "VG",
+    ml: (calculator, aroms) => ((calculator.desiredMixVolume * calculator.desiredVgPercent / 100) - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength) * calculator.baseVgPercent / 100))
+  }
+];
+
+const aromTotal = componentAroms.reduce((arom, i) => arom += arom.ml, 0);
+
+const mixTotal = [
+  {
+    name: "Итого",
+    ml: (calculator) => (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength)) + (calculator.desiredMixVolume * (calculator.aromsPercent / 100)) + ((calculator.desiredMixVolume * calculator.desiredPgPercent / 100) - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength) * calculator.basePgPercent / 100) - (calculator.desiredMixVolume * (calculator.aromsPercent / 100))) + ((calculator.desiredMixVolume * calculator.desiredVgPercent / 100) - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength) * calculator.baseVgPercent / 100))
+  }
+];
 
 class MixResultOrganism extends Component {
   render() {
-    let data = componentsBase.map((component, index) => {
-      let ml = component.ml(this.props.state);
+
+    let componentsBaseCalculation = componentsBase.map((component, index) => {
       return {
-        key: index,
+        key: component.name,
         component: component.name,
-        ml: ml.toFixed(2),
-        drop: (ml * COEFFICIENT_DROP).toFixed(0),
-        gramm: (ml * COEFFICIENT_GRAMM).toFixed(2)
+        ml: component.ml(this.props.calculator).toFixed(2),
+        drop: (this.ml * COEFFICIENT_DROP).toFixed(0),
+        gramm: (this.ml * COEFFICIENT_GRAMM).toFixed(2)
       }
     })
+
+    let componentsAromsCalculation = this.props.aroms.map((component, index) => {
+      return {
+        key: component.name,
+        component: component.name,
+        ml: (component.value / 100).toFixed(2),
+        drop: (this.ml * COEFFICIENT_DROP).toFixed(0),
+        gramm: (this.ml * COEFFICIENT_GRAMM).toFixed(2)
+      }
+    })
+
+    let componentsPgVgCalculation = componentsPgVg.map((component, index) => {
+      return {
+        key: component.name,
+        component: component.name,
+        ml: component.ml(this.props.calculator, this.props.aroms).toFixed(2),
+        drop: (this.ml * COEFFICIENT_DROP).toFixed(0),
+        gramm: (this.ml * COEFFICIENT_GRAMM).toFixed(2)
+      }
+    })
+
+    let mixTotalCalculation = mixTotal.map((component, index) => {
+      return {
+        key: component.name,
+        component: component.name,
+        ml: component.ml(this.props.calculator, this.props.aroms).toFixed(2),
+        drop: (this.ml * COEFFICIENT_DROP).toFixed(0),
+        gramm: (this.ml * COEFFICIENT_GRAMM).toFixed(2)
+      }
+    })
+
+    let data = [].concat(componentsBaseCalculation, componentsAromsCalculation, componentsPgVgCalculation, mixTotalCalculation);
 
     return (
       <div>
         <h2>Расчет</h2>
-        <div style={{ height: '16px' }}></div>
+        <div style={{
+          height: '16px'
+        }}></div>
         <Table
           showHeader={true}
           size={'middle'}
           pagination={false}
           columns={columns}
-          dataSource={data}
-        />
+          dataSource={data}/>
       </div>
     );
   }
 }
 
-export default connect(state => ({ state: state }), {})(MixResultOrganism);
+export default connect(state => ({calculator: state.calculator, aroms: state.aroms}), {})(MixResultOrganism);

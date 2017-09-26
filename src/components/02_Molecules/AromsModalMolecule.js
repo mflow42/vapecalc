@@ -36,7 +36,7 @@ class ListAromsMoleculeView extends Component {
         />
         <div style={{ height: '16px' }}></div>
         {aromsList.map(arom =>
-          <button className={'arom'} onClick={() => {
+          <button key={arom.name} className={'arom'} onClick={() => {
             this.props.aromAdd(arom.id, arom.name);
             }
           }>{arom.name}</button>
@@ -68,7 +68,7 @@ class AromsModalMolecule extends Component {
       modalVisible
     });
   }
-  
+
   render() {
     return (
       <div>
