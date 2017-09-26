@@ -4,6 +4,7 @@ const initState = [];
 
 export default (state = initState, action) => {
   switch (action.type) {
+
     case AROM_ADD:
       if (state.some((arom) => {
         return arom.name === action.name;
@@ -11,10 +12,12 @@ export default (state = initState, action) => {
         return [...state];
       return [
         ...state, {
+          id: action.id,
           name: action.name,
           value: action.value
         }
       ]
+
     case AROM_REMOVE:
       return [
         {

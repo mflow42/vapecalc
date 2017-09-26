@@ -1,7 +1,7 @@
 import { AROM_ADD_TO_COMPONENT } from '../actions/component';
 import { AROM_TO_COMPONENT_CHANGE_VALUE } from '../actions/component';
 
-
+const initState = [];
 
 export default (state = initState, action) => {
   switch (action.type) {

@@ -17,8 +17,6 @@ const initState = {
   desiredPgPercent: 30,
   desiredVgPercent: 70,
   desiredMixVolume: 30,
-  aromsTotal: 0,
-  aroms: []
 }
 
 export default (state = initState, action) => {

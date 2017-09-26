@@ -45,7 +45,7 @@ const componentsBase = [
   }
 ];
 
-const componentAroms = []
+// const componentAroms = []
 
 // const aromTotal = console.log(this);
 

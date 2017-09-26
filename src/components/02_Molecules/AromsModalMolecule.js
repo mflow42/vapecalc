@@ -12,7 +12,7 @@ class ListAromsMoleculeView extends Component {
   }
   componentWillMount = () => {
     this.setState({
-      items: aromsList,
+      aroms: aromsList,
     })
   }
   filter(e) {
@@ -22,9 +22,9 @@ class ListAromsMoleculeView extends Component {
   }
 
   render() {
-    let items = this.state.items;
+    let aroms = this.state.aroms;
     if (this.state.filter) {
-      items = items.filter(item => item.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
@@ -35,12 +35,11 @@ class ListAromsMoleculeView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aromsList.map(item =>
+        {aromsList.map(arom =>
           <button className={'arom'} onClick={() => {
-            //this.props.aromAddToComponent(item.name, item);
-            this.props.aromAdd(item.name);
+            this.props.aromAdd(arom.id, arom.name);
             }
-          }>{item.name}</button>
+          }>{arom.name}</button>
         )}
       </div>
     )
