@@ -51,7 +51,7 @@ const componentAroms = []
 
 class MixResultOrganism extends Component {
   render() {
-    let data = this.props.state.components.map((component, index) => {
+    let data = componentsBase.map((component, index) => {
       let ml = component.ml(this.props.state);
       return {
         key: index,

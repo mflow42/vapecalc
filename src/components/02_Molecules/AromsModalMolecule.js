@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import aromsList from '../01_Atoms/aromsList'
 import { Modal, Button, } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
-import { aromAddToCalculator } from '../../actions/calculator';
+import { aromAdd } from '../../actions/aroms';
 
 class ListAromsMoleculeView extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class ListAromsMoleculeView extends Component {
         {aromsList.map(item =>
           <button className={'arom'} onClick={() => {
             //this.props.aromAddToComponent(item.name, item);
-            this.props.aromAddToCalculator(item.name);
+            this.props.aromAdd(item.name);
             }
           }>{item.name}</button>
         )}
@@ -55,7 +55,7 @@ function success() {
   });
 }
 
-const ListAromsMolecule = connect(state => state, { aromAddToCalculator })(ListAromsMoleculeView)
+const ListAromsMolecule = connect(state => state, { aromAdd })(ListAromsMoleculeView)
 
 class AromsModalMolecule extends Component {
   constructor(props) {

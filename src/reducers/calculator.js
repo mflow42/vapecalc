@@ -73,8 +73,6 @@ export default (state = initState, action) => {
         ...state
       };
 
-    case AROM_REMOVE_FROM_CALCULATOR:
-
     case AROM_CHANGE_CALCULATOR_VALUE:
       // изменяем значение процента у слайдера аромки
       for (var key in state['aroms']) {

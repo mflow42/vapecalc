@@ -1,4 +1,4 @@
-import {AROM_ADD, AROM_DELETE, AROM_CHANGE_VALUE} from '../actions/aroms';
+import {AROM_ADD, AROM_REMOVE, AROM_CHANGE_VALUE} from '../actions/aroms';
 
 const initState = [];
 
@@ -15,7 +15,7 @@ export default (state = initState, action) => {
           value: action.value
         }
       ]
-    case AROM_DELETE:
+    case AROM_REMOVE:
       return [
         {
           ...state.slice(0, action.index),
