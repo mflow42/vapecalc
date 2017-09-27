@@ -1,0 +1,93 @@
+* [33meb7dc46[m[33m ([m[1;36mHEAD -> [m[1;32mtemp[m[33m)[m Try to extract arom lists to the store for be able to remove highlight from slider molecule
+* [33mbb9455c[m Try to extract arom lists to the store for be able to remove highlight from slider molecule
+* [33m7a82a01[m Cleaning code
+* [33ma3db0fb[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m Try to highlight selected aroms
+* [33m1a4ffb1[m Try to highlight selected aroms
+* [33m5e0337c[m Deleting unnecessary files and folders
+* [33m838992a[m Deleting excessive files and code
+* [33m2e91ac8[m Added tabs to aroms modal
+* [33m80663be[m Reafactoring code done
+* [33m956aaa7[m Reafactoring code
+* [33m805ec98[m Reafactoring code
+* [33mc46c02c[m Reafactoring code
+* [33m081833a[m Reafactoring code
+* [33m30edf57[m Reafactoring code
+* [33m3a58182[m Backup src
+* [33m850fa9e[m Fixed issue with smartphone view appearing horizontal scrollbar by assigning xs=23 not xs=24 in page component
+* [33m45fc937[m Cleaning code
+* [33m1c794bb[m Some cleaning of code
+* [33m1dac355[m Clean code
+* [33mf1ce172[m Clean code
+* [33m7b0ada3[m Clean files and folders
+* [33m51919b6[m all done and in proper order in table! AHAHAHA!
+* [33mafffb07[m EVERYTHING IS WORK!!! FINALLY MPHACA
+* [33me0adeef[m Another attempt for building dunamic table - almost done
+* [33me013fd2[m Added some code trying to fix table dynamic cells
+* [33m6a56fce[m Added some code trying to fix table dynamic cells
+* [33m3260435[m Added some code trying to fix table dynamic cells
+* [33m3cb0f7f[m Added some code trying to fix table dynamic cells
+* [33m8315765[m Fixed allowing to add more than one aromatisator
+* [33maebac12[m Table works but w/o aroms calculation
+* [33m2c650b2[m Desired mix volume is alive
+* [33m4b89bb5[m Desired pg vg slider is alive
+* [33m1f02d42[m Base slider pg vg and desired nicotine sliders are alive too
+* [33mf3be1e1[m Slider IS ALIVE! ALIVE!
+* [33m97e7a14[m Try to alive base slider
+* [33m668ff7f[m Some code at home
+* [33m16c3606[m Arom slider now works
+* [33m3d6d886[m Clean code for redux
+* [33mb3383ae[m Fixed code to show calc
+* [33m443d770[m Added some code redux
+* [33m985e394[m Added some code redux
+* [33m8bc0de9[m Test commit from the VS Code
+* [33mb4e3a2b[m Added react-redux - store, first reducer, subscribe
+* [33m305312a[m Added ability to add aroms to slider
+* [33medc5141[m Next iteration of previous task - cleaned folders accrd to atomic
+* [33m2e668a7[m Next iteration of previous task - cleaned folders accrd to atomic
+* [33m9cbc4d1[m Next iteration of previous task - cleaned folders accrd to atomic
+* [33m01a03af[m Next iteration of previous task
+* [33med8457b[m Started dynamic aroms adder but not finished
+* [33m8604381[m Changed destinations of folders - moved to folder components
+* [33maf3602f[m Started modernizing aroms module and handling error of negative numbers
+* [33m6859ad5[m Added adaptive layout v2
+* [33m5081c31[m Added adaptive layout
+* [33me8c374d[m All code optimized - optimized onAfterChange in slides with two sides
+* [33m38be5c1[m Code optimizated added onAfterChange method
+* [33m148e814[m Added row Total to the app calcualtor
+* [33m534119c[m Calculator done - calculations and table done
+* [33m70b2fd6[m Cleaned code
+* [33m4261dd4[m All sliders lifts their values up to template.js and everything is preapared to do table
+* [33mbea0683[m Fixed issue with slider with two sides and started modelling massive for table
+* [33mb79e858[m Created link in props between template and aroms
+* [33m43e2ce5[m Created link in props between template and atom pg vg slider input
+* [33mfd20d92[m Enhanced sliderPgVg's
+* [33m3507da4[m Created link in props between template and atom nicotine input
+* [33md38a656[m Enhanced code
+* [33mcc02a81[m Enhanced code
+* [33mb793a95[m Enhanced code
+* [33m8966139[m Enhanced code
+* [33md748325[m Enhanced code
+* [33m0c8f57f[m Added last component Desired Volume
+* [33m73fcebe[m Enhance sliders
+* [33m484fa9c[m Code cleaned according atomic design
+* [33md618ceb[m Created slider with 2 inputs and inserted instead old ones in appropriate organisms
+* [33m3153005[m Created table organism
+* [33mb068292[m Enhanced PG/VG slider
+* [33mc52b975[m Created DesiredOrganism and rebuild of BaseOrganism
+* [33m4ed61b4[m Created and added AromsOrganism. Template code cleaned
+* [33ma9316cd[m Beautified code and added margin instead breadcrumbs
+* [33m0dfed45[m Deleted breadcrumbs
+* [33m7aa5393[m Created BaseOrganism and replaced code in Template.js
+* [33m41f9bdc[m Deleted eslint and fixed some issues
+* [33mdd9ac86[m Clean unused variables
+* [33m3a74e85[m Created Eslint json
+* [33md0e0608[m Solved conflict in index.js file
+* [33med33f9e[m Deleted unused duplicate folder
+*   [33mf3284c5[m Changed file names and folders accordingly Atomic design
+[32m|[m[33m\[m  
+[32m|[m * [33m2a61c30[m Added 1 version of page
+[32m|[m * [33m11683f0[m Added Ant Design node_module via npm
+[32m|[m * [33mcc79b15[m first commit
+[32m|[m * [33mdefe958[m first commit
+* [33md84ea71[m Changed file names and folders accordingly Atomic design
+* [33mf36b22f[m Added to the home pc and merged with local files
