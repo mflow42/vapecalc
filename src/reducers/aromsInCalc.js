@@ -1,4 +1,4 @@
-import { AROM_ADD, AROM_REMOVE, AROM_CHANGE_VALUE } from '../actions/aroms';
+import { AROM_ADD, AROM_REMOVE, AROM_CHANGE_VALUE } from '../actions/aromsInCalc';
 
 const initState = [];
 
@@ -14,7 +14,8 @@ export default (state = initState, action) => {
         ...state, {
           id: action.id,
           name: action.name,
-          value: action.value
+          value: action.value,
+          index: action.index
         }
       ]
 

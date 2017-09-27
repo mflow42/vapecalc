@@ -39,6 +39,14 @@
 
 .arom:focus {
   outline: none;
+  border: none;
+  list-style-position: none;
+}
+
+.arom:active {
+  outline: none;
+  list-style-position: none;
+  border: none;
 }
 
 .arom-selected {
@@ -75,4 +83,6 @@
   width: 488px;
   border: none;
   text-decoration: none;
+  outline: none;
+  list-style-position: none;
 }

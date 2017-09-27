@@ -1,11 +1,11 @@
 import {createStore, combineReducers} from 'redux';
-import aroms from './reducers/aroms';
+import aromsInCalc from './reducers/aromsInCalc';
 import calculator from './reducers/calculator';
 // import components from './reducers/components';
 
 
 const rootReducer = combineReducers({
-  aroms,
+  aromsInCalc,
   calculator,
   // components
 });

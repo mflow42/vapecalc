@@ -78,15 +78,15 @@ class MixResultOrganism extends Component {
       }
     })
 
-    let componentsAromsCalculation = this.props.aroms.map((component, index) => {
+    let componentsAromsCalculation = this.props.aromsInCalc.map((component, index) => {
       // let ml = componentAroms.ml(component, this.props.aroms, this.props.calculator);
       // console.log(this.props)
       return {
         key: component.name,
         component: component.name,
-        ml: (this.props.calculator.desiredMixVolume * this.props.aroms[index].value / 100).toFixed(2),
-        drop: ((this.props.calculator.desiredMixVolume * this.props.aroms[index].value / 100) * COEFFICIENT_DROP).toFixed(0),
-        gramm: ((this.props.calculator.desiredMixVolume * this.props.aroms[index].value / 100) * COEFFICIENT_GRAMM).toFixed(2)
+        ml: (this.props.calculator.desiredMixVolume * this.props.aromsInCalc[index].value / 100).toFixed(2),
+        drop: ((this.props.calculator.desiredMixVolume * this.props.aromsInCalc[index].value / 100) * COEFFICIENT_DROP).toFixed(0),
+        gramm: ((this.props.calculator.desiredMixVolume * this.props.aromsInCalc[index].value / 100) * COEFFICIENT_GRAMM).toFixed(2)
       }
     })
 
@@ -130,4 +130,4 @@ class MixResultOrganism extends Component {
   }
 }
 
-export default connect(state => ({calculator: state.calculator, aroms: state.aroms}), {})(MixResultOrganism);
+export default connect(state => ({calculator: state.calculator, aromsInCalc: state.aromsInCalc}), {})(MixResultOrganism);
