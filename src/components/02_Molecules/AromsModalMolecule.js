@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { aromsListTpa, aromsListCapella, aromsListFlavourArt } from '../01_Atoms/aromsList'
+import { aromAdd } from '../../actions/aroms';
 import { Modal, Button, Tabs } from 'antd';
 import '../02_Molecules/AromsModalMolecule.css';
-import { aromAdd } from '../../actions/aroms';
-
 
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
-  console.log(key);
+  // console.log(key);
 }
-
-
 
 class ListAromsMoleculeTpaView extends Component {
   constructor(props) {
     super(props);
     this.filter = this.filter.bind(this);
   }
+
   componentWillMount = () => {
     this.setState({
       aroms: aromsListTpa,
@@ -33,7 +31,7 @@ class ListAromsMoleculeTpaView extends Component {
   render() {
     let aroms = this.state.aroms;
     if (this.state.filter) {
-      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter(arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
@@ -44,7 +42,7 @@ class ListAromsMoleculeTpaView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aromsListTpa.map(arom =>
+        {aroms.map(arom =>
           <button key={arom.name} className={'arom'} onClick={() => {
             this.props.aromAdd(arom.id, arom.name);
           }
@@ -55,24 +53,14 @@ class ListAromsMoleculeTpaView extends Component {
   }
 }
 
-function success() {
-  Modal.success({
-    title: 'This is a success message',
-    content: 'some messages...some messages...',
-    maskClosable: true,
-  });
-}
-
 const ListAromsMoleculeTpa = connect(state => state, { aromAdd })(ListAromsMoleculeTpaView)
 
 class ListAromsMoleculeCapellaView extends Component {
   constructor(props) {
     super(props);
     this.filter = this.filter.bind(this);
-    this.state = {
-      aroms: aromsListCapella,
-    }
   }
+
   componentWillMount = () => {
     this.setState({
       aroms: aromsListCapella,
@@ -87,7 +75,7 @@ class ListAromsMoleculeCapellaView extends Component {
   render() {
     let aroms = this.state.aroms;
     if (this.state.filter) {
-      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter(arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
@@ -98,7 +86,7 @@ class ListAromsMoleculeCapellaView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aromsListTpa.map(arom =>
+        {aroms.map(arom =>
           <button key={arom.name} className={'arom'} onClick={() => {
             this.props.aromAdd(arom.id, arom.name);
           }
@@ -109,14 +97,6 @@ class ListAromsMoleculeCapellaView extends Component {
   }
 }
 
-function success() {
-  Modal.success({
-    title: 'This is a success message',
-    content: 'some messages...some messages...',
-    maskClosable: true,
-  });
-}
-
 const ListAromsMoleculeCapella = connect(state => state, { aromAdd })(ListAromsMoleculeCapellaView)
 
 class ListAromsMoleculeFlavourArtView extends Component {
@@ -124,6 +104,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
     super(props);
     this.filter = this.filter.bind(this);
   }
+
   componentWillMount = () => {
     this.setState({
       aroms: aromsListFlavourArt,
@@ -138,7 +119,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
   render() {
     let aroms = this.state.aroms;
     if (this.state.filter) {
-      aroms = aroms.filter(arom => arom.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter(arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
@@ -149,7 +130,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aromsListTpa.map(arom =>
+        {aroms.map(arom =>
           <button key={arom.name} className={'arom'} onClick={() => {
             this.props.aromAdd(arom.id, arom.name);
           }
@@ -160,19 +141,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
   }
 }
 
-function success() {
-  Modal.success({
-    title: 'This is a success message',
-    content: 'some messages...some messages...',
-    maskClosable: true,
-  });
-}
-
-
-
 const ListAromsMoleculeFlavourArt = connect(state => state, { aromAdd })(ListAromsMoleculeFlavourArtView)
-
-
 
 class AromsModalMolecule extends Component {
   constructor(props) {
@@ -211,9 +180,7 @@ class AromsModalMolecule extends Component {
             <TabPane tab="TPA" key="1"><ListAromsMoleculeTpa /></TabPane>
             <TabPane tab="Capella" key="2"><ListAromsMoleculeCapella /></TabPane>
             <TabPane tab="FlavourArt" key="3"><ListAromsMoleculeFlavourArt /></TabPane>
-
           </Tabs>
-
 
         </Modal >
       </div>

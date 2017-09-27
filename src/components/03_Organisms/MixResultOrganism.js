@@ -52,7 +52,8 @@ const componentsPgVg = [
     name: "VG",
     ml: (calculator) => (
       (calculator.desiredMixVolume * calculator.desiredVgPercent / 100)
-      - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength) * calculator.baseVgPercent / 100) )
+      - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength)
+      * calculator.baseVgPercent / 100) )
   }
 ];
 
@@ -72,8 +73,8 @@ class MixResultOrganism extends Component {
         key: component.name,
         component: component.name,
         ml: component.ml(this.props.calculator).toFixed(2),
-        drop: (component.ml(this.props.calculator) * COEFFICIENT_DROP).toFixed(0),
-        gramm: (component.ml(this.props.calculator) * COEFFICIENT_GRAMM).toFixed(2),
+        drop: (componentsBase[0].ml(this.props.calculator) * COEFFICIENT_DROP).toFixed(0),
+        gramm: (componentsBase[0].ml(this.props.calculator) * COEFFICIENT_GRAMM).toFixed(2),
       }
     })
 

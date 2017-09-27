@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Slider, Row, Col, Icon, Button } from 'antd';
+import { Slider, Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeValue } from '../../actions/aroms'
 import { aromRemove } from '../../actions/aroms'
