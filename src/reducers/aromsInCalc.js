@@ -7,24 +7,24 @@ export default (state = initState, action) => {
 
     case AROM_ADD:
       if (state.some((arom) => {
-        return arom.name === action.name;
+        return arom.id === action.id;
       }))
         return [...state];
       return [
         ...state, {
           id: action.id,
-          name: action.name,
+          index: action.index,
           value: action.value,
-          index: action.index
+          name: action.name,
         }
       ]
 
     case AROM_REMOVE:
-      return state.filter( arom => arom.name !== action.name )
+      return state.filter( arom => arom.id !== action.id )
 
     case AROM_CHANGE_VALUE:
       return state.map((arom) => {
-        if (arom.name === action.name) {
+        if (arom.id === action.id) {
           return {
             ...arom,
             value: action.value

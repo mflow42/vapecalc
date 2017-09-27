@@ -113,6 +113,7 @@ class MixResultOrganism extends Component {
     })
 
     let data = [].concat(componentsBaseCalculation, componentsAromsCalculation, componentsPgVgCalculation, mixTotalCalculation);
+
     return (
       <div>
         <h2>Расчет</h2>

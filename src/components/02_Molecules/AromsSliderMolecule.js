@@ -18,7 +18,7 @@ class AromsSliderMolecule extends Component {
         <div style={{ height: '16px' }}></div>
         <div>
           {this.props.aromsInCalc.map((arom, index, arr) =>
-            <div key={arom.name}>
+            <div key={arom.id}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
                   sm={{ span: 8, order: 1 }}
@@ -32,11 +32,12 @@ class AromsSliderMolecule extends Component {
                 >
                   <Slider
                     marks={marks}
+                    id={arom.id}
                     step={0.1}
                     max={20}
                     name={arom.name}
                     value={arom.value}
-                    onChange={(value) => { this.props.aromChangeValue(arom.name, value) } }
+                    onChange={(value) => { this.props.aromChangeValue(arom.id, value) } }
                   />
                 </Col>
                 <Col
@@ -49,7 +50,7 @@ class AromsSliderMolecule extends Component {
                     icon="close"
                     size={'default'}
                     ghost={true}
-                    onClick={()=> { this.props.aromRemove(arom.name, index) }}
+                    onClick={()=> { this.props.aromRemove(arom.id, index) }}
                   />
                 </Col>
               </Row>

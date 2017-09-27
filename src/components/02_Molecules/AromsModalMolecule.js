@@ -8,23 +8,19 @@ import '../02_Molecules/AromsModalMolecule.css';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
-  // console.log(key);
-//   let tpa = aromsListTpa;
-    let tmp = [];
-    tmp.aromsListTpa = aromsListTpa;
-    tmp.aromsListCapella = aromsListCapella;
-    tmp.aromsListFlavourArt = aromsListFlavourArt;
-   console.log(tmp.aromsListFlavourArt);
+  //   let tmp = [];
+  //   tmp.aromsListTpa = aromsListTpa;
+  //   tmp.aromsListCapella = aromsListCapella;
+  //   tmp.aromsListFlavourArt = aromsListFlavourArt;
+  //  console.log(tmp.aromsListFlavourArt);
 }
 
 class ListAromsMoleculeTpaView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      aroms: aromsListTpa
-    }
+    this.state = {};
     this.filter = this.filter.bind(this);
-    this.selectArom = this.selectArom.bind(this);
+    // this.selectArom = this.selectArom.bind(this);
   }
 
   filter(e) {
@@ -32,17 +28,22 @@ class ListAromsMoleculeTpaView extends Component {
       filter: e.target.value,
     })
   }
-  selectArom(index) {
-    this.state.aroms[index].selected = !this.state.aroms[index].selected;
-  }
+
+  // selectArom(index) {
+  //   const aroms = this.state.aroms;
+  //   aroms[index].selected = !aroms[index].selected;
+  //   this.setState({
+  //     aroms
+  //   })
+  // }
 
   render() {
-    // console.log(this);
-    let aroms = this.state.aroms;
+    let aroms = aromsListTpa;
 
     if (this.state.filter) {
       aroms = aroms.filter( (arom, index) => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
+
     return (
       <div>
         <input type="text"
@@ -55,18 +56,17 @@ class ListAromsMoleculeTpaView extends Component {
         {aroms.map( (arom, index) => {
           return (
             <button
-              index={index}
-              key={arom.name}
+              key={arom.id}
               className={arom.selected ? 'arom-selected' : 'arom'}
               selected={arom.selected}
               onClick={
                 () => {
                   if (arom.selected) {
-                    this.props.aromRemove(arom.name, index);
-                    this.selectArom(index);
+                    this.props.aromRemove(arom.id, index);
+                    //this.selectArom(index);
                    } else {
-                    this.props.aromAdd(arom.id, arom.name, index);
-                    this.selectArom(index);
+                    this.props.aromAdd( arom.id,arom.name, index);
+                    //this.selectArom(index);
                    }
                 }}
               >{arom.name}
@@ -78,7 +78,7 @@ class ListAromsMoleculeTpaView extends Component {
   }
 }
 
-const ListAromsMoleculeTpa = connect(state => ({aromsInCalc: state.aromsInCalc}), { aromAdd, aromRemove })(ListAromsMoleculeTpaView)
+const ListAromsMoleculeTpa = connect(state => ({aromsInCalc: state.aromsInCalc, aromsListTpa: state.aromsList.aromsListTpa}), { aromAdd, aromRemove })(ListAromsMoleculeTpaView)
 
 class ListAromsMoleculeCapellaView extends Component {
   constructor(props) {
@@ -96,9 +96,9 @@ class ListAromsMoleculeCapellaView extends Component {
   }
 
   render() {
-    let aroms = this.state.aroms;
+    let aroms = aromsListCapella;
     if (this.state.filter) {
-      aroms = aroms.filter( (arom, index )=> arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter( (arom, index) => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
@@ -109,9 +109,8 @@ class ListAromsMoleculeCapellaView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aroms.map(arom =>
+        {aroms.map( (arom, index) =>
           <button
-            index={index}
             key={arom.name}
             className={'arom'}
             onClick={() => {
@@ -124,7 +123,7 @@ class ListAromsMoleculeCapellaView extends Component {
   }
 }
 
-const ListAromsMoleculeCapella = connect( state => ({aromsInCalc: state.aromsInCalc}), { aromAdd })(ListAromsMoleculeCapellaView)
+const ListAromsMoleculeCapella = connect( state => ({aromsInCalc: state.aromsInCalc, aromsListCapella: state.aromsList.aromsListCapella}), { aromAdd })(ListAromsMoleculeCapellaView)
 
 class ListAromsMoleculeFlavourArtView extends Component {
   constructor(props) {
@@ -134,7 +133,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
     }
     this.filter = this.filter.bind(this);
   }
-  
+
   filter(e) {
     this.setState({
       filter: e.target.value,
@@ -142,7 +141,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
   }
 
   render() {
-    let aroms = this.state.aroms;
+    let aroms = aromsListFlavourArt;
     if (this.state.filter) {
       aroms = aroms.filter( arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()) )
     }
@@ -192,7 +191,7 @@ class ListAromsMoleculeFlavourArtView extends Component {
   }
 }
 
-const ListAromsMoleculeFlavourArt = connect( state => ({aromsInCalc: state.aromsInCalc}), { aromAdd } )(ListAromsMoleculeFlavourArtView)
+const ListAromsMoleculeFlavourArt = connect( state => ({aromsInCalc: state.aromsInCalc, aromsListFlavourArt: state.aromsList.aromsListFlavourArt}), { aromAdd } )(ListAromsMoleculeFlavourArtView)
 
 class AromsModalMolecule extends Component {
   constructor(props) {
