@@ -53,7 +53,7 @@ class ListAromsMoleculeTpaView extends Component {
   }
 }
 
-const ListAromsMoleculeTpa = connect(state => state, { aromAdd })(ListAromsMoleculeTpaView)
+const ListAromsMoleculeTpa = connect(state => ({aroms: state.aroms}), { aromAdd })(ListAromsMoleculeTpaView)
 
 class ListAromsMoleculeCapellaView extends Component {
   constructor(props) {
@@ -97,7 +97,7 @@ class ListAromsMoleculeCapellaView extends Component {
   }
 }
 
-const ListAromsMoleculeCapella = connect(state => state, { aromAdd })(ListAromsMoleculeCapellaView)
+const ListAromsMoleculeCapella = connect( state => ({aroms: state.aroms}), { aromAdd })(ListAromsMoleculeCapellaView)
 
 class ListAromsMoleculeFlavourArtView extends Component {
   constructor(props) {
@@ -119,8 +119,9 @@ class ListAromsMoleculeFlavourArtView extends Component {
   render() {
     let aroms = this.state.aroms;
     if (this.state.filter) {
-      aroms = aroms.filter(arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+      aroms = aroms.filter( arom => arom.name.toLowerCase().includes(this.state.filter.toLowerCase()) )
     }
+
     return (
       <div>
         <input type="text"
@@ -130,18 +131,43 @@ class ListAromsMoleculeFlavourArtView extends Component {
           style={{ width: "100%" }}
         />
         <div style={{ height: '16px' }}></div>
-        {aroms.map(arom =>
-          <button key={arom.name} className={'arom'} onClick={() => {
-            this.props.aromAdd(arom.id, arom.name);
-          }
-          }>{arom.name}</button>
-        )}
+
+        {aroms.map( (arom, index) => {
+          //return this.props.aroms.map(aromInList => {
+            //console.log(this.props.aroms);
+            //console.log(arom.id);
+            //if (this.props.aroms.indexOf(arom.id)) {
+              return (
+                <button
+                  key={arom.name}
+                  className={'arom'}
+                  onClick={
+                    () => {
+                      this.props.aromAdd(arom.id, arom.name);
+                    }
+                  }>{arom.name}
+                </button>
+              );
+            //} else {
+            //  return (
+            //    <button
+              //    key={arom.name}
+                //  className={'arom'}
+              //    onClick={
+             //       () => {
+              //        this.props.aromAdd(arom.id, arom.name);
+              //      }
+               //   }>{arom.name}
+              //  </button>
+            //  );
+           // }
+        })}
       </div>
     )
   }
 }
 
-const ListAromsMoleculeFlavourArt = connect(state => state, { aromAdd })(ListAromsMoleculeFlavourArtView)
+const ListAromsMoleculeFlavourArt = connect( state => ({aroms: state.aroms}), { aromAdd } )(ListAromsMoleculeFlavourArtView)
 
 class AromsModalMolecule extends Component {
   constructor(props) {

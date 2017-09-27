@@ -83,6 +83,7 @@ class Template extends Component {
           <Content style={{boxSizing: 'border-box',padding: '0 10px'}}>
             <MenuOrganism/>
             <div style={{background: '#fff',padding: 24,minHeight: 280}}>
+              <h1 style={{textAlign: 'center'}} >Новый рецепт</h1>
               <BaseOrganism />
               <div style={{height: '24px'}}></div>
               <AromsOrganism />
