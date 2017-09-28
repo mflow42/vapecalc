@@ -1,105 +1,52 @@
-import React, {Component} from 'react';
-import {Layout, Menu} from 'antd';
-import MenuOrganism from '../03_Organisms/MenuOrganism';
-import BaseOrganism from '../03_Organisms/BaseOrganism';
-import AromsOrganism from '../03_Organisms/AromsOrganism';
-import DesiredOrganism from '../03_Organisms/DesiredOrganism';
-import MixResultOrganism from '../03_Organisms/MixResultOrganism';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { createReactRouterMenu } from 'react-router-menu';
+import { Layout, Menu, Row, Col } from 'antd';
+import Main from '../03_Organisms/Main';
+import Aboutus from '../03_Organisms/Aboutus';
+import './Template.css';
 
-const {Header, Content, Footer} = Layout;
-
+const { Header, Content, Footer } = Layout;
 
 class Template extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChangeNicotineBase = this
-      .handleChangeNicotineBase
-      .bind(this)
-    this.handleChangeBasePgPercent = this
-      .handleChangeBasePgPercent
-      .bind(this)
-    this.handleChangeAromsPercent = this
-      .handleChangeAromsPercent
-      .bind(this)
-    this.handleChangeNicotineDesired = this
-      .handleChangeNicotineDesired
-      .bind(this)
-    this.handleChangeDesiredPgPercent = this
-      .handleChangeDesiredPgPercent
-      .bind(this)
-    this.handleChangeDesiredVolume = this
-      .handleChangeDesiredVolume
-      .bind(this)
-  }
-
-  handlingNegativeNumbers() {
-    for (let key in this.state) {
-      if (this.state[key] < 0) return;
-      }
-    }
-
-    handleChangeNicotineBase(value) {
-      this.setState({baseNicotineStrength: value})
-    }
-    handleChangeBasePgPercent(value) {
-      this.setState({
-        basePgPercent: value,
-        baseVgPercent: 100 - value
-      })
-    }
-    handleChangeAromsPercent(value) {
-      this.setState({aromsPercent: value})
-    }
-    handleChangeNicotineDesired(value) {
-      this.setState({desiredNicotineStrength: value})
-    }
-    handleChangeDesiredPgPercent(value) {
-      this.setState({
-        desiredPgPercent: value,
-        desiredVgPercent: 100 - value
-      })
-    }
-    handleChangeDesiredVolume(value) {
-      this.setState({desiredVolume: value})
-    }
-
-
   render() {
     return (
-      <div>
-        <Layout className="layout">
-          <Header>
-            <div className="logo"/>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              style={{lineHeight: '64px',width: '100%'}}
-            >
-              <Menu.Item key="1">О нас</Menu.Item>
-              <Menu.Item key="2">Войти</Menu.Item>
-            </Menu>
-          </Header>
-          <Content style={{boxSizing: 'border-box',padding: '0 10px'}}>
-            <MenuOrganism/>
-            <div style={{background: '#fff',padding: 24,minHeight: 280}}>
-              <h1 style={{textAlign: 'center'}} >Новый рецепт</h1>
-              <BaseOrganism />
-              <div style={{height: '24px'}}></div>
-              <AromsOrganism />
-              <div style={{height: '24px'}}></div>
-              <DesiredOrganism />
-              <div style={{height: '24px'}}></div>
-              <MixResultOrganism data={this.state}/>
-            </div>
-          </Content>
-          <Footer style={{
-            textAlign: 'center'
-          }}>
-            Flaw Flow Design ©2017 Created by user42
-          </Footer>
-        </Layout>
-      </div>
+      <Router>
+        <div>
+          <Row type="flex" align="center">
+            <Col xs={23} sm={20} md={16} lg={14} xl={12} >
+              <Layout className="layout">
+                <Header>
+                  <div className="logo" />
+                  <Menu
+                    theme="dark"
+                    mode="horizontal"
+                    defaultSelectedKeys={['/main']}
+                    style={{ lineHeight: '63px', width: '100%' }}
+                  >
+                    {/* <Link to={`/main`} className={'menu-link'}>Главная</Link>
+                    <Link to={`/about`} className={'menu-link'}>О нас</Link>
+                    <Link to={`/auth`} className={'menu-link'}>Войти</Link> */}
+                    <Menu.Item key="/main">Главная</Menu.Item>
+                    <Menu.Item key="/about">О нас</Menu.Item>
+                    <Menu.Item key="/auth">Войти</Menu.Item>
+                  </Menu>
+                </Header>
+                <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}>
+                  <div style={{ margin: '24px 0' }}></div>
+                    <Route path='/main' component={Main} />
+                    <Route path='/aboutus' component={Aboutus} />
+                </Content>
+                <Footer style={{
+                  textAlign: 'center'
+                }}>
+                  Flaw Flow Design ©2017 Created by user42
+              </Footer>
+              </Layout>
+            </Col>
+          </Row>
+        </div>
+      </Router>
     );
   };
 }

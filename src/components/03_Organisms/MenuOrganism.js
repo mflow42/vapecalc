@@ -17,7 +17,6 @@ class MenuOrganism extends Component {
   render() {
     return (
       <div>
-        <div style={{ margin: '24px 0' }}></div>
         <Menu
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
