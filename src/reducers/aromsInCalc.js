@@ -13,9 +13,9 @@ export default (state = initState, action) => {
       return [
         ...state, {
           id: action.id,
-          index: action.index,
-          value: action.value,
           name: action.name,
+          value: action.value,
+          index: action.index,
         }
       ]
 

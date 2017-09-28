@@ -2,7 +2,7 @@ export const AROM_ADD = 'AROM_ADD';
 export const AROM_CHANGE_VALUE = 'AROM_CHANGE_VALUE';
 export const AROM_REMOVE = 'AROM_REMOVE';
 
-export const aromAdd = (id, name, index) => ({
+export const aromAdd = (id, name, value, index) => ({
   type: AROM_ADD,
   id,
   name,
@@ -10,10 +10,9 @@ export const aromAdd = (id, name, index) => ({
   index
 })
 
-export const aromRemove = (id, index) => ({
+export const aromRemove = (id) => ({
   type: AROM_REMOVE,
   id,
-  index,
 })
 
 export const aromChangeValue = (id, value) => ({

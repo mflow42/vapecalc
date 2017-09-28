@@ -52,8 +52,8 @@ class AromsSliderMolecule extends Component {
                     size={'default'}
                     ghost={true}
                     onClick={() => {
-                      this.props.aromRemove(arom.id, index);
-                      this.props.aromToggleSelection(arom.id, arom.index)
+                      this.props.aromRemove(arom.id);
+                      this.props.aromToggleSelection(arom.id)
                     }}
                   />
                 </Col>

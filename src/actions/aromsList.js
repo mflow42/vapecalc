@@ -1,5 +1,5 @@
 export const AROM_TOGGLE_SELECTION = 'AROM_TOGGLE_SELECTION';
-export const FILTER_CHANGE = 'FILTER_CHANGE';
+export const AROM_LIST_FILTER_CHANGE_VALUE = 'AROM_LIST_FILTER_CHANGE_VALUE';
 
 export const aromToggleSelection = (id, index) => ({
   type: AROM_TOGGLE_SELECTION,
@@ -7,7 +7,7 @@ export const aromToggleSelection = (id, index) => ({
   index
 });
 
-export const filterChange = (e) => ({
-  type: FILTER_CHANGE,
-  value: e.target.value,
+export const aromListFilterChangeValue = (event) => ({
+  type: AROM_LIST_FILTER_CHANGE_VALUE,
+  value: event.target.value,
 });
