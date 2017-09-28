@@ -20,7 +20,7 @@ export default (state = initState, action) => {
       ]
 
     case AROM_REMOVE:
-      return state.filter( arom => arom.id !== action.id )
+      return state.filter(arom => arom.id !== action.id)
 
     case AROM_CHANGE_VALUE:
       return state.map((arom) => {

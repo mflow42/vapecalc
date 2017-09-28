@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Slider, Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeValue, aromRemove } from '../../actions/aromsInCalc'
+import { aromToggleSelection } from '../../actions/aromsList'
 import './AromsSliderMolecule.css'
 
 const marks = {
@@ -37,7 +38,7 @@ class AromsSliderMolecule extends Component {
                     max={20}
                     name={arom.name}
                     value={arom.value}
-                    onChange={(value) => { this.props.aromChangeValue(arom.id, value) } }
+                    onChange={(value) => { this.props.aromChangeValue(arom.id, value) }}
                   />
                 </Col>
                 <Col
@@ -50,7 +51,10 @@ class AromsSliderMolecule extends Component {
                     icon="close"
                     size={'default'}
                     ghost={true}
-                    onClick={()=> { this.props.aromRemove(arom.id, index) }}
+                    onClick={() => {
+                      this.props.aromRemove(arom.id, index);
+                      this.props.aromToggleSelection(arom.id, arom.index)
+                    }}
                   />
                 </Col>
               </Row>
@@ -62,4 +66,4 @@ class AromsSliderMolecule extends Component {
   }
 }
 
-export default connect(state => ({ aromsInCalc: state.aromsInCalc }), { aromChangeValue, aromRemove })(AromsSliderMolecule);
+export default connect(state => ({ aromsInCalc: state.aromsInCalc, aromsListTpa: state.aromsList.aromsListTpa }), { aromChangeValue, aromRemove, aromToggleSelection })(AromsSliderMolecule);
