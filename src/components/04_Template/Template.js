@@ -49,7 +49,7 @@ const { Header, Content, Footer } = Layout;
 class Template extends Component {
   render() {
     return (
-      <Router>
+      // <Router>
         <div>
           <Row type="flex" align="center">
             <Col xs={23} sm={20} md={16} lg={14} xl={12} >
@@ -82,7 +82,7 @@ class Template extends Component {
             </Col>
           </Row>
         </div>
-      </Router>
+      // </Router>
     );
   };
 }
