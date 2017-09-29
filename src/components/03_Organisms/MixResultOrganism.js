@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Table} from 'antd';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { Table } from 'antd';
+import { connect } from 'react-redux';
 
 const columns = [
   {
@@ -12,17 +12,59 @@ const columns = [
     title: 'Миллилитров',
     dataIndex: 'ml',
     key: 'ml',
-    width: '20%'
+    width: '20%',
+    className: "classNameOfColumn", // здесь менять класс колонки!
+    render: (text, record) => {
+      if ( text < 0) {
+        return {
+          props: {
+            className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
+            style: { color: 'red' }
+          },
+          children: text,
+        };
+      } else {
+        return text;
+      }
+    },
   }, {
     title: 'Капель',
     dataIndex: 'drop',
     key: 'drop',
-    width: '20%'
+    width: '20%',
+    className: "classNameOfColumn", // здесь менять класс колонки!
+    render: (text, record) => {
+      if ( text < 0) {
+        return {
+          props: {
+            className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
+            style: { color: 'red' }
+          },
+          children: text,
+        };
+      } else {
+        return text;
+      }
+    },
   }, {
     title: 'Граммов',
     dataIndex: 'gramm',
     key: 'gramm',
-    width: '20%'
+    width: '20%',
+    className: "classNameOfColumn", // здесь менять класс колонки!
+    render: (text, record) => {
+      if ( text < 0) {
+        return {
+          props: {
+            className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
+            style: { color: 'red' }
+          },
+          children: text,
+        };
+      } else {
+        return text;
+      }
+    },
   }
 ];
 
@@ -53,7 +95,7 @@ const componentsPgVg = [
     ml: (calculator) => (
       (calculator.desiredMixVolume * calculator.desiredVgPercent / 100)
       - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength)
-      * calculator.baseVgPercent / 100) )
+        * calculator.baseVgPercent / 100))
   }
 ];
 
@@ -125,10 +167,11 @@ class MixResultOrganism extends Component {
           size={'middle'}
           pagination={false}
           columns={columns}
-          dataSource={data}/>
+          dataSource={data}
+        />
       </div>
     );
   }
 }
 
-export default connect(state => ({calculator: state.calculator, aromsInCalc: state.aromsInCalc}), {})(MixResultOrganism);
+export default connect(state => ({ calculator: state.calculator, aromsInCalc: state.aromsInCalc }), {})(MixResultOrganism);
