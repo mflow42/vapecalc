@@ -3,7 +3,6 @@ import ListAromsMoleculeTpa from './ListAromsMoleculeTpa';
 import ListAromsMoleculeCapella from './ListAromsMoleculeCapella';
 import ListAromsMoleculeFlavourArt from './ListAromsMoleculeFlavourArt';
 import { Modal, Button, Tabs } from 'antd';
-import { Route } from 'react-router-dom';
 import '../02_Molecules/AromsModalMolecule.css';
 
 const TabPane = Tabs.TabPane;

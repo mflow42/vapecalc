@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^2.13.0",
     "immutability-helper": "^2.3.1",
+    "mongodb-stitch": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
