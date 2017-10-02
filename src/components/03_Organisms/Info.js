@@ -4,7 +4,7 @@ class Info extends Component {
   render() {
     return (
       <div>
-        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+        <div style={{ background: '#fff', padding: 24, minHeight: 280, height: '100%', }}>
           <h1 style={{ textAlign: 'center' }} >Справка</h1>
         </div>
       </div>

@@ -35,6 +35,9 @@
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   white-space: nowrap;
   width: 75px;
+  min-width: 40px;
+  max-width: 75px;
+  
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -81,14 +84,12 @@
   transition-property: color, border-color, background, padding;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   white-space: nowrap;
-  width: 75px;
+  max-width: 75px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .logo {
-  /* width: 100px; */
-  float: left;
-  height: 63px;
-  /* height: 100%; */
+  margin: 0 auto 30px auto;
+  box-sizing: border-box;
   content: url(http://perehodinapar.ru/calc/public/style_images/flat/logo.png);
 }
