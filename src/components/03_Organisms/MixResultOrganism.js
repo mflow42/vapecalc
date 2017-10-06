@@ -15,7 +15,7 @@ const columns = [
     width: '20%',
     className: "classNameOfColumn", // здесь менять класс колонки!
     render: (text, record) => {
-      if ( text < 0) {
+      if (text < 0) {
         return {
           props: {
             className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
@@ -34,7 +34,7 @@ const columns = [
     width: '20%',
     className: "classNameOfColumn", // здесь менять класс колонки!
     render: (text, record) => {
-      if ( text < 0) {
+      if (text < 0) {
         return {
           props: {
             className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
@@ -53,7 +53,7 @@ const columns = [
     width: '20%',
     className: "classNameOfColumn", // здесь менять класс колонки!
     render: (text, record) => {
-      if ( text < 0) {
+      if (text < 0) {
         return {
           props: {
             className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
@@ -70,6 +70,8 @@ const columns = [
 
 const COEFFICIENT_DROP = 33;
 const COEFFICIENT_GRAMM = 1.04;
+const COEFFICIENT_GRAMM_VG = 1.262;
+const COEFFICIENT_GRAMM_PG = 1.0349;
 
 const componentsBase = [
   {
@@ -89,13 +91,23 @@ const componentsPgVg = [
       (calculator.desiredMixVolume * calculator.desiredPgPercent / 100)
       - (componentsBaseCalculation * calculator.basePgPercent / 100)
       - aromTotal
+    ),
+    gramm: ((calculator, aromTotal, componentsBaseCalculation) => (
+      (calculator.desiredMixVolume * calculator.desiredPgPercent / 100)
+      - (componentsBaseCalculation * calculator.basePgPercent / 100)
+      - aromTotal) * COEFFICIENT_GRAMM_PG
     )
   }, {
     name: "VG",
     ml: (calculator) => (
       (calculator.desiredMixVolume * calculator.desiredVgPercent / 100)
       - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength)
+        * calculator.baseVgPercent / 100)),
+    gramm: (calculator) => (
+      ((calculator.desiredMixVolume * calculator.desiredVgPercent / 100)
+      - (calculator.desiredMixVolume / (calculator.baseNicotineStrength / calculator.desiredNicotineStrength)
         * calculator.baseVgPercent / 100))
+      * COEFFICIENT_GRAMM_VG ),
   }
 ];
 
@@ -140,7 +152,7 @@ class MixResultOrganism extends Component {
         component: component.name,
         ml: component.ml(this.props.calculator, aromTotal, componentsBaseCalculation[0].ml).toFixed(2),
         drop: (component.ml(this.props.calculator, aromTotal, componentsBaseCalculation[0].ml) * COEFFICIENT_DROP).toFixed(0),
-        gramm: (component.ml(this.props.calculator, aromTotal, componentsBaseCalculation[0].ml) * COEFFICIENT_GRAMM).toFixed(2)
+        gramm: component.gramm(this.props.calculator, aromTotal, componentsBaseCalculation[0].ml).toFixed(2)
       }
     })
 

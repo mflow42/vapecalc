@@ -1,10 +1,15 @@
 .menu-link {
+  background-color: rgb(64, 64, 64);
   border-bottom-color: rgb(255, 255, 255);
   border-bottom-style: none;
   border-bottom-width: 0px;
   border-left-color: rgb(64, 64, 64);
   border-right-color: rgb(64, 64, 64);
   border-top-color: rgb(64, 64, 64);
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   box-sizing: border-box;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -27,6 +32,7 @@
   padding-top: 0px;
   position: relative;
   text-align: center;
+  text-decoration: none;
   text-size-adjust: 100%;
   top: 1px;
   transition-delay: 0s, 0s, 0s, 0s;
@@ -35,26 +41,48 @@
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   white-space: nowrap;
   width: 75px;
-  min-width: 40px;
-  max-width: 75px;
-  
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.menu-link:visited {
+  text-decoration: none;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  outline: none;
+}
+
+.menu-link:active {
+  text-decoration: none;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
 .menu-link:focus {
-  text-decoration: none
+  text-decoration: none;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  outline: none;
+  
 }
 
 .menu-link:hover {
   background-color: rgb(16, 142, 233);
   border-bottom-color: rgb(255, 255, 255);
   border-bottom-style: none;
-  border-bottom-width: 0px;
   border-left-color: rgb(64, 64, 64);
   border-right-color: rgb(64, 64, 64);
+  border-top-color: rgb(64, 64, 64);
   border-right-style: none;
   border-right-width: 0px;
-  border-top-color: rgb(64, 64, 64);
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   box-sizing: border-box;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -77,6 +105,7 @@
   padding-top: 0px;
   position: relative;
   text-align: center;
+  text-decoration: none;
   text-size-adjust: 100%;
   top: 1px;
   transition-delay: 0s, 0s, 0s, 0s;
@@ -84,12 +113,18 @@
   transition-property: color, border-color, background, padding;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   white-space: nowrap;
-  max-width: 75px;
+  width: 75px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .logo {
-  margin: 0 auto 30px auto;
-  box-sizing: border-box;
+  /* width: 100px; */
+  float: left;
+  height: 63px;
+  /* height: 100%; */
   content: url(http://perehodinapar.ru/calc/public/style_images/flat/logo.png);
+}
+
+.bkgrndimg {
+  background: url(http://perehodinapar.ru/calc/public/style_images/flat/bg.png) repeat top left
 }

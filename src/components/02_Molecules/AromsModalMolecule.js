@@ -36,13 +36,20 @@ class AromsModalMolecule extends Component {
         </Button>
 
         <Modal
-          cancelText="Отмена"
-          okText="Далее"
+          //cancelText="Отмена"
+          //okText="Далее"
           title="Ароматизаторы"
           style={{ top: 20 }}
           visible={this.state.modalVisible}
           onOk={() => { this.setModalVisible(false); }}
           onCancel={() => this.setModalVisible(false)}
+          footer={null}
+          //footer={[
+          //  <Button key="back" size="large" onClick={this.handleCancel}>Return</Button>,
+          //  <Button key="submit" type="primary" size="large" onClick={this.handleOk}>
+          //    Submit
+          //  </Button>,
+          //]}
         >
           <Tabs defaultActiveKey="1" onChange={callback}>
             <TabPane tab="TPA" key="1"><ListAromsMoleculeTpa /></TabPane>
