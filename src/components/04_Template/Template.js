@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import { Button, Modal, Layout, Menu, Row, Col } from 'antd';
+import { Modal, Layout, Menu, Row, Col } from 'antd';
 import Main from '../03_Organisms/Main';
 import About from '../03_Organisms/About';
 import Auth from '../03_Organisms/Auth';

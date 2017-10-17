@@ -26,8 +26,6 @@ class AuthForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        // action = "http://perehodinapar.ru/calc/";
-        // method = "post";
 
         fetch('http://perehodinapar.ru/calc/', {
           method: 'POST',
@@ -44,8 +42,8 @@ class AuthForm extends React.Component {
             'X-Compress': null,
           },
           body: JSON.stringify({
-            ips_username: 'user42',
-            ips_password: 'Dtnth1990',
+            ips_username: 'loginasdasd',
+            ips_password: 'psswasdasdasd',
           })
         })
 
@@ -54,18 +52,9 @@ class AuthForm extends React.Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form;
-    let authKey = md5("psw");
     return (
       <div>
         <Form onSubmit={this.handleSubmit} className="login-form">
-
-          <FormItem>
-            {getFieldDecorator('auth_key', {
-              rules: [{ required: false, message: 'Пожалуйста, введите свой логин!' }],
-            })(
-              <Input type="hidden" setFieldsValue={authKey}/>
-              )}
-          </FormItem>
 
           <FormItem>
             {getFieldDecorator('ips_username', {

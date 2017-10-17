@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import { Menu, Layout, Icon } from 'antd';
+import { Menu, Icon } from 'antd';
 import Calculator from '../03_Organisms/Calculator';
 import Mypurchases from '../03_Organisms/Mypurchases';
 import Mywishlist from '../03_Organisms/Mywishlist';
@@ -16,7 +16,6 @@ import Components from '../03_Organisms/Components';
 import Info from '../03_Organisms/Info';
 
 const SubMenu = Menu.SubMenu;
-const { Header, Content, Footer } = Layout;
 
 const Main = ({ match }) => (
   <Router>

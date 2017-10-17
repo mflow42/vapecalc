@@ -23,14 +23,16 @@ export default (state = initState, action) => {
         for (let key in state.aromsListFlavourArt) {
           if (state.aromsListFlavourArt[key].id === action.id) state.aromsListFlavourArt[key].selected = !state.aromsListFlavourArt[key].selected;
         }
-      } else return state;
+      } else {
+        return state
+      };
 
     case AROM_LIST_FILTER_CHANGE_VALUE:
       return ({
         ...state,
         filter: action.value
       })
-
+      
     default:
       return state;
   }
