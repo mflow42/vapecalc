@@ -118,11 +118,9 @@
 }
 
 .logo {
-  /* width: 100px; */
   float: left;
-  height: 63px;
-  /* height: 100%; */
   content: url(http://perehodinapar.ru/calc/public/style_images/flat/logo.png);
+  margin-right: 30px;
 }
 
 .bkgrndimg {

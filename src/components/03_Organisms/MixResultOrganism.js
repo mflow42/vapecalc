@@ -13,12 +13,12 @@ const columns = [
     dataIndex: 'ml',
     key: 'ml',
     width: '20%',
-    className: "classNameOfColumn", // здесь менять класс колонки!
+    className: "classNameOfColumn", // здесь менять класс колонки
     render: (text, record) => {
       if (text < 0) {
         return {
           props: {
-            className: "classNameOfCell",   // здесь менять класс ячейки в таблице!
+            className: "classNameOfCell",   // здесь менять класс ячейки в таблице
             style: { color: 'red' }
           },
           children: text,
