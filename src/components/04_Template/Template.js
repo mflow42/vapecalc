@@ -68,6 +68,7 @@ class Template extends React.Component {
                 <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}>
                   <div style={{ margin: '24px 0' }}></div>
                   <Route exact path="/calc/online/main" component={Main} />
+                  <Route exact path="/" component={Main} />
                   <Route path="/calc/online/about" component={About} />
                 </Content>
                 <Footer style={{
