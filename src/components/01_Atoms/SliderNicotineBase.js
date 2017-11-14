@@ -8,7 +8,14 @@ const marks = {
   12: '12',
   24: '24',
   36: '36',
-  100: '100 мг'
+  100: {
+    style: {
+      width: 40,
+      marginLeft: 0,
+      left: '98%'
+    },
+    label: '100 мг'
+  }
 };
 
 class SliderNicotineBase extends Component {

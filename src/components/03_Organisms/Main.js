@@ -21,9 +21,9 @@ const Main = ({ match }) => (
   <Router>
     <div>
       <Menu mode='horizontal'>
-        <Menu.Item active ><Link to={`${match.url}`}><Icon type="calculator" />Калькулятор</Link></Menu.Item>
+        {/* <Menu.Item active ><Link to={`${match.url}`}><Icon type="calculator" />Калькулятор</Link></Menu.Item> */}
 
-        <SubMenu title={<span><Icon type='shopping-cart' />Покупки</span>}>
+        {/* <SubMenu title={<span><Icon type='shopping-cart' />Покупки</span>}>
           <Menu.Item><Link to={`${match.url}/mypurchases`}>Мои покупки/продажи</Link></Menu.Item>
           <Menu.Item><Link to={`${match.url}/mywishlist`}>Список желаний</Link></Menu.Item>
           <Menu.Item><Link to={`${match.url}/mypurchstat`}>Статистика покупок/продаж</Link></Menu.Item>
@@ -43,11 +43,11 @@ const Main = ({ match }) => (
           <Menu.Item><Link to={`${match.url}/components`}>Компоненты</Link></Menu.Item>
         </SubMenu>
 
-        <Menu.Item><Link to={`${match.url}/info`}><Icon type="question-circle-o" />Справка</Link></Menu.Item>
+        <Menu.Item><Link to={`${match.url}/info`}><Icon type="question-circle-o" />Справка</Link></Menu.Item> */}
 
       </Menu>
       <Route exact path={`${match.url}`} component={Calculator} />
-      <Route path={`${match.url}/mypurchases`} component={Mypurchases} />
+      {/* <Route path={`${match.url}/mypurchases`} component={Mypurchases} />
       <Route path={`${match.url}/mywishlist`} component={Mywishlist} />
       <Route path={`${match.url}/mypurchstat`} component={Mypurchstat} />
       <Route path={`${match.url}/myshoplist`} component={Myshoplist} />
@@ -58,7 +58,7 @@ const Main = ({ match }) => (
       <Route path={`${match.url}/eliquids`} component={Eliquids} />
       <Route path={`${match.url}/aroms`} component={Aroms} />
       <Route path={`${match.url}/components`} component={Components} />
-      <Route path={`${match.url}/info`} component={Info} />
+      <Route path={`${match.url}/info`} component={Info} /> */}
     </div>
   </ Router>
 );

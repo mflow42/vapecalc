@@ -30,11 +30,13 @@ class Template extends React.Component {
   render() {
     return (
       <Router>
-        <div className="bkgrndimg">
+        <div>
+          {/* <Row type="flex" align="center"> */}
           <Row type="flex" align="center">
-            <Col xs={23} sm={20} md={16} lg={14} xl={12} >
-              <Layout className="layout">
-                <Header>
+            {/* <Col xs={23} sm={20} md={16} lg={14} xl={12} > */}
+            <Col span={24}>
+              <Layout >
+                {/* <Header>
                   <Row type="flex" align="center">
                     <Col xs={0} sm={6}>
                       <Link xs={0} to="/calc/online/main"><div className="logo" /></Link>
@@ -64,12 +66,14 @@ class Template extends React.Component {
                       </Menu>
                     </Col>
                   </Row>
-                </Header>
-                <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}>
-                  <div style={{ margin: '24px 0' }}></div>
-                  <Route exact path="/calc/online/main" component={Main} />
+                </Header> */}
+                {/* <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}> */}
+                <Content style={{ boxSizing: 'border-box', padding: '0' }}>
+                  {/* <div style={{ margin: '24px 0' }}></div> */}
+                  <div style={{ margin: '0' }}></div>
+                  <Route exact path="/calc/pages/online/main" component={Main} />
                   <Route exact path="/" component={Main} />
-                  <Route path="/calc/online/about" component={About} />
+                  <Route path="/calc/pages/online/about" component={About} />
                 </Content>
                 <Footer style={{
                   textAlign: 'center'

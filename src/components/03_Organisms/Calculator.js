@@ -8,7 +8,7 @@ class Calculator extends Component {
   render() {
     return (
       <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-          <h1 style={{ textAlign: 'center' }} >Новый рецепт</h1>
+          {/* <h1 style={{ textAlign: 'center' }} >Новый рецепт</h1> */}
           <BaseOrganism />
           <div style={{ height: '24px' }}></div>
           <AromsOrganism />

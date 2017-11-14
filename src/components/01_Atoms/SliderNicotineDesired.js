@@ -11,7 +11,14 @@ const marks = {
   3: '3',
   6: '6',
   9: '9',
-  12: '12 мг'
+  12: {
+    style: {
+      width: 40,
+      marginLeft: 0,
+      left: '98%'
+    },
+    label: '12 мг'
+  }
 };
 
 class SliderNicotineDesired extends Component {
