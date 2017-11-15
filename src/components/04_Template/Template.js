@@ -71,14 +71,14 @@ class Template extends React.Component {
                 <Content style={{ boxSizing: 'border-box', padding: '0' }}>
                   {/* <div style={{ margin: '24px 0' }}></div> */}
                   <div style={{ margin: '0' }}></div>
-                  <Route exact path="/calc/pages/online/main" component={Main} />
+                  <Route exact path="/calc/online/" component={Main} />
                   <Route exact path="/" component={Main} />
-                  <Route path="/calc/pages/online/about" component={About} />
+                  <Route path="/calc/online/about" component={About} />
                 </Content>
                 <Footer style={{
                   textAlign: 'center'
                 }}>
-                  Flaw Flow Design ©2017 Created by user42 & L4zySh4rk
+                  Copyright © 2017 <a target="_blank" href="http://perehodinapar.ru/">ПЕРЕХОДИНАПАР.ру</a>, created by <a target="_blank" href="http://perehodinapar.ru/calc/user/66-user42/">User42</a> & <a target="_blank" href="http://perehodinapar.ru/calc/user/1-L4zySh4rk/">L4zySh4rk</a> | All Rights Reserved.
               </Footer>
               </Layout>
             </Col>

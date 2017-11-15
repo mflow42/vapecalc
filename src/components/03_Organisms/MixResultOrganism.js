@@ -47,7 +47,7 @@ const columns = [
       }
     },
   }, {
-    title: 'Граммов',
+    title: 'Грамм',
     dataIndex: 'gramm',
     key: 'gramm',
     width: '20%',
@@ -68,7 +68,7 @@ const columns = [
   }
 ];
 
-const COEFFICIENT_DROP = 33;
+const COEFFICIENT_DROP = 30;
 const COEFFICIENT_GRAMM = 1.04;
 const COEFFICIENT_GRAMM_VG = 1.262;
 const COEFFICIENT_GRAMM_PG = 1.0349;
@@ -170,7 +170,7 @@ class MixResultOrganism extends Component {
 
     return (
       <div>
-        <h2>Расчет</h2>
+        <h2>Необходимо добавить</h2>
         <div style={{
           height: '16px'
         }}></div>
