@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Slider, Row, Col, Button } from 'antd';
+import { Slider, Row, Col, Button, InputNumber } from 'antd';
 import { connect } from 'react-redux';
 import { aromChangeValue, aromRemove } from '../../actions/aromsInCalc'
 import { aromToggleSelection } from '../../actions/aromsList'
@@ -22,14 +22,28 @@ class AromsSliderMolecule extends Component {
             <div key={arom.id}>
               <Row type="flex" justify="space-between" align="middle">
                 <Col
-                  sm={{ span: 8, order: 1 }}
+                  sm={{ span: 6, order: 1 }}
                   xs={{ span: 24, order: 1 }}
                 >
                   <h3 className={'align-top'} >{arom.name}</h3>
                 </Col>
+
                 <Col
-                  sm={{ span: 14, order: 2 }}
-                  xs={{ span: 22, order: 2 }}
+                  sm={{ span: 2, order: 2 }}
+                  xs={{ span: 4, order: 2 }}
+                >
+                  <InputNumber
+                    min={0}
+                    max={100}
+                    style={{ width: '100%' }}
+                    name={arom.name}
+                    value={arom.value}
+                    onChange={(value) => {this.props.aromChangeValue(arom.id, value)}}
+                  />
+                </Col>
+                <Col
+                  sm={{ span: 12, order: 3 }}
+                  xs={{ span: 14, order: 3 }}
                 >
                   <Slider
                     marks={marks}
@@ -42,8 +56,8 @@ class AromsSliderMolecule extends Component {
                   />
                 </Col>
                 <Col
-                  sm={{ span: 1, order: 2 }}
-                  xs={{ span: 1, order: 2 }}
+                  sm={{ span: 2, order: 4, push: 0 }}
+                  xs={{ span: 2, order: 4, push: 0 }}
                 >
                   <Button
                     type="primary"

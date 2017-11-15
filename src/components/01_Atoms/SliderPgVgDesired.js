@@ -24,8 +24,9 @@ const marks = {
   100: {
     style: {
       width: 20,
-      marginLeft: 0,
-      left: '96%'
+      // marginLeft: 0,
+      // right: '0',
+      align: 'right'
     },
     label: '100%'
   }
@@ -43,9 +44,8 @@ class SliderPgVgDesired extends Component {
             <h3>PG</h3>
           </Col>
           <Col
-            md={{ span: 3, order: 2 }}
             sm={{ span: 3, order: 2 }}
-            xs={{ span: 8, order: 2 }}
+            xs={{ span: 6, order: 2 }}
           >
             <InputNumber
               min={0}
@@ -56,7 +56,6 @@ class SliderPgVgDesired extends Component {
             />
           </Col>
           <Col
-            md={{ span: 14, order: 3 }}
             sm={{ span: 14, order: 3 }}
             xs={{ span: 24, order: 5 }}
           >
@@ -70,9 +69,8 @@ class SliderPgVgDesired extends Component {
             />
           </Col>
           <Col
-            md={{ span: 3, order: 3 }}
-            sm={{ span: 3, order: 3 }}
-            xs={{ span: 8, order: 3 }}>
+            sm={{ span: 3, order: 4 }}
+            xs={{ span: 6, order: 3 }}>
             <InputNumber
               min={0}
               max={100}
@@ -81,7 +79,7 @@ class SliderPgVgDesired extends Component {
               onChange={(value) => this.props.desiredPgVgSliderChangeValue(100 - value)} />
           </Col>
           <Col
-            sm={{ span: 1, order: 4 }}
+            sm={{ span: 1, order: 5 }}
             xs={{ span: 1, order: 4 }}
           >
             <h3 style={{ textAlign: 'right' }}>VG</h3>
