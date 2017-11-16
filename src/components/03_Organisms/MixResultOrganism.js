@@ -9,7 +9,7 @@ const columns = [
     key: 'component',
     width: '40%'
   }, {
-    title: 'Миллилитров',
+    title: 'Мл',
     dataIndex: 'ml',
     key: 'ml',
     width: '20%',
@@ -28,7 +28,7 @@ const columns = [
       }
     },
   }, {
-    title: 'Капель',
+    title: 'Кап',
     dataIndex: 'drop',
     key: 'drop',
     width: '20%',

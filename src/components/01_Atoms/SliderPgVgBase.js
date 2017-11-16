@@ -23,9 +23,9 @@ const marks = {
   80: '80%',
   100: {
     style: {
-      width: 20,
-      marginLeft: 0,
-      left: '96%'
+      justifyContent: 'flex-end',
+      width: 'auto',
+      whiteSpace: 'nowrap',
     },
     label: '100%'
   }
@@ -43,9 +43,8 @@ class SliderPgVgBase extends Component {
             <h3>PG</h3>
           </Col>
           <Col
-            md={{ span: 3, order: 2 }}
             sm={{ span: 3, order: 2 }}
-            xs={{ span: 8, order: 2 }}
+            xs={{ span: 6, order: 2 }}
           >
             <InputNumber
               min={0}
@@ -56,7 +55,6 @@ class SliderPgVgBase extends Component {
             />
           </Col>
           <Col
-            md={{ span: 14, order: 3 }}
             sm={{ span: 14, order: 3 }}
             xs={{ span: 24, order: 5 }}
           >
@@ -70,9 +68,8 @@ class SliderPgVgBase extends Component {
             />
           </Col>
           <Col
-            md={{ span: 3, order: 3 }}
-            sm={{ span: 3, order: 3 }}
-            xs={{ span: 8, order: 3 }}
+            sm={{ span: 3, order: 4 }}
+            xs={{ span: 6, order: 3 }}
           >
             <InputNumber
               min={0}
@@ -83,7 +80,7 @@ class SliderPgVgBase extends Component {
             />
           </Col>
           <Col
-            sm={{ span: 1, order: 4 }}
+            sm={{ span: 1, order: 5 }}
             xs={{ span: 1, order: 4 }}
           >
             <h3 style={{ textAlign: 'right' }}>VG</h3>

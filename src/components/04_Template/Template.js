@@ -32,11 +32,11 @@ class Template extends React.Component {
       <Router>
         <div>
           {/* <Row type="flex" align="center"> */}
-          <Row type="flex" align="center">
-            {/* <Col xs={23} sm={20} md={16} lg={14} xl={12} > */}
-            <Col span={24}>
-              <Layout >
-                {/* <Header>
+          {/* <Row type="flex" align="center"> */}
+          {/* <Col xs={23} sm={20} md={16} lg={14} xl={12} > */}
+          {/* <Col span={24}> */}
+          <Layout >
+            {/* <Header>
                   <Row type="flex" align="center">
                     <Col xs={0} sm={6}>
                       <Link xs={0} to="/calc/online/main"><div className="logo" /></Link>
@@ -67,22 +67,23 @@ class Template extends React.Component {
                     </Col>
                   </Row>
                 </Header> */}
-                {/* <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}> */}
-                <Content style={{ boxSizing: 'border-box', padding: '0' }}>
-                  {/* <div style={{ margin: '24px 0' }}></div> */}
-                  <div style={{ margin: '0' }}></div>
-                  <Route exact path="/calc/online/" component={Main} />
+            {/* <Content style={{ boxSizing: 'border-box', padding: '0 10px' }}> */}
+            {/* <Content style={{ boxSizing: 'border-box', padding: '0' }}> */}
+            {/* <div style={{ margin: '24px 0' }}></div> */}
+            {/* <div style={{ margin: '0' }}></div>
+                  <Route exact path="/calc/pages/online/main" component={Main} />
                   <Route exact path="/" component={Main} />
-                  <Route path="/calc/online/about" component={About} />
-                </Content>
-                <Footer style={{
-                  textAlign: 'center'
-                }}>
-                  Copyright © 2017 <a target="_blank" href="http://perehodinapar.ru/">ПЕРЕХОДИНАПАР.ру</a>, created by <a target="_blank" href="http://perehodinapar.ru/calc/user/66-user42/">User42</a> & <a target="_blank" href="http://perehodinapar.ru/calc/user/1-L4zySh4rk/">L4zySh4rk</a> | All Rights Reserved.
+                  <Route path="/calc/pages/online/about" component={About} /> */}
+            <Main />
+            {/* </Content> */}
+            <Footer style={{
+              textAlign: 'center'
+            }}>
+              Flaw Flow Design ©2017 Created by user42 & L4zySh4rk
               </Footer>
-              </Layout>
-            </Col>
-          </Row>
+          </Layout>
+          {/* </Col> */}
+          {/* </Row> */}
         </div>
       </ Router>
     );

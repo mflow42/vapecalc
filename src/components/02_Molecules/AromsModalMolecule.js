@@ -29,6 +29,7 @@ class AromsModalMolecule extends Component {
       <div>
 
         <Button
+          style={{ width: '100%' }}
           type="dashed"
           size="large"
           icon="plus"
